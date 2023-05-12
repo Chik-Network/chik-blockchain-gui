@@ -1,4 +1,4 @@
-import { PlotterService } from '@chia-network/api';
+import { PlotterService } from '@chik-network/api';
 
 import api, { baseQuery } from '../api';
 import onCacheEntryAddedInvalidate from '../utils/onCacheEntryAddedInvalidate';

@@ -1,11 +1,11 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 
-import baseQuery from './chiaLazyBaseQuery';
+import baseQuery from './chikLazyBaseQuery';
 
 export { baseQuery };
 
 export default createApi({
-  reducerPath: 'chiaApi',
+  reducerPath: 'chikApi',
   baseQuery,
   endpoints: () => ({}),
 });

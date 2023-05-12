@@ -1,1 +1,1 @@
-export { default } from './MojoToChia';
+export { default } from './MojoToChik';

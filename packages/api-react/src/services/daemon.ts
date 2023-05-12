@@ -1,5 +1,5 @@
-import { Daemon, optionsForPlotter, defaultsForPlotter, PlotterName } from '@chia-network/api';
-import type { Plotter, PlotterMap, PlotterApi } from '@chia-network/api';
+import { Daemon, optionsForPlotter, defaultsForPlotter, PlotterName } from '@chik-network/api';
+import type { Plotter, PlotterMap, PlotterApi } from '@chik-network/api';
 
 import api, { baseQuery } from '../api';
 import onCacheEntryAddedInvalidate from '../utils/onCacheEntryAddedInvalidate';

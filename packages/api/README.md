@@ -1,12 +1,12 @@
-# chia-blockchain-gui/api
+# chik-blockchain-gui/api
 
-![Chia logo](https://www.chia.net/wp-content/uploads/2022/09/chia-logo.svg)
+![Chik logo](https://www.chiknetwork.org/wp-content/uploads/2022/09/chik-logo.svg)
 
-![GitHub contributors](https://img.shields.io/github/contributors/Chia-Network/chia-blockchain-gui?logo=GitHub)
+![GitHub contributors](https://img.shields.io/github/contributors/Chik-Network/chik-blockchain-gui?logo=GitHub)
 
-This library provides support for TypeScript/JavaScript [Chia](https://www.chia.net) apps to access the [Chia Blockchain RPC](https://docs.chia.net/rpc/), by making it easier to perform the following actions:
+This library provides support for TypeScript/JavaScript [Chik](https://www.chiknetwork.org) apps to access the [Chik Blockchain RPC](https://docs.chiknetwork.org/rpc/), by making it easier to perform the following actions:
 
-- Making requests to the Chia Blockchain RPC.
+- Making requests to the Chik Blockchain RPC.
 - Catch responses and errors with standard try/catch and async/await syntax.
 - Catch error when the request has a timeout. Each request has a default timeout of 10 minutes.
 - Auto-connect to daemon when you send the first request.
@@ -18,14 +18,14 @@ This library provides support for TypeScript/JavaScript [Chia](https://www.chia.
 
 ```ts
 import { readFileSync } from "fs";
-import Client, { Wallet } from '@chia-network/api'; // or from "../chia-blockchain/chia-blockchain-gui/packages/api";
+import Client, { Wallet } from '@chik-network/api'; // or from "../chik-blockchain/chik-blockchain-gui/packages/api";
 import Websocket from 'ws';
 import sleep from 'sleep-promise';
 
 (async () => {
   const client = new Client({
-    url: 'wss://127.0.0.1:55400',
-    // key and crt files should be in your homedir in: .chia/mainnet/config/ssl/daemon/
+    url: 'wss://127.0.0.1:56634',
+    // key and crt files should be in your homedir in: .chik/mainnet/config/ssl/daemon/
     cert: readFileSync('private_cert.crt'),
     key: readFileSync('private_key.key'),
     webSocket: Websocket;
@@ -62,4 +62,4 @@ import sleep from 'sleep-promise';
 
 ## Development
 
-Please read and follow the main [README.md](https://github.com/Chia-Network/chia-blockchain-gui) of this monorepo.
+Please read and follow the main [README.md](https://github.com/Chik-Network/chik-blockchain-gui) of this monorepo.

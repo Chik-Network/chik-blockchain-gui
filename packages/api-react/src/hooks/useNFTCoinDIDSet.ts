@@ -1,4 +1,4 @@
-import { WalletService } from '@chia-network/api';
+import { WalletService } from '@chik-network/api';
 
 import useSubscribeToEvent from './useSubscribeToEvent';
 

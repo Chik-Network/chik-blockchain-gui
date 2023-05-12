@@ -1,4 +1,4 @@
-import { type ServiceClassWithoutClient, type ServiceClassWithoutClientMethods } from '@chia-network/api';
+import { type ServiceClassWithoutClient, type ServiceClassWithoutClientMethods } from '@chik-network/api';
 
 import { baseQuery } from '../api';
 

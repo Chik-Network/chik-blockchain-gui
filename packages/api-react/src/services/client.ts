@@ -1,4 +1,4 @@
-import Client from '@chia-network/api';
+import Client from '@chik-network/api';
 
 import api, { baseQuery } from '../api';
 import { query, mutation } from '../utils/reduxToolkitEndpointAbstractions';
