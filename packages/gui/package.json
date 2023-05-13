@@ -1,6 +1,6 @@
 {
     "name": "@chik-network/gui",
-    "author": "Chik Network <hello@chik-network.net> (https://chik-network.net/)",
+    "author": "Chik Network <hello@chiknetwork.org> (https://chiknetwork.org/)",
     "description": "GUI for Chik Blockchain",
     "license": "Apache-2.0",
     "productName": "Chik Blockchain",

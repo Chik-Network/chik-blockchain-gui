@@ -9,7 +9,7 @@ This repo includes the code for the Chik GUI in electron/react and TypeScript.
 It is an input to the [chik-blockchain](https://github.com/Chik-Network/chik-blockchain) repository which also includes a verifiable delay function implementation that it imports from the [chiavdf repo](https://github.com/Chik-Network/chiavdf) (in c/c++), and a proof of space implementation that it imports from the [chiapos repo](https://github.com/Chik-Network/chiapos). BLS signatures are imported from the [bls-signatures repo](https://github.com/Chik-Network/bls-signatures) as blspy. There is an additional dependency on the [chiabip158 repo](https://github.com/Chik-Network/chiabip158).
 For major platforms, binary and source wheels are shipped to PyPI from each dependent repo and then chik-blockchain can pip install those from PyPI or they can be prepackaged as is done for the Windows and MacOS installer. On unsupported platforms, pip will fall back to the source distributions to be compiled locally.
 
-If you want to learn more about this project, read the [wiki](https://github.com/Chik-Network/chik-blockchain/wiki), or check out the [green paper](https://www.chik-network.net/assets/ChikGreenPaper.pdf).
+If you want to learn more about this project, read the [wiki](https://github.com/Chik-Network/chik-blockchain/wiki), or check out the [green paper](https://www.chiknetwork.org/assets/ChikGreenPaper.pdf).
 
 ## Contributions
 

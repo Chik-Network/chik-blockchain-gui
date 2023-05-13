@@ -56,7 +56,7 @@ export default function SettingsApp(props: SettingsAppProps) {
   async function handleOpenSendFeedbackURL(): Promise<void> {
     try {
       const { shell } = window as unknown as { shell: Shell };
-      await shell.openExternal('https://feedback.chik-network.net/lightwallet');
+      await shell.openExternal('https://feedback.chiknetwork.org/lightwallet');
     } catch (error: any) {
       showError(error);
     }

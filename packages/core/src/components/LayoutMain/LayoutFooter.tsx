@@ -29,7 +29,7 @@ async function openFAQURL(): Promise<void> {
 async function openSendFeedbackURL(): Promise<void> {
   try {
     const { shell } = window as any;
-    await shell.openExternal('https://feedback.chik-network.net/lightwallet');
+    await shell.openExternal('https://feedback.chiknetwork.org/lightwallet');
   } catch (e) {
     console.error(e);
   }

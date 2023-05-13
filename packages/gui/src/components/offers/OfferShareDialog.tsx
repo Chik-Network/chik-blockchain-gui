@@ -88,7 +88,7 @@ type CommonShareServiceDialogProps = CommonDialogProps & {
 
 type OfferShareServiceDialogProps = CommonOfferProps & CommonShareServiceDialogProps;
 
-const testnetDummyHost = 'offers-api-sim.chik-network.net';
+const testnetDummyHost = 'offers-api-sim.chiknetwork.org';
 
 const OfferSharingProviders: {
   [key in OfferSharingService]: OfferSharingProvider;
@@ -256,7 +256,7 @@ async function postToHashgreen(offerData: string, testnet: boolean): Promise<str
     log('Hashgreen upload completed');
 
     if (testnet) {
-      return 'https://www.chik-network.net/offers';
+      return 'https://www.chiknetwork.org/offers';
     }
 
     const jsonObj = JSON.parse(responseBody);

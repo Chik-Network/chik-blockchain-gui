@@ -1,6 +1,6 @@
 # chik-blockchain-gui/gui
 
-![Chik logo](https://www.chik-network.net/wp-content/uploads/2022/09/chik-logo.svg)
+![Chik logo](https://www.chiknetwork.org/wp-content/uploads/2022/09/chik-logo.svg)
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Chik-Network/chik-blockchain-gui?logo=GitHub)
 

@@ -1,10 +1,10 @@
 # chik-blockchain-gui/api
 
-![Chik logo](https://www.chik-network.net/wp-content/uploads/2022/09/chik-logo.svg)
+![Chik logo](https://www.chiknetwork.org/wp-content/uploads/2022/09/chik-logo.svg)
 
 ![GitHub contributors](https://img.shields.io/github/contributors/Chik-Network/chik-blockchain-gui?logo=GitHub)
 
-This library provides support for TypeScript/JavaScript [Chik](https://www.chik-network.net) apps to access the [Chik Blockchain RPC](https://docs.chik-network.net/rpc/), by making it easier to perform the following actions:
+This library provides support for TypeScript/JavaScript [Chik](https://www.chiknetwork.org) apps to access the [Chik Blockchain RPC](https://docs.chiknetwork.org/rpc/), by making it easier to perform the following actions:
 
 - Making requests to the Chik Blockchain RPC.
 - Catch responses and errors with standard try/catch and async/await syntax.
