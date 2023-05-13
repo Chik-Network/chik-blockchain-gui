@@ -4,21 +4,16 @@ import { EventEmitter } from 'events';
 import fs from 'fs/promises';
 import path from 'path';
 
-import debug from 'debug';
 import isURL from 'validator/lib/isURL';
 
-import type CacheInfo from '../@types/CacheInfo';
-import type CacheInfoBase from '../@types/CacheInfoBase';
-import type Headers from '../@types/Headers';
-import CacheState from '../constants/CacheState';
 import limit from '../util/limit';
+import canReadFile from './utils/canReadFile';
 import downloadFile from './utils/downloadFile';
 import ensureDirectoryExists from './utils/ensureDirectoryExists';
 import getChecksum from './utils/getChecksum';
+import getRemoteFileSize from './utils/getRemoteFileSize';
 import handleWithCustomErrors from './utils/handleWithCustomErrors';
 import sanitizeNumber from './utils/sanitizeNumber';
-
-const log = debug('chik-gui:CacheManager');
 
 async function safeUnlink(filePath: string) {
   try {
@@ -28,23 +23,30 @@ async function safeUnlink(filePath: string) {
   }
 }
 
-const INFO_SUFFIX = '-info';
+type CachedFile = {
+  uri: string;
+  headers: any;
+  content: Buffer;
+  checksum: string;
+};
+
+const HEADERS_SUFFIX = '-headers';
 const FILE_SUFFIX = '-chikcache';
 const MAX_TOTAL_SIZE = 1024 * 1024 * 1024; // 1GB
 const MAX_FILE_SIZE = 1024 * 1024 * 100; // 100MB
 
-const SUFFIXES = [FILE_SUFFIX, `${FILE_SUFFIX}${INFO_SUFFIX}`];
+const SUFFIXES = [FILE_SUFFIX, `${FILE_SUFFIX}${HEADERS_SUFFIX}`];
 
 function isChikCacheFile(filePath: string) {
   return SUFFIXES.some((suffix) => filePath.endsWith(suffix));
 }
 
-function isChikCacheInfoFile(filePath: string) {
-  return isChikCacheFile(filePath) && filePath.endsWith(INFO_SUFFIX);
+function isChikCacheHeaderFile(filePath: string) {
+  return isChikCacheFile(filePath) && filePath.endsWith(HEADERS_SUFFIX);
 }
 
-function getInfoFilePath(filePath: string) {
-  return `${filePath}${INFO_SUFFIX}`;
+function getHeadersFilePath(filePath: string) {
+  return `${filePath}${HEADERS_SUFFIX}`;
 }
 
 function removePrefix(str: string, variable: string): string {
@@ -65,13 +67,7 @@ export default class CacheManager extends EventEmitter {
 
   #downloadLimit;
 
-  private ongoingRequests: Map<
-    string,
-    {
-      promise: Promise<CacheInfo>;
-      abort: () => void;
-    }
-  > = new Map();
+  private ongoingRequests: Map<string, Promise<CachedFile>> = new Map();
 
   constructor(
     options: {
@@ -87,7 +83,7 @@ export default class CacheManager extends EventEmitter {
       cacheDirectory = './cache',
       maxCacheSize = MAX_TOTAL_SIZE,
       protocolScheme = 'cache',
-      concurrency = 10,
+      concurrency = 5,
     } = options;
 
     this.cacheDirectory = cacheDirectory;
@@ -95,7 +91,7 @@ export default class CacheManager extends EventEmitter {
     this.#protocolScheme = protocolScheme;
     this.#downloadLimit = limit(concurrency);
 
-    this.setMaxListeners(50);
+    this.setMaxListeners(1000);
 
     this.prepareElectron();
   }
@@ -110,21 +106,12 @@ export default class CacheManager extends EventEmitter {
       const filePath = path.join(this.cacheDirectory, fileName);
 
       try {
-        const infoFilePath = getInfoFilePath(filePath);
-        const cacheInfo = await this.getCacheInfo(infoFilePath, request.url);
+        const { headers } = await this.readCachedFile(filePath);
 
-        if (cacheInfo.state === CacheState.CACHED) {
-          const { headers } = cacheInfo;
-
-          callback({
-            path: filePath,
-            mimeType: headers['content-type'] ?? 'text/html',
-          });
-
-          return;
-        }
-
-        throw new Error('Not cached');
+        callback({
+          path: filePath,
+          mimeType: headers['content-type'] ?? 'text/html',
+        });
       } catch (error) {
         callback({
           path: filePath,
@@ -140,22 +127,10 @@ export default class CacheManager extends EventEmitter {
       this.setCacheDirectory(newDirectory)
     );
     handleWithCustomErrors('cache:setMaxCacheSize', (_event, newSize: number) => this.setMaxCacheSize(newSize));
-    handleWithCustomErrors(
-      'cache:getContent',
-      (_event, url: string, options?: { maxSize?: number; timeout?: number }) => this.getContent(url, options)
+    handleWithCustomErrors('cache:get', (_event, uri: string, options?: { maxSize?: number; timeout?: number }) =>
+      this.get(uri, options)
     );
-    handleWithCustomErrors(
-      'cache:getHeaders',
-      (_event, url: string, options?: { maxSize?: number; timeout?: number }) => this.getHeaders(url, options)
-    );
-    handleWithCustomErrors(
-      'cache:getChecksum',
-      (_event, url: string, options?: { maxSize?: number; timeout?: number }) => this.getChecksum(url, options)
-    );
-    handleWithCustomErrors('cache:getURI', (_event, url: string, options?: { maxSize?: number; timeout?: number }) =>
-      this.getURI(url, options)
-    );
-    handleWithCustomErrors('cache:invalidate', (_event, url: string) => this.invalidate(url));
+    handleWithCustomErrors('cache:invalidate', (_event, uri: string) => this.invalidate(uri));
 
     handleWithCustomErrors('cache:getCacheDirectory', () => this.cacheDirectory);
     handleWithCustomErrors('cache:getMaxCacheSize', () => this.maxCacheSize);
@@ -231,265 +206,103 @@ export default class CacheManager extends EventEmitter {
     return path.join(this.cacheDirectory, fileName);
   }
 
-  private getCacheInfoFilePath(url: string) {
+  private async readCachedFile(filePath: string) {
+    const headersFilePath = getHeadersFilePath(filePath);
+
+    const content = await fs.readFile(filePath);
+    const headersString = await fs.readFile(headersFilePath, 'utf-8');
+    const headers = JSON.parse(headersString);
+
+    return {
+      headers,
+      content,
+      checksum: headers.checksum,
+      uri: `${this.protocolScheme}://${path.basename(filePath)}`,
+    };
+  }
+
+  async fetchData(url: string, options: { timeout?: number; maxSize?: number } = {}): Promise<CachedFile> {
     const filePath = this.getCacheFilePath(url);
-    return getInfoFilePath(filePath);
-  }
-
-  private async getCacheInfo(filePath: string, url: string): Promise<CacheInfo> {
-    try {
-      const infoString = await fs.readFile(filePath, 'utf-8');
-      return JSON.parse(infoString) as CacheInfo;
-    } catch (error) {
-      const currentError = (error as Error) ?? new Error('Unknown error');
-      if ((currentError as { code?: string }).code === 'ENOENT') {
-        return {
-          url,
-          state: CacheState.NOT_CACHED,
-          timestamp: Date.now(),
-        };
-      }
-
-      return {
-        url,
-        state: CacheState.ERROR,
-        error: currentError.message,
-        timestamp: Date.now(),
-      };
+    const { timeout = 30_000, maxSize = MAX_FILE_SIZE } = options;
+    const remoteFileSize = await getRemoteFileSize(url);
+    if (maxSize && remoteFileSize > maxSize) {
+      throw new Error(`File size exceeds maximum limit of ${maxSize} bytes`);
     }
-  }
 
-  private async getCacheInfoByURL(url: string): Promise<CacheInfo> {
-    const filePath = this.getCacheInfoFilePath(url);
+    const headers = await downloadFile(url, filePath, {
+      timeout,
+      maxSize,
+    });
 
-    return this.getCacheInfo(filePath, url);
-  }
+    // remove old files if the cache is full
+    const currentCacheSize = await this.getCacheSize();
+    const stats = await fs.stat(filePath);
+    if (this.maxCacheSize && currentCacheSize + stats.size > this.maxCacheSize) {
+      const spaceNeeded = currentCacheSize + stats.size - this.maxCacheSize;
+      await this.removeOldestFiles(spaceNeeded);
+    }
 
-  private async setCacheInfo(url: string, infoBase: CacheInfoBase) {
-    const infoFilePath = this.getCacheInfoFilePath(url);
+    // compute checksum
+    const checksum = await getChecksum(filePath);
 
-    const cacheInfo: CacheInfo = {
-      ...infoBase,
-      url,
-      timestamp: Date.now(),
+    const updatedHeaders = {
+      ...headers,
+      checksum,
     };
 
-    await fs.writeFile(infoFilePath, JSON.stringify(cacheInfo), 'utf-8');
+    // save headers to a local JSON file
+    const headersFilePath = getHeadersFilePath(filePath);
+    await fs.writeFile(headersFilePath, JSON.stringify(updatedHeaders, null, 2));
 
-    return cacheInfo;
+    // todo just add size and save it locally
+    this.emit('sizeChanged');
+
+    return this.readCachedFile(filePath);
   }
 
-  abort(url: string) {
-    const ongoingRequest = this.ongoingRequests.get(url);
-    if (ongoingRequest) {
-      ongoingRequest.abort();
-    }
-  }
-
-  async fetchRemoteContent(
+  async get(
     url: string,
     options: {
       maxSize?: number;
       timeout?: number;
     } = {}
-  ): Promise<CacheInfo> {
+  ): Promise<CachedFile> {
     const { maxSize = MAX_FILE_SIZE, timeout = 30_000 } = options;
+
+    if (!isURL(url)) {
+      throw new Error(`Invalid URL: ${url}`);
+    }
 
     const ongoingRequest = this.ongoingRequests.get(url);
     if (ongoingRequest) {
-      log('Request already ongoing', url);
-      return ongoingRequest.promise;
+      return ongoingRequest;
     }
 
-    const abortController = new AbortController();
-
-    const process = async (): Promise<CacheInfo> => {
+    const process = async () => {
       try {
-        if (!isURL(url)) {
-          throw new Error(`Invalid URL: ${url}`);
+        const cacheFilePath = this.getCacheFilePath(url);
+
+        if (await canReadFile(cacheFilePath)) {
+          return await this.readCachedFile(cacheFilePath);
         }
 
-        const cacheInfo = await this.getCacheInfoByURL(url);
-        if (cacheInfo.state === CacheState.CACHED) {
-          log('Url already downloaded', url);
-          return cacheInfo;
-        }
-
-        if (cacheInfo.state === CacheState.ERROR) {
-          log(`Url already downloaded with error: ${cacheInfo.error}`, url);
-          if (!['Response aborted', 'Request aborted'].includes(cacheInfo.error)) {
-            return cacheInfo;
-          }
-
-          log('Retrying download', url);
-        }
-
-        const limitedRemoteFileDownload = async (): Promise<CacheInfo> => {
-          const cacheFilePath = this.getCacheFilePath(url);
-
-          log('Starting download', url);
-          const headers = await downloadFile(url, cacheFilePath, {
-            timeout,
-            maxSize,
-            signal: abortController.signal,
-          });
-
-          log('Download finished', url);
-
-          // compute checksum
-          const checksum = await getChecksum(cacheFilePath);
-
-          log('Checksum computed', url);
-
-          // save headers to a local JSON file
-          const updatedCacheInfo = this.setCacheInfo(url, {
-            state: CacheState.CACHED,
-            headers,
-            checksum,
-          });
-
-          log('Cache info saved', url);
-          // remove old files if the cache is full
-          const currentCacheSize = await this.getCacheSize();
-          const stats = await fs.stat(cacheFilePath);
-          if (this.maxCacheSize && currentCacheSize + stats.size > this.maxCacheSize) {
-            const spaceNeeded = currentCacheSize + stats.size - this.maxCacheSize;
-            await this.removeOldestFiles(spaceNeeded);
-          }
-          // todo just add size and save it locally
-          this.emit('sizeChanged');
-
-          return updatedCacheInfo;
-        };
-
-        return await this.#downloadLimit<CacheInfo>(() => limitedRemoteFileDownload());
-      } catch (error) {
-        const currentError = (error as Error) ?? new Error('Unknown fetchRemoteContent error');
-
-        return await this.setCacheInfo(url, {
-          state: CacheState.ERROR,
-          error: currentError.message,
+        return await this.fetchData(url, {
+          maxSize,
+          timeout,
         });
       } finally {
         this.ongoingRequests.delete(url);
       }
     };
 
-    const promise = process();
+    const requestPromise = process();
 
-    this.ongoingRequests.set(url, {
-      abort: () => abortController.abort(),
-      promise,
-    });
+    this.ongoingRequests.set(url, requestPromise);
 
-    return promise;
-  }
-
-  async getHeaders(
-    url: string,
-    options?: {
-      maxSize?: number;
-      timeout?: number;
-    }
-  ): Promise<Headers> {
-    const cacheInfo = await this.fetchRemoteContent(url, options);
-
-    if (cacheInfo.state === CacheState.ERROR) {
-      throw new Error(cacheInfo.error);
-    }
-
-    if (cacheInfo.state === CacheState.NOT_CACHED) {
-      throw new Error('Url is not cached');
-    }
-
-    if (cacheInfo.state === CacheState.CACHED) {
-      return cacheInfo.headers;
-    }
-
-    throw new Error('Unknown cache state');
-  }
-
-  async getContent(
-    url: string,
-    options?: {
-      maxSize?: number;
-      timeout?: number;
-    }
-  ): Promise<Buffer> {
-    const cacheInfo = await this.fetchRemoteContent(url, options);
-
-    if (cacheInfo.state === CacheState.ERROR) {
-      throw new Error(cacheInfo.error);
-    }
-
-    if (cacheInfo.state === CacheState.NOT_CACHED) {
-      throw new Error('Url is not cached');
-    }
-
-    if (cacheInfo.state === CacheState.CACHED) {
-      const filePath = this.getCacheFilePath(url);
-      return fs.readFile(filePath);
-    }
-
-    throw new Error('Unknown cache state');
-  }
-
-  async getChecksum(
-    url: string,
-    options?: {
-      maxSize?: number;
-      timeout?: number;
-    }
-  ): Promise<string> {
-    const cacheInfo = await this.fetchRemoteContent(url, options);
-
-    if (cacheInfo.state === CacheState.ERROR) {
-      throw new Error(cacheInfo.error);
-    }
-
-    if (cacheInfo.state === CacheState.NOT_CACHED) {
-      throw new Error('Url is not cached');
-    }
-
-    if (cacheInfo.state === CacheState.CACHED) {
-      return cacheInfo.checksum;
-    }
-
-    throw new Error('Unknown cache state');
-  }
-
-  async getURI(
-    url: string,
-    options?: {
-      maxSize?: number;
-      timeout?: number;
-    }
-  ) {
-    const cacheInfo = await this.fetchRemoteContent(url, options);
-
-    if (cacheInfo.state === CacheState.ERROR) {
-      throw new Error(cacheInfo.error);
-    }
-
-    if (cacheInfo.state === CacheState.NOT_CACHED) {
-      throw new Error('Url is not cached');
-    }
-
-    if (cacheInfo.state === CacheState.CACHED) {
-      const filePath = this.getCacheFilePath(url);
-      return `${this.protocolScheme}://${path.basename(filePath)}`;
-    }
-
-    throw new Error('Unknown cache state');
+    return requestPromise;
   }
 
   async clearCache() {
-    // cancel all ongoing requests
-    for (const ongoingRequest of this.ongoingRequests.values()) {
-      ongoingRequest.abort();
-    }
-    this.ongoingRequests.clear();
-
     const files = await fs.readdir(this.cacheDirectory);
     const unlinkPromises = files.map(async (file) => {
       const hasSuffix = SUFFIXES.some((suffix) => file.endsWith(suffix));
@@ -532,7 +345,7 @@ export default class CacheManager extends EventEmitter {
   private async removeOldestFiles(targetSize: number): Promise<void> {
     const files = await fs.readdir(this.cacheDirectory);
     const filePaths = files
-      .filter((file) => isChikCacheFile(file) && !isChikCacheInfoFile(file))
+      .filter((file) => isChikCacheFile(file) && !isChikCacheHeaderFile(file))
       .map((file) => path.join(this.cacheDirectory, file));
 
     // get the file sizes
@@ -563,7 +376,7 @@ export default class CacheManager extends EventEmitter {
     await Promise.all(
       filesToRemove.map(async ({ filePath }) => {
         await safeUnlink(filePath);
-        await safeUnlink(getInfoFilePath(filePath));
+        await safeUnlink(getHeadersFilePath(filePath));
       })
     );
 
@@ -571,18 +384,12 @@ export default class CacheManager extends EventEmitter {
   }
 
   async invalidate(url: string) {
-    // cancel the ongoing request
-    const ongoingRequest = this.ongoingRequests.get(url);
-    if (ongoingRequest) {
-      ongoingRequest.abort();
-    }
-
     // prepare invalidation
     const filePath = this.getCacheFilePath(url);
 
     // remove the file
     await safeUnlink(filePath);
-    await safeUnlink(getInfoFilePath(filePath));
+    await safeUnlink(getHeadersFilePath(filePath));
 
     this.emit('sizeChanged');
   }

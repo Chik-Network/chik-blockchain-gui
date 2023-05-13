@@ -1,6 +1,6 @@
 {
   "name": "@chik-network/wallets",
-  "author": "Chik Network <hello@chiknetwork.org> (https://chiknetwork.org/)",
+  "author": "Chik Network <hello@chik-network.net> (https://chik-network.net/)",
   "description": "Chik wallets Library",
   "version": "1.0.0",
   "engines": {

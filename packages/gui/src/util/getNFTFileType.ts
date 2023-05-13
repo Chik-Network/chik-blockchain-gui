@@ -1,6 +1,6 @@
 import { type NFTInfo } from '@chik-network/api';
 
-import FileType from '../constants/FileType';
+import FileType from '../@types/FileType';
 import getFileType from './getFileType';
 
 export default function getNFTFileType(nft: NFTInfo): FileType {

@@ -38,8 +38,8 @@ export default function NFTHashStatus(props: NFTHashStatusProps) {
       return true;
     }
 
-    if (nftPreview.uri) {
-      return isURL(nftPreview.uri);
+    if (nftPreview.originalUri) {
+      return isURL(nftPreview.originalUri);
     }
 
     return false;

@@ -23,16 +23,17 @@ export default function WalletConnectConnections(props: WalletConnectConnections
   const openDialog = useOpenDialog();
   const showError = useShowError();
   const { enabled, setEnabled } = useWalletConnectPreferences();
-  const { disconnect, pairs, isLoading } = useWalletConnectContext();
+  const context = useWalletConnectContext();
+  const { disconnect, pairs, isLoading } = context;
 
   const handleAddConnection = useCallback(async () => {
     onClose?.();
-    const topic = await openDialog(<WalletConnectAddConnectionDialog />);
+    const topic = await openDialog(<WalletConnectAddConnectionDialog context={context} />);
 
     if (topic) {
-      await openDialog(<WalletConnectConnectedDialog topic={topic} />);
+      await openDialog(<WalletConnectConnectedDialog topic={topic} context={context} />);
     }
-  }, [onClose, openDialog]);
+  }, [onClose, openDialog, context]);
 
   async function handleDisconnect(topic: string) {
     try {
@@ -50,9 +51,9 @@ export default function WalletConnectConnections(props: WalletConnectConnections
   const handleShowMoreInfo = useCallback(
     (topic: string) => {
       onClose?.();
-      openDialog(<WalletConnectPairInfoDialog topic={topic} />);
+      openDialog(<WalletConnectPairInfoDialog topic={topic} context={context} />);
     },
-    [onClose, openDialog]
+    [onClose, openDialog, context]
   );
 
   const pairsList = pairs.get();

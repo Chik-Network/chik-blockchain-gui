@@ -26,7 +26,7 @@ export default function createOfferForIdsToOfferBuilderData(
       if (asset) {
         switch (asset.walletType) {
           case WalletType.STANDARD_WALLET:
-            section.xch.push({ amount: mojoToChik(numericValue.abs()).toFixed() });
+            section.xck.push({ amount: mojoToChik(numericValue.abs()).toFixed() });
             break;
           case WalletType.CAT:
             section.tokens.push({ amount: mojoToCAT(numericValue.abs()).toFixed(), assetId: asset.assetId });

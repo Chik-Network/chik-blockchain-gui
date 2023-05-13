@@ -38,7 +38,7 @@ export default function useAssetIdName() {
       let isVerified = false;
 
       if (walletType === WalletType.STANDARD_WALLET) {
-        assetId = 'xch';
+        assetId = 'xck';
         name = 'Chik';
         symbol = currencyCode;
         isVerified = true;
@@ -94,7 +94,7 @@ export default function useAssetIdName() {
 
     // If using testnet, add a TXCK assetId entry
     if (currencyCode === 'TXCK') {
-      const assetId = 'txch';
+      const assetId = 'txck';
       const name = 'Chik (Testnet)';
       const symbol = 'TXCK';
       const displayName = symbol || name;

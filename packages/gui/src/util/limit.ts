@@ -1,9 +1,5 @@
-export default function limit(concurrency: number) {
-  const queue: {
-    func: Function;
-    resolve: (value: any) => void;
-    reject: (error: Error) => void;
-  }[] = [];
+export default function limit<T>(concurrency: number) {
+  const queue: { func: Function; resolve: (value: T) => void; reject: (error: Error) => void }[] = [];
   let active = 0;
 
   async function execute() {
@@ -30,7 +26,7 @@ export default function limit(concurrency: number) {
     }
   }
 
-  function add<T>(func: Function) {
+  function add(func: Function) {
     return new Promise<T>((resolve, reject) => {
       queue.push({ func, resolve, reject });
       execute();

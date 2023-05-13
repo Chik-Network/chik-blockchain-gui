@@ -41,9 +41,6 @@ window.cacheApi = {
   setCacheDirectory: (...args) => invokeWithCustomErrors('cache:setCacheDirectory', ...args),
   setMaxCacheSize: (...args) => invokeWithCustomErrors('cache:setMaxCacheSize', ...args),
   getMaxCacheSize: () => invokeWithCustomErrors('cache:getMaxCacheSize'),
-  getContent: (...args) => invokeWithCustomErrors('cache:getContent', ...args),
-  getHeaders: (...args) => invokeWithCustomErrors('cache:getHeaders', ...args),
-  getChecksum: (...args) => invokeWithCustomErrors('cache:getChecksum', ...args),
-  getURI: (...args) => invokeWithCustomErrors('cache:getURI', ...args),
+  get: (...args) => invokeWithCustomErrors('cache:get', ...args),
   invalidate: (...args) => invokeWithCustomErrors('cache:invalidate', ...args),
 };

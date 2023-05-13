@@ -15,11 +15,11 @@ export default function offerToOfferBuilderData(
 
   const defaultFeeXCK = defaultFee ? mojoToChik(defaultFee).toFixed() : '';
 
-  const offeredXch: OfferBuilderData['offered']['xch'] = [];
+  const offeredCac: OfferBuilderData['offered']['xck'] = [];
   const offeredTokens: OfferBuilderData['offered']['tokens'] = [];
   const offeredNfts: OfferBuilderData['offered']['nfts'] = [];
   const offeredFee: OfferBuilderData['offered']['fee'] = setDefaultOfferedFee ? [{ amount: defaultFeeXCK }] : [];
-  const requestedXch: OfferBuilderData['requested']['xch'] = [];
+  const requestedCac: OfferBuilderData['requested']['xck'] = [];
   const requestedTokens: OfferBuilderData['requested']['tokens'] = [];
   const requestedNfts: OfferBuilderData['requested']['nfts'] = [];
 
@@ -38,8 +38,8 @@ export default function offerToOfferBuilderData(
       offeredNfts.push({
         nftId: launcherIdToNFTId(info.launcherId),
       });
-    } else if (id === 'xch') {
-      offeredXch.push({
+    } else if (id === 'xck') {
+      offeredCac.push({
         amount: mojoToChik(amount).toFixed(),
       });
     }
@@ -58,8 +58,8 @@ export default function offerToOfferBuilderData(
       requestedNfts.push({
         nftId: launcherIdToNFTId(info.launcherId),
       });
-    } else if (id === 'xch') {
-      requestedXch.push({
+    } else if (id === 'xck') {
+      requestedCac.push({
         amount: mojoToChik(amount).toFixed(),
       });
     }
@@ -67,13 +67,13 @@ export default function offerToOfferBuilderData(
 
   return {
     offered: {
-      xch: offeredXch,
+      xck: offeredCac,
       tokens: offeredTokens,
       nfts: offeredNfts,
       fee: offeredFee,
     },
     requested: {
-      xch: requestedXch,
+      xck: requestedCac,
       tokens: requestedTokens,
       nfts: requestedNfts,
       fee: [

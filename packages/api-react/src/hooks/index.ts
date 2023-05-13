@@ -22,4 +22,3 @@ export { default as useSubscribeToEvent } from './useSubscribeToEvent';
 export { default as useNFTCoinAdded } from './useNFTCoinAdded';
 export { default as useNFTCoinRemoved } from './useNFTCoinRemoved';
 export { default as useNFTCoinUpdated } from './useNFTCoinUpdated';
-export { default as useNFTCoinDIDSet } from './useNFTCoinDIDSet';

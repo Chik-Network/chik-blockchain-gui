@@ -1,185 +1,101 @@
 import { net } from 'electron';
-import { promises as fs, createWriteStream, type WriteStream } from 'fs';
+import fsBase from 'fs';
+import fs from 'fs/promises';
 
-import debug from 'debug';
+const MAX_FILE_SIZE = 1024 * 1024 * 100; // 100MB
 
-import type Headers from '../../@types/Headers';
-
-const log = debug('chik-gui:downloadFile');
-
-class WriteStreamPromise {
-  private stream: WriteStream;
-
-  private writePromises: Promise<void>[] = [];
-
-  constructor(private path: string) {
-    this.stream = createWriteStream(path, {
-      flags: 'w', // override if exists
-    });
-  }
-
-  write(chunk: Buffer) {
-    const promise = new Promise<void>((resolve, reject) => {
-      this.stream.write(chunk, (error) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve();
-        }
-      });
-    });
-
-    this.writePromises.push(promise);
-
-    return promise;
-  }
-
-  async close() {
-    await Promise.all(this.writePromises);
-
-    return new Promise<void>((resolve, reject) => {
-      this.stream.close((error) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve();
-        }
-      });
-    });
-  }
-
-  on(event: string, listener: () => void) {
-    return this.stream.on(event, listener);
-  }
-}
-
-export default async function downloadFile(
+export default function downloadFile(
   url: string,
-  localPath: string,
-  {
-    timeout = 30_000,
-    signal,
-    maxSize = 100 * 1024 * 1024,
-    onProgress,
-  }: {
+  path: string,
+  options: {
     timeout?: number;
-    signal?: AbortSignal;
+    headers?: Object;
     maxSize?: number;
     onProgress?: (progress: number, size: number, downloadedSize: number) => void;
+  } = {}
+) {
+  const { timeout, headers = {}, maxSize = MAX_FILE_SIZE, onProgress } = options;
+
+  const writer = fsBase.createWriteStream(path);
+  if (!writer) {
+    throw new Error('Failed to create write stream');
   }
-): Promise<Headers> {
-  const tempFilePath = `${localPath}.tmp`;
-  const request = net.request(url);
-  const outputStream = new WriteStreamPromise(tempFilePath);
 
-  function abortRequest() {
-    request.abort();
-  }
+  const request = net.request({
+    method: 'GET',
+    url,
+  });
 
-  let timeoutId: NodeJS.Timeout | null = null;
+  let timeoutId = timeout
+    ? setTimeout(() => {
+        request.abort();
 
-  return new Promise<Headers>((resolve, reject) => {
-    let downloadedSize = 0;
+        timeoutId = null;
+      }, timeout)
+    : null;
 
-    let headers: Headers;
-    let promiseFulfilled = false;
-
-    async function resolvePromise(succeeded: boolean, error?: Error) {
-      try {
-        if (promiseFulfilled) {
-          log('Promise already fulfilled', url);
-          return;
-        }
-
-        promiseFulfilled = true;
-
-        // cleanup listeners
-        if (signal) {
-          signal.removeEventListener('abort', abortRequest);
-        }
-
-        if (timeoutId) {
-          clearTimeout(timeoutId);
-          timeoutId = null;
-        }
-
-        await outputStream.close();
-
-        // resolve promise
-        if (succeeded) {
-          log('Download succeeded', url);
-          // rename temp file to local path
-          await fs.rename(tempFilePath, localPath);
-          resolve(headers);
-          return;
-        }
-
-        throw error ?? new Error('Unknown error');
-      } catch (e) {
-        log('Download failed', url, (e as Error)?.message);
-        await fs.unlink(tempFilePath);
-        reject(e);
-      }
+  const promise = new Promise<Record<string, string | string[]>>((resolve, reject) => {
+    if (headers) {
+      Object.entries(headers).forEach(([header, value]: [string, any]) => {
+        request.setHeader(header, value);
+      });
     }
 
-    request.on('response', (response) => {
-      const { statusCode } = response;
-      if (statusCode < 200 || statusCode >= 300) {
-        resolvePromise(false, new Error(`HTTP error: ${response.statusCode}`));
-        request.abort();
-        return;
-      }
+    let downloadedSize = 0;
 
-      headers = response.headers;
-      const size = headers['content-length'] ? parseInt(headers['content-length'], 10) || 0 : 0;
-      if (size > maxSize) {
-        request.abort();
-        return;
-      }
+    request.on('response', (response) => {
+      const fileSize = Number(response.headers['content-length'] || -1);
 
       response.on('data', (chunk) => {
         downloadedSize += chunk.byteLength;
-
         if (downloadedSize > maxSize) {
           request.abort();
           return;
         }
 
-        outputStream.write(chunk).catch((error) => {
-          resolvePromise(false, error);
-        });
+        writer.write(chunk);
 
-        const progress = size ? (downloadedSize / size) * 100 : 0;
-        onProgress?.(progress, size, downloadedSize);
-      });
-
-      response.on('error', (error = new Error('Unknown response error')) => {
-        resolvePromise(false, error);
-      });
-
-      response.on('aborted', () => {
-        resolvePromise(false, new Error('Response aborted'));
+        if (onProgress && fileSize >= 0) {
+          onProgress(downloadedSize / fileSize, fileSize, downloadedSize);
+        }
       });
 
       response.on('end', () => {
-        resolvePromise(true);
+        resolve(response.headers);
+      });
+
+      writer.on('error', (error) => {
+        reject(error);
       });
     });
 
-    request.on('abort', () => {
-      resolvePromise(false, new Error('Request aborted'));
+    request.on('error', (error) => {
+      reject(error);
     });
-
-    request.on('error', (error = new Error('Unknown request error')) => {
-      resolvePromise(false, error);
-    });
-
-    if (signal) {
-      signal.addEventListener('abort', abortRequest);
-    }
-
-    timeoutId = setTimeout(abortRequest, timeout);
 
     request.end();
   });
+
+  promise
+    .finally(() => {
+      // close stream
+      writer.end();
+
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    })
+    .catch(async () => {
+      // delete file if download failed
+      await fs.unlink(path).catch(() => {
+        // ignore error when deleting the file
+      });
+    });
+
+  // provide ability to abort download
+  (promise as any).abort = () => {
+    request.abort();
+  };
+
+  return promise;
 }

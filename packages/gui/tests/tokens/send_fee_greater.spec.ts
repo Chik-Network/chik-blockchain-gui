@@ -18,7 +18,7 @@ test.afterAll(async () => {
 });
 
 test('Confirm that User cannot send a TXCK fee greater then in Wallet', async () => {
-  let receive_wallet = 'txch1u237ltq0pp4348ppwv6cge7fks87mn4wz3c0ywvgswvpwhkqqn8qn8jeq6';
+  let receive_wallet = 'txck1u237ltq0pp4348ppwv6cge7fks87mn4wz3c0ywvgswvpwhkqqn8qn8jeq6';
   let funded_wallet = '1922132445';
 
   //Given I enter correct credentials in Passphrase dialog

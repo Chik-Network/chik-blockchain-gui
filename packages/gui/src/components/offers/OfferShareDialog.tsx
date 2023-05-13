@@ -88,7 +88,7 @@ type CommonShareServiceDialogProps = CommonDialogProps & {
 
 type OfferShareServiceDialogProps = CommonOfferProps & CommonShareServiceDialogProps;
 
-const testnetDummyHost = 'offers-api-sim.chiknetwork.org';
+const testnetDummyHost = 'offers-api-sim.chik-network.net';
 
 const OfferSharingProviders: {
   [key in OfferSharingService]: OfferSharingProvider;
@@ -256,7 +256,7 @@ async function postToHashgreen(offerData: string, testnet: boolean): Promise<str
     log('Hashgreen upload completed');
 
     if (testnet) {
-      return 'https://www.chiknetwork.org/offers';
+      return 'https://www.chik-network.net/offers';
     }
 
     const jsonObj = JSON.parse(responseBody);
@@ -882,7 +882,7 @@ function OfferShareKeybaseDialog(props: OfferShareServiceDialogProps) {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isJoiningTeam, setIsJoiningTeam] = React.useState(false);
   const [shared, setShared] = React.useState(false);
-  const teamName = testnet ? 'testxckoffersdev' : KeybaseTeamName;
+  const teamName = testnet ? 'testcacoffersdev' : KeybaseTeamName;
   const channelName = testnet ? 'offers' : KeybaseChannelName;
 
   function handleClose() {

@@ -72,7 +72,7 @@ const PlotAddNFT = forwardRef((props: Props, ref) => {
               need to replot in order to join any of the standard pools.
             </Trans>
             &nbsp;
-            <Link target="_blank" href="https://docs.chiknetwork.org/pool-farming">
+            <Link target="_blank" href="https://docs.chik-network.net/pool-farming">
               <Trans>Learn more</Trans>
             </Link>
           </Typography>

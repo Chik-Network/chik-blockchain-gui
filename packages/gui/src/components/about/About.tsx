@@ -72,7 +72,7 @@ const Spacer = styled.div`
   margin-bottom: 1rem;
 `;
 
-const url = 'https://chiknetwork.org';
+const url = 'https://chik-network.net';
 
 type Props = {
   version: string;

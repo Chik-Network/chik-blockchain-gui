@@ -6,8 +6,8 @@ import useWalletConnectPreferences from './useWalletConnectPreferences';
 const defaultMetadata = {
   name: 'Chik Blockchain',
   description: 'GUI for Chik Blockchain',
-  url: 'https://www.chiknetwork.org',
-  icons: ['https://www.chiknetwork.org/wp-content/uploads/2022/09/chik-logo.svg'],
+  url: 'https://www.chik-network.net',
+  icons: ['https://www.chik-network.net/wp-content/uploads/2022/09/chik-logo.svg'],
 };
 
 export type UseWalletConnectConfig = {

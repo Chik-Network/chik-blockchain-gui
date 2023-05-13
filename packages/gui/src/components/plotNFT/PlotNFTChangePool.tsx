@@ -54,7 +54,7 @@ export default function PlotNFTChangePool(props: Props) {
         walletId,
         poolUrl,
         relativeLockHeight,
-        targetPuzzlehash: targetPuzzleHash, // pw_join_pool expects 'target_puzzlehash', not 'target_puzzle_hash'
+        targetPuzzleHash,
         fee,
       }).unwrap();
     }

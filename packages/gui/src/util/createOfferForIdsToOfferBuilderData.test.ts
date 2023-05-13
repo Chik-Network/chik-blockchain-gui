@@ -25,7 +25,7 @@ describe('createOfferForIdsToOfferBuilderData', () => {
           name: 'Chik',
           symbol: 'XCK',
           displayName: 'XCK',
-          assetId: 'xch',
+          assetId: 'xck',
         },
         2: {
           walletId: 2,
@@ -62,13 +62,13 @@ describe('createOfferForIdsToOfferBuilderData', () => {
 
       expect(result).toEqual({
         offered: {
-          xch: [{ amount: '111.555' }],
+          xck: [{ amount: '111.555' }],
           tokens: [],
           nfts: [],
           fee: [],
         },
         requested: {
-          xch: [],
+          xck: [],
           tokens: [{ amount: '600', assetId: 'f17f88130c63522821f1a75466849354eee69c414c774bd9f3873ab643e9574d' }],
           nfts: [],
           fee: [],
@@ -88,7 +88,7 @@ describe('createOfferForIdsToOfferBuilderData', () => {
           name: 'Chik',
           symbol: 'XCK',
           displayName: 'XCK',
-          assetId: 'xch',
+          assetId: 'xck',
         },
         2: {
           walletId: 2,
@@ -120,7 +120,7 @@ describe('createOfferForIdsToOfferBuilderData', () => {
 
       expect(result).toEqual({
         offered: {
-          xch: [],
+          xck: [],
           tokens: [
             {
               amount: '1.234',
@@ -131,7 +131,7 @@ describe('createOfferForIdsToOfferBuilderData', () => {
           fee: [],
         },
         requested: {
-          xch: [
+          xck: [
             {
               amount: '2',
             },
@@ -154,7 +154,7 @@ describe('createOfferForIdsToOfferBuilderData', () => {
           name: 'Chik',
           symbol: 'XCK',
           displayName: 'XCK',
-          assetId: 'xch',
+          assetId: 'xck',
         },
       };
 
@@ -179,13 +179,13 @@ describe('createOfferForIdsToOfferBuilderData', () => {
 
       expect(result).toEqual({
         offered: {
-          xch: [{ amount: '3' }],
+          xck: [{ amount: '3' }],
           tokens: [],
           nfts: [],
           fee: [],
         },
         requested: {
-          xch: [],
+          xck: [],
           tokens: [],
           nfts: [
             {
@@ -221,7 +221,7 @@ describe('createOfferForIdsToOfferBuilderData', () => {
           name: 'Chik',
           symbol: 'XCK',
           displayName: 'XCK',
-          assetId: 'xch',
+          assetId: 'xck',
         },
         2: {
           walletId: 2,
@@ -252,13 +252,13 @@ describe('createOfferForIdsToOfferBuilderData', () => {
 
       expect(result).toEqual({
         offered: {
-          xch: [],
+          xck: [],
           tokens: [],
           nfts: [],
           fee: [],
         },
         requested: {
-          xch: [
+          xck: [
             {
               amount: '0.5',
             },
@@ -299,13 +299,13 @@ describe('createOfferForIdsToOfferBuilderData', () => {
 
       expect(result).toEqual({
         offered: {
-          xch: [],
+          xck: [],
           tokens: [],
           nfts: [],
           fee: [],
         },
         requested: {
-          xch: [],
+          xck: [],
           tokens: [],
           nfts: [],
           fee: [],

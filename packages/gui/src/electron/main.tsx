@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import {
   app,
   dialog,
@@ -115,6 +116,20 @@ function openAbout() {
   openedWindows.add(aboutWindow);
 
   // aboutWindow.webContents.openDevTools({ mode: 'detach' });
+}
+
+export function getChecksum(pathLocal: string) {
+  return new Promise((resolve, reject) => {
+    const hash = crypto.createHash('sha256');
+    const input = fs.createReadStream(pathLocal);
+    input.on('error', reject);
+    input.on('data', (chunk) => {
+      hash.update(chunk);
+    });
+    input.on('close', () => {
+      resolve(hash.digest('hex'));
+    });
+  });
 }
 
 if (!handleSquirrelEvent()) {
@@ -732,15 +747,15 @@ function getMenuTemplate() {
           },
         },
         {
-          label: i18n._(/* i18n */ { id: 'Chat on Discord' }),
+          label: i18n._(/* i18n */ { id: 'Chat on KeyBase' }),
           click: () => {
-            openExternal('https://discord.gg/chik');
+            openExternal('https://discord.gg/YEj6hZUcRn');
           },
         },
         {
           label: i18n._(/* i18n */ { id: 'Follow on Twitter' }),
           click: () => {
-            openExternal('https://twitter.com/chik_project');
+            openExternal('https://twitter.com/network_chik');
           },
         },
       ],
@@ -761,7 +776,8 @@ function getMenuTemplate() {
         {
           label: i18n._(/* i18n */ { id: 'Check for Updates...' }),
           click: () => {
-            mainWindow?.webContents.send('checkForUpdates');
+            openAbout();
+            //mainWindow?.webContents.send('checkForUpdates');
           },
         },
         {

@@ -1,18 +1,18 @@
 import { type NFTInfo } from '@chik-network/api';
+import MetadataOnDemand from '@types/MetadataOnDemand';
 import { throttle } from 'lodash';
 import { useMemo, useEffect, useState, useCallback } from 'react';
 
+import FileType from '../@types/FileType';
 import type Metadata from '../@types/Metadata';
-import MetadataState from '../@types/MetadataState';
 import NFTVisibility from '../@types/NFTVisibility';
 import NFTsDataStatistics from '../@types/NFTsDataStatistics';
-import FileType from '../constants/FileType';
 import getNFTFileType from '../util/getNFTFileType';
 import hasSensitiveContent from '../util/hasSensitiveContent';
 import useHiddenNFTs from './useHiddenNFTs';
 import useNFTProvider from './useNFTProvider';
 
-function searchableNFTContent(nftId: string, nft: NFTInfo, metadata?: Metadata) {
+function searchableNFTContent(nftId: string, nft: NFTInfo, metadata: Metadata) {
   const items = [nftId, nft.dataUris?.join(' ') ?? '', nft.launcherId, metadata?.name, metadata?.collection?.name];
 
   return items.join(' ').toLowerCase();
@@ -21,8 +21,8 @@ function searchableNFTContent(nftId: string, nft: NFTInfo, metadata?: Metadata) 
 const prepareNFTs = throttle(
   (
     nfts: Map<string, NFTInfo>,
-    nachos: Map<string, NFTInfo>,
-    getMetadata: (id: string) => MetadataState,
+    nachoNFTs: Map<string, NFTInfo>,
+    metadatasOnDemand: Map<string, MetadataOnDemand>,
     walletIds: number[],
     isHidden: (nftId: string) => boolean,
     visibility: NFTVisibility,
@@ -53,8 +53,9 @@ const prepareNFTs = throttle(
     const searchString = search.toString().trim().toLowerCase();
 
     function process(nft: NFTInfo, nftId: string) {
-      const { metadata } = getMetadata(nftId);
+      const metadataStatus = metadatasOnDemand.get(nftId);
 
+      const metadata = metadataStatus?.metadata;
       const type = getNFTFileType(nft);
 
       nftsData.push({
@@ -99,6 +100,10 @@ const prepareNFTs = throttle(
       }
 
       if (searchString.length) {
+        if (!metadata) {
+          return;
+        }
+
         const content = nft && searchableNFTContent(nftId, nft, metadata);
         if (!content || !content.includes(searchString)) {
           return;
@@ -112,7 +117,7 @@ const prepareNFTs = throttle(
       process(nft, nftId);
     });
 
-    nachos.forEach((nft, nftId) => {
+    nachoNFTs.forEach((nft, nftId) => {
       if (!nfts.has(nftId)) {
         process(nft, nftId);
       }
@@ -121,7 +126,7 @@ const prepareNFTs = throttle(
     onReponse(filtered, stats);
     // return sortBy(filtered, (nft) => nft.nftCoinConfirmationHeight).reverse();
   },
-  250,
+  1000,
   {
     // https://llu.is/throttle-and-debounce-visualized/
     leading: true, // call on first call
@@ -137,23 +142,20 @@ export type UseNFTsProps = {
   hideSensitiveContent?: boolean | 'false' | 'true';
 };
 
-const emptyWalletIds: number[] = [];
-const allTypes = [FileType.IMAGE, FileType.VIDEO, FileType.AUDIO, FileType.DOCUMENT, FileType.MODEL, FileType.UNKNOWN];
-
 export default function useNFTs(props: UseNFTsProps = {}) {
   const {
-    walletIds = emptyWalletIds,
-    types = allTypes,
+    walletIds = [],
+    types = [],
     search = '',
     visibility = NFTVisibility.ALL,
     // hideSensitiveContent = false,
   } = props;
 
-  const { nfts, nachos, getMetadata, isLoading, error, progress, invalidate, count, subscribeToChanges } =
+  const { events, nfts, nachoNFTs, metadatasOnDemand, isLoading, error, progress, invalidate, count } =
     useNFTProvider();
   const [isNFTHidden] = useHiddenNFTs();
 
-  const total = useMemo(() => count + nachos.size, [count, nachos.size]);
+  const total = useMemo(() => count + nachoNFTs.size, [count, nachoNFTs.size]);
 
   const [filtered, setFiltered] = useState<NFTInfo[]>([]);
   const [statistics, setStatistics] = useState<NFTsDataStatistics>({
@@ -173,8 +175,8 @@ export default function useNFTs(props: UseNFTsProps = {}) {
     // prepareNFTs is debounced and can returns undefined => we will use old value
     prepareNFTs(
       nfts,
-      nachos,
-      getMetadata,
+      nachoNFTs,
+      metadatasOnDemand,
       walletIds,
       isNFTHidden,
       visibility,
@@ -186,10 +188,10 @@ export default function useNFTs(props: UseNFTsProps = {}) {
       }
     );
   }, [
-    nfts, // immutable
-    nachos, // immutable
-    getMetadata, // immutable
-    walletIds, // immutable
+    nfts,
+    nachoNFTs,
+    metadatasOnDemand,
+    walletIds,
     isNFTHidden,
     visibility,
     types,
@@ -202,14 +204,19 @@ export default function useNFTs(props: UseNFTsProps = {}) {
     updateFiltered();
   }, [updateFiltered]);
 
-  useEffect(
-    () =>
-      subscribeToChanges(() => {
-        // todo performance improvement => invalidate only visibly changed NFTs
-        updateFiltered();
-      }),
-    [subscribeToChanges, updateFiltered]
-  );
+  useEffect(() => {
+    function handleChange() {
+      updateFiltered();
+    }
+
+    events.on('nftChanged', handleChange);
+    events.on('metadataChanged', handleChange);
+
+    return () => {
+      events.off('nftChanged', handleChange);
+      events.off('metadataChanged', handleChange);
+    };
+  }, [events, updateFiltered]);
 
   return {
     total,

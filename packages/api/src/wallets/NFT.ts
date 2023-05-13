@@ -11,7 +11,12 @@ export default class NFTWallet extends Wallet {
   }
 
   async getNfts(args: { walletId: number; num: number; startIndex: number }) {
-    return this.command('nft_get_nfts', args);
+    const { num = 100_000, ...rest } = args;
+
+    return this.command('nft_get_nfts', {
+      num,
+      ...rest,
+    });
   }
 
   async getNftInfo(args: { coinId: string }) {

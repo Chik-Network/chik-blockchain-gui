@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import NFTFilterProvider from './NFTFilterProvider';
 import NFTDetail from './detail/NFTDetailV2';
 import NFTGallery from './gallery/NFTGallery';
 import NFTGalleryScrollPositionProvider from './gallery/NFTGalleryScrollPositionProvider';
@@ -20,12 +21,13 @@ export default function NFTs() {
     navigating to other non-NFT screens, and then back, the scroll position is reset to the
     top.
     */
-
-    <NFTGalleryScrollPositionProvider>
-      <Routes>
-        <Route index element={<NFTGallery />} />
-        <Route path=":nftId" element={<NFTDetail />} />
-      </Routes>
-    </NFTGalleryScrollPositionProvider>
+    <NFTFilterProvider>
+      <NFTGalleryScrollPositionProvider>
+        <Routes>
+          <Route index element={<NFTGallery />} />
+          <Route path=":nftId" element={<NFTDetail />} />
+        </Routes>
+      </NFTGalleryScrollPositionProvider>
+    </NFTFilterProvider>
   );
 }
