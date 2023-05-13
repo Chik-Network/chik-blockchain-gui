@@ -6,8 +6,8 @@ import {
   Flex,
   Form,
   TooltipIcon,
-  chiaToMojo,
-} from '@chia-network/core';
+  chikToMojo,
+} from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import {
   Checkbox,
@@ -44,9 +44,9 @@ export function ConfirmOfferCancellation(props: ConfirmOfferCancellationProps) {
   }
 
   async function handleConfirm() {
-    const { fee: xchFee } = methods.getValues();
+    const { fee: xckFee } = methods.getValues();
 
-    const fee = cancelWithTransaction ? chiaToMojo(xchFee) : new BigNumber(0);
+    const fee = cancelWithTransaction ? chikToMojo(xckFee) : new BigNumber(0);
 
     onClose([true, { cancelWithTransaction, cancellationFee: fee }]);
   }

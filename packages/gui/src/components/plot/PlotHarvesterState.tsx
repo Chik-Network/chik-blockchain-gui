@@ -1,4 +1,4 @@
-import { useGetHarvesterStats } from '@chia-network/api-react';
+import { useGetHarvesterStats } from '@chik-network/api-react';
 import React from 'react';
 
 import LinearProgressWithLabel from '../helpers/LinearProgressWithLabel';

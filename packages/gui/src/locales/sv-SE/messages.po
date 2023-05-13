@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "X-Crowdin-Project-ID: 1\n"
 "X-Crowdin-Language: sv\n"
-"X-Crowdin-File: /[Chia-Network.chia-blockchain-gui] main/packages/gui/src/locales/en-US/messages.po\n"
+"X-Crowdin-File: /[Chik-Network.chik-blockchain-gui] main/packages/gui/src/locales/en-US/messages.po\n"
 "X-Crowdin-File-ID: 1306\n"
 
 #: src/components/offers2/OfferBuilderImport.tsx:167
@@ -47,8 +47,8 @@ msgid "+ Add a Plot"
 msgstr "+ Lägg till en plott"
 
 #: src/components/settings/ProfileAdd.tsx:80
-msgid "<0>Need some XCH?</0>"
-msgstr "<0>Behöver du lite XCH?</0>"
+msgid "<0>Need some XCK?</0>"
+msgstr "<0>Behöver du lite XCK?</0>"
 
 #: src/components/settings/ProfileAdd.tsx:92
 msgid "<0>Use one (1) mojo to create a Profile.</0>"
@@ -68,8 +68,8 @@ msgstr "Ett värde på {0} rekommenderas"
 
 #: src/electron/main.tsx:1101
 #: src/electron/main.tsx:1188
-msgid "About Chia Blockchain"
-msgstr "Om Chia Blockchain"
+msgid "About Chik Blockchain"
+msgstr "Om Chik Blockchain"
 
 #: src/components/offers/NFTOfferViewer.tsx:638
 #: src/components/offers/OfferAcceptConfirmationDialog.tsx:21
@@ -208,7 +208,7 @@ msgid "Amount before adding royalties"
 msgstr ""
 
 #: src/util/offerBuilderDataToOffer.ts:59
-msgid "Amount exceeds XCH spendable balance"
+msgid "Amount exceeds XCK spendable balance"
 msgstr ""
 
 #: src/components/offers/NFTOfferEditor.tsx:596
@@ -319,8 +319,8 @@ msgid "Back"
 msgstr "Tillbaka"
 
 #: src/components/settings/ProfileAdd.tsx:98
-msgid "Balance: {standardBalance} XCH"
-msgstr "Saldo: {standardBalance} XCH"
+msgid "Balance: {standardBalance} XCK"
+msgstr "Saldo: {standardBalance} XCK"
 
 #: src/components/block/Block.jsx:235
 msgid "Base Farmer Reward Amount"
@@ -351,8 +351,8 @@ msgid "Block VDF Iterations"
 msgstr "VDF-iterationer för block"
 
 #: src/components/block/Block.jsx:250
-msgid "Block at height {0} in the Chia blockchain"
-msgstr "Block vid höjd {0} i Chia-blockkedjan"
+msgid "Block at height {0} in the Chik blockchain"
+msgstr "Block vid höjd {0} i Chik-blockkedjan"
 
 #: src/components/block/Block.jsx:120
 msgid "Block with hash {headerHash}"
@@ -474,11 +474,11 @@ msgid "Change Pool"
 msgstr "Byt pool"
 
 #: src/components/settings/SettingsStartup.tsx:32
-msgid "Changes will take effect the next time Chia is started"
-msgstr "Ändringarna börjar gälla nästa gång Chia startas"
+msgid "Changes will take effect the next time Chik is started"
+msgstr "Ändringarna börjar gälla nästa gång Chik startas"
 
 #: src/components/settings/SettingsDataLayer.tsx:54
-msgid "Changes will take effect the next time Chia is started."
+msgid "Changes will take effect the next time Chik is started."
 msgstr ""
 
 #: src/electron/main.tsx:1080
@@ -500,20 +500,20 @@ msgid "Check Provenance on Spacescan.io"
 msgstr "Kontrollera proveniens på Spacescan.io"
 
 #: src/electron/main.tsx:1098
-msgid "Chia"
-msgstr "Chia"
+msgid "Chik"
+msgstr "Chik"
 
-#: src/components/offers2/OfferBuilderXCHSection.tsx:76
-msgid "Chia ({currencyCode}) is a digital currency that is secure and sustainable"
+#: src/components/offers2/OfferBuilderXCKSection.tsx:76
+msgid "Chik ({currencyCode}) is a digital currency that is secure and sustainable"
 msgstr ""
 
 #: src/components/offers2/OfferBuilderTokensSection.tsx:114
-msgid "Chia Asset Tokens (CATs) are tokens built on top of XCH"
+msgid "Chik Asset Tokens (CATs) are tokens built on top of XCK"
 msgstr ""
 
 #: src/electron/main.tsx:1047
-msgid "Chia Blockchain Wiki"
-msgstr "Chia Blockchains wiki"
+msgid "Chik Blockchain Wiki"
+msgstr "Chik Blockchains wiki"
 
 #: src/components/app/AppSelectMode.tsx:145
 msgid "Choose Farming Mode"
@@ -748,7 +748,7 @@ msgid "Create a Plot NFT"
 msgstr "Skapa en plott-NFT"
 
 #: src/components/offers/OfferManager.tsx:440
-msgid "Create a file that you can use to trade XCH, Chia Asset Tokens, or NFTs with no counter-party risk."
+msgid "Create a file that you can use to trade XCK, Chik Asset Tokens, or NFTs with no counter-party risk."
 msgstr ""
 
 #: src/components/settings/ProfileAdd.tsx:75
@@ -838,7 +838,7 @@ msgid "DataLayer Services"
 msgstr ""
 
 #: src/components/settings/SettingsDataLayer.tsx:21
-msgid "DataLayer enables rich data to be stored on mirrored databases that can be verified using the Chia Blockchain."
+msgid "DataLayer enables rich data to be stored on mirrored databases that can be verified using the Chik Blockchain."
 msgstr ""
 
 #: src/components/farm/FarmLastAttemptedProof.tsx:31
@@ -877,8 +877,8 @@ msgid "Deleting key"
 msgstr "Tar bort nyckel"
 
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:81
-msgid "Depending on your system configuration, you may find that an alternative plotter produces plots faster than the default Chia Proof of Space plotter. If unsure, use the default Chia Proof of Space plotter."
-msgstr "Beroende på din systemkonfiguration, kan det visa sig att en alternativ plotter skapar plottar snabbare än Chias standard-Proof-of-Space-plotter. Om du är osäker, använd Chias standard-Proof-of-Space-plotter."
+msgid "Depending on your system configuration, you may find that an alternative plotter produces plots faster than the default Chik Proof of Space plotter. If unsure, use the default Chik Proof of Space plotter."
+msgstr "Beroende på din systemkonfiguration, kan det visa sig att en alternativ plotter skapar plottar snabbare än Chiks standard-Proof-of-Space-plotter. Om du är osäker, använd Chiks standard-Proof-of-Space-plotter."
 
 #: src/components/settings/SettingsPanel.tsx:163
 msgid "Derivation Index"
@@ -1161,8 +1161,8 @@ msgid "Exclude final directory"
 msgstr "Uteslut slutlig mapp"
 
 #: src/components/nfts/gallery/NFTGalleryHero.tsx:18
-msgid "Explore the Chia ecosystem; discover and trade great NFTs"
-msgstr "Utforska Chias ekosystem; upptäck och handla med fantastiska NFT:er"
+msgid "Explore the Chik ecosystem; discover and trade great NFTs"
+msgstr "Utforska Chiks ekosystem; upptäck och handla med fantastiska NFT:er"
 
 #: src/components/offers/utils.ts:161
 #: src/components/plot/PlotHarvester.tsx:121
@@ -1559,7 +1559,7 @@ msgstr ""
 
 #: src/components/offers/NFTOfferEditor.tsx:91
 #: src/components/offers/OfferEditorConditionsPanel.tsx:392
-msgid "Including a fee in the offer can help expedite the transaction when the offer is accepted. The recommended minimum fee is 0.000005 XCH (5,000,000 mojos)"
+msgid "Including a fee in the offer can help expedite the transaction when the offer is accepted. The recommended minimum fee is 0.000005 XCK (5,000,000 mojos)"
 msgstr ""
 
 #: src/components/offers2/OfferIncomingTable.tsx:112
@@ -1626,16 +1626,16 @@ msgid "Join a Pool"
 msgstr "Gå med i en pool"
 
 #: src/components/plot/add/PlotAddNFT.tsx:41
-msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile."
-msgstr "Gå med i en pool och få konsekventa XCH-odlingsbelöningar. Genomsnittlig avkastning är densamma, men den är mycket mindre variabel."
+msgid "Join a pool and get consistent XCK farming rewards. The average returns are the same, but it is much less volatile."
+msgstr "Gå med i en pool och få konsekventa XCK-odlingsbelöningar. Genomsnittlig avkastning är densamma, men den är mycket mindre variabel."
 
 #: src/components/plotNFT/PlotNFTAdd.tsx:61
-msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
-msgstr "Gå med i en pool och få konsekventa XCH-odlingsbelöningar. Genomsnittlig avkastning är densamma, men den är mycket mindre variabel. Tilldela plottar till en plott-NFT. Du kan enkelt byta pool utan att behöva plotta om."
+msgid "Join a pool and get consistent XCK farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
+msgstr "Gå med i en pool och få konsekventa XCK-odlingsbelöningar. Genomsnittlig avkastning är densamma, men den är mycket mindre variabel. Tilldela plottar till en plott-NFT. Du kan enkelt byta pool utan att behöva plotta om."
 
 #: src/components/plot/add/PlotAddNFT.tsx:122
-msgid "Join a pool and get more consistent XCH farming rewards. Create a plot NFT and assign your new plots to a group."
-msgstr "Gå med i en pool och få mer konsekventa XCH-odlingsbelöningar. Skapa en plott-NFT och tilldela dina nya plottar till en grupp."
+msgid "Join a pool and get more consistent XCK farming rewards. Create a plot NFT and assign your new plots to a group."
+msgstr "Gå med i en pool och få mer konsekventa XCK-odlingsbelöningar. Skapa en plott-NFT och tilldela dina nya plottar till en grupp."
 
 #: src/components/app/AppSelectMode.tsx:133
 msgid "Join farming pools"
@@ -2118,8 +2118,8 @@ msgid "Not connected"
 msgstr "Inte ansluten"
 
 #: src/components/farm/FarmManageFarmingRewards.tsx:152
-msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCH reward for pooling plots."
-msgstr "Observera att detta inte ändrar dina poolutbetalningsadresser. Detta påverkar endast plottar med det gamla formatet och belöningen 0,25XCH för poolplotter."
+msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCK reward for pooling plots."
+msgstr "Observera att detta inte ändrar dina poolutbetalningsadresser. Detta påverkar endast plottar med det gamla formatet och belöningen 0,25XCK för poolplotter."
 
 #: src/components/notification/NotificationSendDialog.tsx:145
 msgid "Notification has successfully been sent to a full node and included in the mempool."
@@ -2456,7 +2456,7 @@ msgstr "Ange en NFT-identifierare"
 
 #: src/util/offerBuilderDataToOffer.ts:46
 #: src/util/offerBuilderDataToOffer.ts:111
-msgid "Please enter an XCH amount"
+msgid "Please enter an XCK amount"
 msgstr ""
 
 #: src/components/offers/NFTOfferEditor.tsx:591
@@ -2589,7 +2589,7 @@ msgid "Plots With Missing Keys"
 msgstr "Plottar vars nycklar saknas"
 
 #: src/components/plot/overview/PlotOverviewHero.tsx:34
-msgid "Plots are allocated space on your hard drive used to farm and earn Chia.  <0>Learn more</0>"
+msgid "Plots are allocated space on your hard drive used to farm and earn Chik.  <0>Learn more</0>"
 msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:217
@@ -2799,8 +2799,8 @@ msgid "Recommended"
 msgstr "Rekommenderat"
 
 #: src/components/settings/ProfileAdd.tsx:114
-msgid "Recommended: 0.000005 XCH"
-msgstr "Rekommenderat: 0,000005 XCH"
+msgid "Recommended: 0.000005 XCK"
+msgstr "Rekommenderat: 0,000005 XCK"
 
 #: src/components/nfts/NFTContextualActions.tsx:602
 msgid "Refresh NFT data"
@@ -3004,8 +3004,8 @@ msgid "Self Pooling"
 msgstr "Självpoolning"
 
 #: src/components/plotNFT/select/PlotNFTSelectBase.tsx:86
-msgid "Self pool. When you win a block you will earn XCH rewards."
-msgstr "Självpoolning. När du vinner ett block tjänar du XCH-belöningar."
+msgid "Self pool. When you win a block you will earn XCK rewards."
+msgstr "Självpoolning. När du vinner ett block tjänar du XCK-belöningar."
 
 #: src/components/offers/NFTOfferEditor.tsx:313
 msgid "Sell an NFT"
@@ -3170,8 +3170,8 @@ msgid "Skips adding a final directory to harvester for farming"
 msgstr "Hoppar över steget att lägga till en slutlig mapp till skördaren för odling"
 
 #: src/components/pool/PoolHero.tsx:21
-msgid "Smooth out your XCH farming rewards by joining a pool."
-msgstr "Jämna ut dina XCH-odlarbelöningar genom att gå med i en pool."
+msgid "Smooth out your XCK farming rewards by joining a pool."
+msgstr "Jämna ut dina XCK-odlarbelöningar genom att gå med i en pool."
 
 #: src/components/notification/NotificationNFTTitle.tsx:30
 msgid "Something went wrong"
@@ -3232,8 +3232,8 @@ msgid "Status"
 msgstr "Status"
 
 #: src/components/app/AppSelectMode.tsx:78
-msgid "Store and Send XCH"
-msgstr "Spara och skicka XCH"
+msgid "Store and Send XCK"
+msgstr "Spara och skicka XCK"
 
 #: src/components/app/AppPassPrompt.tsx:111
 msgid "Submit"
@@ -3282,7 +3282,7 @@ msgid "Temporary folder location"
 msgstr "Tillfällig mapp"
 
 #: src/components/app/AppVersionWarning.tsx:35
-msgid "The Chia application and its services are using different versions. Some functionality may not be behave properly as a result.<0/><1/>Chia services version: {backV}<2/>Chia application version: {guiV}<3/><4/>It is recommended that you quit the Chia application and stop all Chia services."
+msgid "The Chik application and its services are using different versions. Some functionality may not be behave properly as a result.<0/><1/>Chik services version: {backV}<2/>Chik application version: {guiV}<3/><4/>It is recommended that you quit the Chik application and stop all Chik services."
 msgstr ""
 
 #: src/components/nfts/NFTMoveToProfileDialog.tsx:210
@@ -3310,7 +3310,7 @@ msgid "The NFT transfer transaction has been successfully submitted to the block
 msgstr ""
 
 #: src/components/settings/SettingsPanel.tsx:165
-msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCH, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
+msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCK, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
 msgstr ""
 
 #: src/components/plot/add/PlotAddSelectTemporaryDirectory.tsx:88
@@ -3393,8 +3393,8 @@ msgid "The total transactions fees in this block. Rewarded to the farmer."
 msgstr "Summan av transaktionsavgifterna i detta block. Utbetalda till odlaren."
 
 #: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:91
-msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCH address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
-msgstr "Det här är instruktionerna för hur odlaren vill få betalt. Som standard är det en XCH-adress, men det kan ställas in till vilken sträng som helst med en storlek på färrre än 1024 tecken, så det kan representera en identifierare för en annan blockkedja eller betalningssystem."
+msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCK address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
+msgstr "Det här är instruktionerna för hur odlaren vill få betalt. Som standard är det en XCK-adress, men det kan ställas in till vilken sträng som helst med en storlek på färrre än 1024 tecken, så det kan representera en identifierare för en annan blockkedja eller betalningssystem."
 
 #: src/components/plot/card/PlotCardPlotsFailedToOpen.tsx:13
 msgid "These plots are invalid, you might want to delete them."
@@ -3496,7 +3496,7 @@ msgid "Title Not Available"
 msgstr ""
 
 #: src/components/settings/ResyncPrompt.tsx:41
-msgid "To initiate a wallet resync, all Chia services must first be shut down. After shutting down, you will be required to restart Chia to begin the resyncing process. Are you sure you want to shut down and resync?"
+msgid "To initiate a wallet resync, all Chik services must first be shut down. After shutting down, you will be required to restart Chik to begin the resyncing process. Are you sure you want to shut down and resync?"
 msgstr ""
 
 #: src/components/settings/ProfileView.tsx:127
@@ -3530,9 +3530,9 @@ msgstr ""
 msgid "Total Amount with Royalties"
 msgstr ""
 
-#: src/components/farm/card/FarmCardTotalChiaFarmed.tsx:27
-msgid "Total Chia Farmed"
-msgstr "Totalt antal Chia som odlats"
+#: src/components/farm/card/FarmCardTotalChikFarmed.tsx:27
+msgid "Total Chik Farmed"
+msgstr "Totalt antal Chik som odlats"
 
 #: src/components/plot/card/PlotCardTotalHarvesters.tsx:11
 msgid "Total Harvesters"
@@ -3892,7 +3892,7 @@ msgid "WalletConnect Integration"
 msgstr ""
 
 #: src/components/settings/SettingsIntegration.tsx:26
-msgid "WalletConnect enables a decentralized app on the Chia blockchain to communicate and make requests directly to a Chia wallet."
+msgid "WalletConnect enables a decentralized app on the Chik blockchain to communicate and make requests directly to a Chik wallet."
 msgstr ""
 
 #: src/components/plotNFT/PlotNFTAdd.tsx:59
@@ -4066,8 +4066,8 @@ msgstr "Ditt erbjudande har skickats till Keybase."
 #: src/components/app/AppKeyringMigrator.tsx:229
 #: src/components/settings/ChangePassphrasePrompt.tsx:277
 #: src/components/settings/SetPassphrasePrompt.tsx:246
-msgid "Your passphrase can be stored in your system's secure credential store. Chia will be able to access your keys without prompting for your passphrase."
-msgstr "Din lösenfras kan sparas i systemets arkiv för autentiseringsuppgifter. Chia kommer att ha åtkomst till dina nycklar utan att fråga efter din lösenfras."
+msgid "Your passphrase can be stored in your system's secure credential store. Chik will be able to access your keys without prompting for your passphrase."
+msgstr "Din lösenfras kan sparas i systemets arkiv för autentiseringsuppgifter. Chik kommer att ha åtkomst till dina nycklar utan att fråga efter din lösenfras."
 
 #: src/components/settings/SettingsPanel.tsx:55
 msgid "Your passphrase has been set"

@@ -4,9 +4,9 @@ import initDebug from 'debug';
 import walletConnectCommands from '../constants/WalletConnectCommands';
 import { type Pairs } from '../hooks/useWalletConnectPairs';
 
-const log = initDebug('chia-gui:walletConnect');
+const log = initDebug('chik-gui:walletConnect');
 
-const availableCommands = walletConnectCommands.map((command) => `chia_${command.command}`);
+const availableCommands = walletConnectCommands.map((command) => `chik_${command.command}`);
 
 export function processError(error: Error) {
   if (error.message.includes('No matching key')) {
@@ -33,7 +33,7 @@ export async function processSessionProposal(
         };
       };
       requiredNamespaces: {
-        chia: {
+        chik: {
           chains: string[];
           methods: string[];
         };
@@ -59,13 +59,13 @@ export async function processSessionProposal(
       throw new Error('Pairing topic not found');
     }
 
-    const requiredNamespace = requiredNamespaces.chia;
+    const requiredNamespace = requiredNamespaces.chik;
     if (!requiredNamespace) {
-      throw new Error('Missing required chia namespace');
+      throw new Error('Missing required chik namespace');
     }
 
     const { chains, methods } = requiredNamespace;
-    const chain = chains.find((item) => ['chia:testnet', 'chia:mainnet'].includes(item));
+    const chain = chains.find((item) => ['chik:testnet', 'chik:mainnet'].includes(item));
     if (!chain) {
       throw new Error('Chain not supported');
     }
@@ -87,10 +87,10 @@ export async function processSessionProposal(
 
     const { fingerprints, mainnet } = pair;
     const instance = mainnet ? 'mainnet' : 'testnet';
-    const accounts = fingerprints.map((fingerprint) => `chia:${instance}:${fingerprint}`);
+    const accounts = fingerprints.map((fingerprint) => `chik:${instance}:${fingerprint}`);
 
     const namespaces = {
-      chia: {
+      chik: {
         accounts,
         methods,
         events: [],
@@ -175,7 +175,7 @@ export async function processSessionRequest(
     }
 
     const [network, instance] = chainId.split(':');
-    if (network !== 'chia') {
+    if (network !== 'chik') {
       throw new Error('Network not supported');
     }
 

@@ -1,11 +1,11 @@
-import { fungibleAssetFromAssetIdAndAmount, royaltyAssetFromNFTInfo } from '@chia-network/api';
-import type { CalculateRoyaltiesRequest, NFTInfo } from '@chia-network/api';
+import { fungibleAssetFromAssetIdAndAmount, royaltyAssetFromNFTInfo } from '@chik-network/api';
+import type { CalculateRoyaltiesRequest, NFTInfo } from '@chik-network/api';
 import {
   useCalculateRoyaltiesForNFTsQuery,
   useGetNFTsByNFTIDsQuery,
   useGetWalletsQuery,
-} from '@chia-network/api-react';
-import { catToMojo, chiaToMojo } from '@chia-network/core';
+} from '@chik-network/api-react';
+import { catToMojo, chikToMojo } from '@chik-network/core';
 import { uniq } from 'lodash';
 import React, { ReactNode, useMemo } from 'react';
 import { useWatch } from 'react-hook-form';
@@ -33,12 +33,12 @@ export default function OfferBuilderProvider(props: OfferBuilderProviderProps) {
     name: 'offered.nfts',
   })?.map(({ nftId }) => nftId);
 
-  const requestedXCH = useWatch({
-    name: 'requested.xch',
+  const requestedXCK = useWatch({
+    name: 'requested.xck',
   });
 
-  const offeredXCH = useWatch({
-    name: 'offered.xch',
+  const offeredXCK = useWatch({
+    name: 'offered.xck',
   });
 
   const requestedTokens = useWatch({
@@ -89,18 +89,18 @@ export default function OfferBuilderProvider(props: OfferBuilderProviderProps) {
     .map((nft: NFTInfo) => royaltyAssetFromNFTInfo(nft));
 
   const requestedFungibleAssets = [
-    ...(requestedXCH ?? [])
+    ...(requestedXCK ?? [])
       .filter(({ amount }) => amount > 0)
-      .map(({ amount }) => fungibleAssetFromAssetIdAndAmount('xch', chiaToMojo(amount))),
+      .map(({ amount }) => fungibleAssetFromAssetIdAndAmount('xck', chikToMojo(amount))),
     ...(requestedTokens ?? [])
       .filter(({ assetId, amount }) => assetId?.length > 0 && amount > 0)
       .map(({ amount, assetId }) => fungibleAssetFromAssetIdAndAmount(assetId, catToMojo(amount))),
   ];
 
   const offeredFungibleAssets = [
-    ...(offeredXCH ?? [])
+    ...(offeredXCK ?? [])
       .filter(({ amount }) => amount > 0)
-      .map(({ amount }) => fungibleAssetFromAssetIdAndAmount('xch', chiaToMojo(amount))),
+      .map(({ amount }) => fungibleAssetFromAssetIdAndAmount('xck', chikToMojo(amount))),
     ...(offeredTokens ?? [])
       .filter(({ assetId, amount }) => assetId?.length > 0 && amount > 0)
       .map(({ amount, assetId }) => fungibleAssetFromAssetIdAndAmount(assetId, catToMojo(amount))),

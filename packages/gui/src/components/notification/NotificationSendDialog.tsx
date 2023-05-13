@@ -1,5 +1,5 @@
-import { toBech32m, fromBech32m } from '@chia-network/api';
-import { useGetCurrentAddressQuery, useSendNotificationMutation } from '@chia-network/api-react';
+import { toBech32m, fromBech32m } from '@chik-network/api';
+import { useGetCurrentAddressQuery, useSendNotificationMutation } from '@chik-network/api-react';
 import {
   AlertDialog,
   Amount,
@@ -11,10 +11,10 @@ import {
   Form,
   Loading,
   TextField,
-  chiaToMojo,
+  chikToMojo,
   useCurrencyCode,
   useOpenDialog,
-} from '@chia-network/core';
+} from '@chik-network/core';
 import { Trans, t } from '@lingui/macro';
 import {
   Box,
@@ -116,8 +116,8 @@ export default function NotificationSendDialog(props: NotificationSendDialogProp
     const { amount, fee } = values;
     const targetPuzzleHash = fromBech32m(address);
     const senderPuzzleHash = allowCounterOffer ? fromBech32m(currentAddress) : undefined;
-    const amountMojos = chiaToMojo(amount);
-    const feeMojos = chiaToMojo(fee);
+    const amountMojos = chikToMojo(amount);
+    const feeMojos = chikToMojo(fee);
     const payload = createOfferNotificationPayload({ offerURL, puzzleHash: senderPuzzleHash });
     let success = false;
     let error = '';
@@ -258,7 +258,7 @@ export default function NotificationSendDialog(props: NotificationSendDialogProp
                       <EstimatedFee
                         name="fee"
                         label={<Trans>Transaction Fee</Trans>}
-                        txType={FeeTxType.walletSendXCH}
+                        txType={FeeTxType.walletSendXCK}
                         disabled={isSendNotificationLoading}
                         fullWidth
                       />

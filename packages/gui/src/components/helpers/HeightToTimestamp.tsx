@@ -1,4 +1,4 @@
-import { useGetTimestampForHeightQuery } from '@chia-network/api-react';
+import { useGetTimestampForHeightQuery } from '@chik-network/api-react';
 import { Trans } from '@lingui/macro';
 import moment from 'moment';
 import React from 'react';

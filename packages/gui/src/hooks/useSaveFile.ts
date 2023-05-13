@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import { useShowSaveDialog } from '@chia-network/core';
+import { useShowSaveDialog } from '@chik-network/core';
 import { useCallback } from 'react';
 
 export type SaveFileParams = {

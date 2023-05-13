@@ -1,5 +1,5 @@
-import { toBech32m } from '@chia-network/api';
-import { CopyToClipboard, Flex, useCurrencyCode } from '@chia-network/core';
+import { toBech32m } from '@chik-network/api';
+import { CopyToClipboard, Flex, useCurrencyCode } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { InputAdornment } from '@mui/material';
 import React, { useEffect, useMemo } from 'react';

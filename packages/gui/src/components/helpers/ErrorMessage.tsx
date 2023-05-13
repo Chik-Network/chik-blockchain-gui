@@ -1,4 +1,4 @@
-import { Flex, TooltipIcon } from '@chia-network/core';
+import { Flex, TooltipIcon } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Typography } from '@mui/material';
 import React from 'react';

@@ -2,7 +2,7 @@ import {
   useCreateNewWalletMutation,
   useGetCurrentAddressQuery,
   useGetWalletBalanceQuery,
-} from '@chia-network/api-react';
+} from '@chik-network/api-react';
 import {
   ButtonLoading,
   EstimatedFee,
@@ -11,10 +11,10 @@ import {
   Form,
   Link,
   TextField,
-  chiaToMojo,
-  mojoToChiaLocaleString,
+  chikToMojo,
+  mojoToChikLocaleString,
   useCurrencyCode,
-} from '@chia-network/core';
+} from '@chik-network/core';
 import { Trans, t } from '@lingui/macro';
 import { Card, Typography } from '@mui/material';
 import React from 'react';
@@ -53,8 +53,8 @@ export default function ProfileAdd() {
     },
   });
 
-  const currencyCode = (useCurrencyCode() ?? 'XCH').toUpperCase();
-  const isTestnet = currencyCode === 'TXCH';
+  const currencyCode = (useCurrencyCode() ?? 'XCK').toUpperCase();
+  const isTestnet = currencyCode === 'TXCK';
   const { data: currentAddress } = useGetCurrentAddressQuery({
     walletId: 1,
   });
@@ -64,11 +64,11 @@ export default function ProfileAdd() {
   });
   const navigate = useNavigate();
   const openExternal = useOpenExternal();
-  const spendableBalance = mojoToChiaLocaleString(balance?.spendableBalance);
+  const spendableBalance = mojoToChikLocaleString(balance?.spendableBalance);
   const canCreateProfile = (balance?.spendableBalance ?? 0) > 0;
 
   function handleClick() {
-    const url = `https://${isTestnet ? 'testnet10-faucet.chia.net' : 'faucet.chia.net'}/?address=${currentAddress}`;
+    const url = `https://${isTestnet ? 'testnet10-faucet.chiknetwork.org' : 'faucet.chiknetwork.org'}/?address=${currentAddress}`;
     openExternal(url);
   }
 
@@ -98,7 +98,7 @@ export default function ProfileAdd() {
         backup_dids: [],
         num_of_backup_ids_needed: '0',
         amount: 1,
-        fee: chiaToMojo(fee),
+        fee: chikToMojo(fee),
         walletName,
       },
     }).unwrap();
@@ -121,7 +121,7 @@ export default function ProfileAdd() {
                     <Trans>Need some {currencyCode}?</Trans>
                   </Typography>
                   <Link onClick={handleClick}>
-                    <Trans>Get Mojos from the Chia Faucet</Trans>
+                    <Trans>Get Mojos from the Chik Faucet</Trans>
                   </Link>
                 </Flex>
               )}

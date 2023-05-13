@@ -1,4 +1,4 @@
-import { Button, Flex, Loading, useOpenDialog } from '@chia-network/core';
+import { Button, Flex, Loading, useOpenDialog } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import React, { useMemo } from 'react';
 

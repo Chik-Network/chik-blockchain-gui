@@ -1,5 +1,5 @@
-import { useGetPlotNFTsQuery, usePwSelfPoolMutation, usePwJoinPoolMutation } from '@chia-network/api-react';
-import { Flex, State, Loading, StateTypography } from '@chia-network/core';
+import { useGetPlotNFTsQuery, usePwSelfPoolMutation, usePwJoinPoolMutation } from '@chik-network/api-react';
+import { Flex, State, Loading, StateTypography } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { ChevronRight as ChevronRightIcon } from '@mui/icons-material';
 import React, { useMemo, ReactNode } from 'react';

@@ -1,5 +1,5 @@
-import { toBech32m, WalletType } from '@chia-network/api';
-import { mojoToChia, mojoToCAT } from '@chia-network/core';
+import { toBech32m, WalletType } from '@chik-network/api';
+import { mojoToChik, mojoToCAT } from '@chik-network/core';
 import BigNumber from 'bignumber.js';
 
 import OfferBuilderData from '../@types/OfferBuilderData';
@@ -26,7 +26,7 @@ export default function createOfferForIdsToOfferBuilderData(
       if (asset) {
         switch (asset.walletType) {
           case WalletType.STANDARD_WALLET:
-            section.xch.push({ amount: mojoToChia(numericValue.abs()).toFixed() });
+            section.xch.push({ amount: mojoToChik(numericValue.abs()).toFixed() });
             break;
           case WalletType.CAT:
             section.tokens.push({ amount: mojoToCAT(numericValue.abs()).toFixed(), assetId: asset.assetId });

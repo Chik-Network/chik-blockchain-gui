@@ -1,5 +1,5 @@
-import type { NFTInfo } from '@chia-network/api';
-import { useGetCatListQuery } from '@chia-network/api-react';
+import type { NFTInfo } from '@chik-network/api';
+import { useGetCatListQuery } from '@chik-network/api-react';
 import {
   CopyToClipboard,
   Flex,
@@ -9,11 +9,11 @@ import {
   TooltipIcon,
   Truncate,
   useCurrencyCode,
-  mojoToChia,
-  mojoToChiaLocaleString,
+  mojoToChik,
+  mojoToChikLocaleString,
   mojoToCAT,
   mojoToCATLocaleString,
-} from '@chia-network/core';
+} from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Box, Typography } from '@mui/material';
 import React, { useMemo } from 'react';
@@ -52,11 +52,11 @@ export default function OfferBuilderNFTRoyalties(props: OfferBuilderNFTRoyalties
         const { address, amount, asset } = royalty;
         const assetLowerCase = asset.toLowerCase();
 
-        if (assetLowerCase === 'xch' || assetLowerCase === currencyCode.toUpperCase()) {
+        if (assetLowerCase === 'xck' || assetLowerCase === currencyCode.toUpperCase()) {
           return {
             address,
-            amount: mojoToChia(amount),
-            amountString: mojoToChiaLocaleString(amount),
+            amount: mojoToChik(amount),
+            amountString: mojoToChikLocaleString(amount),
             symbol: currencyCode.toUpperCase(),
             displaySymbol: currencyCode.toUpperCase(),
           };

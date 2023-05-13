@@ -1,5 +1,5 @@
-import type { NFTInfo } from '@chia-network/api';
-import { Flex, LayoutDashboardSub, useOpenDialog, Tooltip } from '@chia-network/core';
+import type { NFTInfo } from '@chik-network/api';
+import { Flex, LayoutDashboardSub, useOpenDialog, Tooltip } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import {
   MoreVert,

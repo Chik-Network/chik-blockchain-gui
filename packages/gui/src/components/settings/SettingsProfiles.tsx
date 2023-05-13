@@ -1,6 +1,6 @@
-import { WalletType } from '@chia-network/api';
-import { useGetWalletsQuery } from '@chia-network/api-react';
-import { Flex, LayoutDashboardSub, SettingsHR, SettingsSection, SettingsText } from '@chia-network/core';
+import { WalletType } from '@chik-network/api';
+import { useGetWalletsQuery } from '@chik-network/api-react';
+import { Flex, LayoutDashboardSub, SettingsHR, SettingsSection, SettingsText } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Grid } from '@mui/material';
 import React, { useEffect, useMemo, useState } from 'react';

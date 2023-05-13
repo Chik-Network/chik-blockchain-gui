@@ -1,4 +1,4 @@
-import { type NFTInfo } from '@chia-network/api';
+import { type NFTInfo } from '@chik-network/api';
 import { createContext } from 'react';
 
 import type MetadataState from '../../../@types/MetadataState';

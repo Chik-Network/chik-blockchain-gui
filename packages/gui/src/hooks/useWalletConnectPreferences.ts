@@ -1,4 +1,4 @@
-import { useLocalStorage } from '@chia-network/api-react';
+import { useLocalStorage } from '@chik-network/api-react';
 import { useCallback } from 'react';
 
 export type WalletConnectPreferences = {

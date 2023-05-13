@@ -1,4 +1,4 @@
-import { store, api } from '@chia-network/api-react';
+import { store, api } from '@chik-network/api-react';
 import {
   useDarkMode,
   sleep,
@@ -10,7 +10,7 @@ import {
   dark,
   light,
   ErrorBoundary,
-} from '@chia-network/core';
+} from '@chik-network/core';
 import { nativeTheme } from '@electron/remote';
 import { Trans } from '@lingui/macro';
 import { Typography } from '@mui/material';
@@ -25,7 +25,7 @@ import CacheProvider from '../cache/CacheProvider';
 import LRUsProvider from '../lrus/LRUsProvider';
 import NFTProvider from '../nfts/provider/NFTProvider';
 import NotificationsProvider from '../notification/NotificationsProvider';
-import WalletConnectProvider, { WalletConnectChiaProjectId } from '../walletConnect/WalletConnectProvider';
+import WalletConnectProvider, { WalletConnectChikProjectId } from '../walletConnect/WalletConnectProvider';
 import AppState from './AppState';
 
 async function waitForConfig() {
@@ -101,7 +101,7 @@ export default function App(props: AppProps) {
                 <NFTProvider>
                   <ModalDialogsProvider>
                     <Suspense fallback={<LayoutLoading />}>
-                      <WalletConnectProvider projectId={WalletConnectChiaProjectId}>
+                      <WalletConnectProvider projectId={WalletConnectChikProjectId}>
                         <NotificationsProvider>
                           <AppState>{outlet ? <Outlet /> : children}</AppState>
                           <ModalDialogs />

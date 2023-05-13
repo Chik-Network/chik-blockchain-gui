@@ -1,4 +1,4 @@
-import { Loading } from '@chia-network/core';
+import { Loading } from '@chik-network/core';
 import React from 'react';
 
 import NotificationPreviewNFT from './NotificationPreviewNFT';

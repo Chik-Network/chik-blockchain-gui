@@ -1,5 +1,5 @@
-import { ServiceName } from '@chia-network/api';
-import { Mode } from '@chia-network/core';
+import { ServiceName } from '@chik-network/api';
+import { Mode } from '@chik-network/core';
 
 export default {
   [Mode.WALLET]: [ServiceName.WALLET],

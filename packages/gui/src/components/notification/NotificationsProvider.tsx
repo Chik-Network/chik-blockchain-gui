@@ -1,12 +1,12 @@
-import { SyncingStatus } from '@chia-network/api';
+import { SyncingStatus } from '@chik-network/api';
 import {
   useGetNotificationsQuery,
   usePrefs,
   useDeleteNotificationsMutation,
   useCurrentFingerprintSettings,
-} from '@chia-network/api-react';
-import { ConfirmDialog, useOpenDialog } from '@chia-network/core';
-import { useWalletState } from '@chia-network/wallets';
+} from '@chik-network/api-react';
+import { ConfirmDialog, useOpenDialog } from '@chik-network/core';
+import { useWalletState } from '@chik-network/wallets';
 import { Trans } from '@lingui/macro';
 import debug from 'debug';
 import { orderBy } from 'lodash';
@@ -20,7 +20,7 @@ import parseNotification from '../../util/parseNotification';
 import resolveOfferInfo from '../../util/resolveOfferInfo';
 import { pushNotificationStringsForNotificationType } from './utils';
 
-const log = debug('chia-gui:useNotifications');
+const log = debug('chik-gui:useNotifications');
 
 type Notification = {
   id: string;
@@ -322,8 +322,8 @@ export default function NotificationsProvider(props: NotificationsProviderProps)
       valid: true,
       offered: [
         {
-          assetType: 'CHIA',
-          displayName: 'XCH',
+          assetType: 'CHIK',
+          displayName: 'XCK',
           displayAmount: 1,
         },
       ],

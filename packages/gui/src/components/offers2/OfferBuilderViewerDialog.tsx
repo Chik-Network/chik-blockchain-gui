@@ -1,5 +1,5 @@
-import { useGetOfferSummaryMutation } from '@chia-network/api-react';
-import { DialogActions, Loading, Button } from '@chia-network/core';
+import { useGetOfferSummaryMutation } from '@chik-network/api-react';
+import { DialogActions, Loading, Button } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import CloseIcon from '@mui/icons-material/Close';
 import { Alert, Divider, Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material';

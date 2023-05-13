@@ -1,6 +1,6 @@
-import { Connection } from '@chia-network/api';
-import { useGetFullNodeConnectionsQuery } from '@chia-network/api-react';
-import { Card, FormatBytes, FormatLargeNumber, IconButton, Loading, Table, useOpenDialog } from '@chia-network/core';
+import { Connection } from '@chik-network/api';
+import { useGetFullNodeConnectionsQuery } from '@chik-network/api-react';
+import { Card, FormatBytes, FormatLargeNumber, IconButton, Loading, Table, useOpenDialog } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Delete as DeleteIcon } from '@mui/icons-material';
 import { Button, Tooltip } from '@mui/material';

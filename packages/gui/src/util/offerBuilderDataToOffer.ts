@@ -1,6 +1,6 @@
-import type { Wallet } from '@chia-network/api';
-import { WalletType } from '@chia-network/api';
-import { chiaToMojo, catToMojo } from '@chia-network/core';
+import type { Wallet } from '@chik-network/api';
+import { WalletType } from '@chik-network/api';
+import { chikToMojo, catToMojo } from '@chik-network/core';
 import { t } from '@lingui/macro';
 import BigNumber from 'bignumber.js';
 
@@ -14,7 +14,7 @@ import { prepareNFTOfferFromNFTId } from './prepareNFTOffer';
 // Status of existing assets in offers
 // A combination of `type` and `assetId` must be unique through an array of `AssetStatusForOffer`.
 export type AssetStatusForOffer = {
-  type: 'XCH' | 'CAT' | 'SINGLETON';
+  type: 'XCK' | 'CAT' | 'SINGLETON';
   assetId: string;
   assetName?: string; // Used just for labeling
   nftId?: string;
@@ -65,7 +65,7 @@ export default async function offerBuilderDataToOffer({
 
   const usedNFTs: string[] = [];
 
-  const feeInMojos = firstFee ? chiaToMojo(firstFee.amount) : new BigNumber(0);
+  const feeInMojos = firstFee ? chikToMojo(firstFee.amount) : new BigNumber(0);
 
   const walletIdsAndAmounts: Record<string, BigNumber> = {};
   const driverDict: Record<string, Driver> = {};
@@ -87,22 +87,22 @@ export default async function offerBuilderDataToOffer({
       for (let k = 0; k < assetIds.length; k++) {
         const assetId = assetIds[k];
         const lockedAmount = new BigNumber(o.pending[assetId]);
-        if (assetId.toUpperCase() === 'XCH' || assetId.toUpperCase() === 'UNKNOWN') {
+        if (assetId.toUpperCase() === 'XCK' || assetId.toUpperCase() === 'UNKNOWN') {
           // 'UNKNOWN' is the diff between removals and additions of coins in this offer
           // It is assumed to be the amount of the 'fee'
-          const idx = pendingOffers.findIndex((po) => po.type === 'XCH');
+          const idx = pendingOffers.findIndex((po) => po.type === 'XCK');
           if (idx > -1) {
             pendingOffers[idx].lockedAmount = pendingOffers[idx].lockedAmount.plus(lockedAmount);
             pendingOffers[idx].relevantOffers.push(o);
             if (pendingOffers[idx].assetId.toUpperCase() !== assetId.toUpperCase()) {
-              // Now we can distinguish that we have xch spending which is only XCH, only Fee or both XCH and Fee
-              pendingOffers[idx].assetId = 'XCH+FEE';
+              // Now we can distinguish that we have xch spending which is only XCK, only Fee or both XCK and Fee
+              pendingOffers[idx].assetId = 'XCK+FEE';
             }
           } else {
             pendingOffers.push({
-              type: 'XCH',
+              type: 'XCK',
               assetId,
-              assetName: 'XCH',
+              assetName: 'XCK',
               lockedAmount,
               status: '',
               spendingAmount: new BigNumber(0),
@@ -143,7 +143,7 @@ export default async function offerBuilderDataToOffer({
     standardWallet = wallets.find((w) => w.type === WalletType.STANDARD_WALLET);
     for (let i = 0; i < pendingOffers.length; i++) {
       const po = pendingOffers[i];
-      if (po.type === 'XCH') {
+      if (po.type === 'XCK') {
         pendingXchOffer = po;
         pendingXch = po.lockedAmount;
         break;
@@ -158,19 +158,19 @@ export default async function offerBuilderDataToOffer({
   const xchTasks = offeredXch.map(async (xch) => {
     const { amount } = xch;
     if (!amount || amount === '0') {
-      throw new Error(t`Please enter an XCH amount`);
+      throw new Error(t`Please enter an XCK amount`);
     }
     if (!standardWallet || !standardWalletBalance) {
       throw new Error(t`No standard wallet found`);
     }
 
-    const mojoAmount = chiaToMojo(amount);
+    const mojoAmount = chikToMojo(amount);
     walletIdsAndAmounts[standardWallet.id] = mojoAmount.negated();
 
     const spendableBalance = new BigNumber(standardWalletBalance.spendableBalance);
     const hasEnoughTotalBalance = spendableBalance.plus(pendingXch).minus(feeInMojos).gte(mojoAmount);
     if (!hasEnoughTotalBalance) {
-      throw new Error(t`Amount exceeds XCH total balance`);
+      throw new Error(t`Amount exceeds XCK total balance`);
     }
 
     if (pendingXchOffer) {
@@ -195,7 +195,7 @@ export default async function offerBuilderDataToOffer({
     const spendableBalance = new BigNumber(standardWalletBalance.spendableBalance);
     const hasEnoughTotalBalance = spendableBalance.gte(feeInMojos);
     if (!hasEnoughTotalBalance) {
-      throw new Error(t`Fee exceeds XCH total balance`);
+      throw new Error(t`Fee exceeds XCK total balance`);
     }
     if (pendingXchOffer) {
       pendingXchOffer.spendingAmount = feeInMojos;
@@ -294,7 +294,7 @@ export default async function offerBuilderDataToOffer({
     }
 
     if (!amount) {
-      throw new Error(t`Please enter an XCH amount`);
+      throw new Error(t`Please enter an XCK amount`);
     }
 
     const wallet = wallets.find((w) => w.type === WalletType.STANDARD_WALLET);
@@ -306,7 +306,7 @@ export default async function offerBuilderDataToOffer({
       throw new Error(t`Cannot offer and request the same asset`);
     }
 
-    walletIdsAndAmounts[wallet.id] = chiaToMojo(amount);
+    walletIdsAndAmounts[wallet.id] = chikToMojo(amount);
   });
 
   requestedTokens.forEach((token) => {

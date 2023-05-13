@@ -1,5 +1,5 @@
-import { useGetNetworkInfoQuery } from '@chia-network/api-react';
-import { CardSimple } from '@chia-network/core';
+import { useGetNetworkInfoQuery } from '@chik-network/api-react';
+import { CardSimple } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import React from 'react';
 

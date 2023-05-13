@@ -1,4 +1,4 @@
-import { useVerifySignatureMutation } from '@chia-network/api-react';
+import { useVerifySignatureMutation } from '@chik-network/api-react';
 import {
   AlertDialog,
   Button,
@@ -10,7 +10,7 @@ import {
   Truncate,
   useOpenDialog,
   // useShowError,
-} from '@chia-network/core';
+} from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import {

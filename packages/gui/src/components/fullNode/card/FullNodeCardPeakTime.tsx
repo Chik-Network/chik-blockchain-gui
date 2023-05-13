@@ -1,5 +1,5 @@
-import { useGetLatestPeakTimestampQuery } from '@chia-network/api-react';
-import { CardSimple } from '@chia-network/core';
+import { useGetLatestPeakTimestampQuery } from '@chik-network/api-react';
+import { CardSimple } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import moment from 'moment';
 import React from 'react';

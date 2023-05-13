@@ -6,43 +6,43 @@ XPStyle on
 
 Var DetectDlg
 Var FinishDlg
-Var ChiaSquirrelInstallLocation
-Var ChiaSquirrelInstallVersion
-Var ChiaSquirrelUninstaller
+Var ChikSquirrelInstallLocation
+Var ChikSquirrelInstallVersion
+Var ChikSquirrelUninstaller
 Var CheckboxUninstall
 Var CheckboxLaunchOnExit
 Var CheckboxAddToPath
 Var LaunchOnExit
 Var AddToPath
-Var UninstallChiaSquirrelInstall
+Var UninstallChikSquirrelInstall
 Var BackButton
 Var NextButton
 
-Page custom detectOldChiaVersion detectOldChiaVersionPageLeave
+Page custom detectOldChikVersion detectOldChikVersionPageLeave
 Page custom finish finishLeave
 
-; Add a page offering to uninstall an older build installed into the chia-blockchain dir
-Function detectOldChiaVersion
-  ; Check the registry for old chia-blockchain installer keys
-  ReadRegStr $ChiaSquirrelInstallLocation HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\chia-blockchain" "InstallLocation"
-  ReadRegStr $ChiaSquirrelInstallVersion HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\chia-blockchain" "DisplayVersion"
-  ReadRegStr $ChiaSquirrelUninstaller HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\chia-blockchain" "QuietUninstallString"
+; Add a page offering to uninstall an older build installed into the chik-blockchain dir
+Function detectOldChikVersion
+  ; Check the registry for old chik-blockchain installer keys
+  ReadRegStr $ChikSquirrelInstallLocation HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\chik-blockchain" "InstallLocation"
+  ReadRegStr $ChikSquirrelInstallVersion HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\chik-blockchain" "DisplayVersion"
+  ReadRegStr $ChikSquirrelUninstaller HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\chik-blockchain" "QuietUninstallString"
 
-  StrCpy $UninstallChiaSquirrelInstall ${BST_UNCHECKED} ; Initialize to unchecked so that a silent install skips uninstalling
+  StrCpy $UninstallChikSquirrelInstall ${BST_UNCHECKED} ; Initialize to unchecked so that a silent install skips uninstalling
 
   ; If registry keys aren't found, skip (Abort) this page and move forward
-  ${If} ChiaSquirrelInstallVersion == error
-  ${OrIf} ChiaSquirrelInstallLocation == error
-  ${OrIf} $ChiaSquirrelUninstaller == error
-  ${OrIf} $ChiaSquirrelInstallVersion == ""
-  ${OrIf} $ChiaSquirrelInstallLocation == ""
-  ${OrIf} $ChiaSquirrelUninstaller == ""
+  ${If} ChikSquirrelInstallVersion == error
+  ${OrIf} ChikSquirrelInstallLocation == error
+  ${OrIf} $ChikSquirrelUninstaller == error
+  ${OrIf} $ChikSquirrelInstallVersion == ""
+  ${OrIf} $ChikSquirrelInstallLocation == ""
+  ${OrIf} $ChikSquirrelUninstaller == ""
   ${OrIf} ${Silent}
     Abort
   ${EndIf}
 
   ; Check the uninstall checkbox by default
-  StrCpy $UninstallChiaSquirrelInstall ${BST_CHECKED}
+  StrCpy $UninstallChikSquirrelInstall ${BST_CHECKED}
 
   ; Magic create dialog incantation
   nsDialogs::Create 1018
@@ -52,14 +52,14 @@ Function detectOldChiaVersion
     Abort
   ${EndIf}
 
-  !insertmacro MUI_HEADER_TEXT "Uninstall Old Version" "Would you like to uninstall the old version of Chia Blockchain?"
+  !insertmacro MUI_HEADER_TEXT "Uninstall Old Version" "Would you like to uninstall the old version of Chik Blockchain?"
 
-  ${NSD_CreateLabel} 0 35 100% 12u "Found Chia Blockchain $ChiaSquirrelInstallVersion installed in an old location:"
-  ${NSD_CreateLabel} 12 57 100% 12u "$ChiaSquirrelInstallLocation"
+  ${NSD_CreateLabel} 0 35 100% 12u "Found Chik Blockchain $ChikSquirrelInstallVersion installed in an old location:"
+  ${NSD_CreateLabel} 12 57 100% 12u "$ChikSquirrelInstallLocation"
 
-  ${NSD_CreateCheckBox} 12 81 100% 12u "Uninstall Chia Blockchain $ChiaSquirrelInstallVersion"
+  ${NSD_CreateCheckBox} 12 81 100% 12u "Uninstall Chik Blockchain $ChikSquirrelInstallVersion"
   Pop $CheckboxUninstall
-  ${NSD_SetState} $CheckboxUninstall $UninstallChiaSquirrelInstall
+  ${NSD_SetState} $CheckboxUninstall $UninstallChikSquirrelInstall
   ${NSD_OnClick} $CheckboxUninstall SetUninstall
 
   nsDialogs::Show
@@ -67,15 +67,15 @@ Function detectOldChiaVersion
 FunctionEnd
 
 Function SetUninstall
-  ; Set UninstallChiaSquirrelInstall accordingly
-  ${NSD_GetState} $CheckboxUninstall $UninstallChiaSquirrelInstall
+  ; Set UninstallChikSquirrelInstall accordingly
+  ${NSD_GetState} $CheckboxUninstall $UninstallChikSquirrelInstall
 FunctionEnd
 
-Function detectOldChiaVersionPageLeave
-  ${If} $UninstallChiaSquirrelInstall == 1
+Function detectOldChikVersionPageLeave
+  ${If} $UninstallChikSquirrelInstall == 1
     ; This could be improved... Experiments with adding an indeterminate progress bar (PBM_SETMARQUEE)
     ; were unsatisfactory.
-    ExecWait $ChiaSquirrelUninstaller ; Blocks until complete (doesn't take long though)
+    ExecWait $ChikSquirrelUninstaller ; Blocks until complete (doesn't take long though)
   ${EndIf}
 FunctionEnd
 
@@ -89,14 +89,14 @@ Function finish
     Abort
   ${EndIf}
 
-  ${NSD_CreateCheckbox} 0 40% 100% 10% "Launch Chia"
+  ${NSD_CreateCheckbox} 0 40% 100% 10% "Launch Chik"
   Pop $CheckboxLaunchOnExit
   ${NSD_SetState} $CheckboxLaunchOnExit ${BST_CHECKED}
   ${NSD_OnClick} $CheckboxLaunchOnExit SetLaunchOnExit
   StrCpy $LaunchOnExit 1
-  
+
   ${NSD_CreateLabel} 0 65% 100% 10% "Advanced Options:"
-  ${NSD_CreateCheckbox} 5% 75% 100% 10% "Add Chia Command Line executable to PATH"
+  ${NSD_CreateCheckbox} 5% 75% 100% 10% "Add Chik Command Line executable to PATH"
   Pop $CheckboxAddToPath
   ${NSD_SetState} $CheckboxAddToPath ${BST_UNCHECKED}
   ${NSD_OnClick} $CheckboxAddToPath SetAddToPath
@@ -104,7 +104,7 @@ Function finish
   GetDlgItem $NextButton $HWNDPARENT 1 ; 1 = Next button
   GetDlgItem $BackButton $HWNDPARENT 3 ; 3 = Back button
 
-  ${NSD_CreateLabel} 0 35 100% 12u "Chia has been installed successfully!"
+  ${NSD_CreateLabel} 0 35 100% 12u "Chik has been installed successfully!"
   EnableWindow $BackButton 0 ; Disable the Back button
   SendMessage $NextButton ${WM_SETTEXT} 0 "STR:Finish" ; Button title is "Close" by default. Update it here.
 
@@ -150,7 +150,7 @@ Function UpdatePath
   ${Else}
     ReadRegStr $CurrentPath HKCU "Environment" "Path"
   ${EndIf}
-  
+
   ;${If} ${Errors}
   ;  Abort
   ;${EndIf}
@@ -180,7 +180,7 @@ FunctionEnd
 Function finishLeave
   ; Update PATH
   ${If} $AddToPath == 1
-    Push $installMode 
+    Push $installMode
     Call UpdatePath
   ${EndIf}
 

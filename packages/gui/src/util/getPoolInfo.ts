@@ -1,5 +1,5 @@
-import type { PoolInfo } from '@chia-network/api';
-import { toCamelCase } from '@chia-network/api';
+import type { PoolInfo } from '@chik-network/api';
+import { toCamelCase } from '@chik-network/api';
 
 export default async function getPoolInfo(poolUrl: string): PoolInfo {
   const url = `${poolUrl}/pool_info`;

@@ -1,4 +1,4 @@
-import { useGetWalletsQuery, useCheckOfferValidityMutation } from '@chia-network/api-react';
+import { useGetWalletsQuery, useCheckOfferValidityMutation } from '@chik-network/api-react';
 import {
   AlertDialog,
   Flex,
@@ -8,8 +8,8 @@ import {
   Loading,
   useShowError,
   useOpenDialog,
-} from '@chia-network/core';
-import { useIsWalletSynced } from '@chia-network/wallets';
+} from '@chik-network/core';
+import { useIsWalletSynced } from '@chik-network/wallets';
 import { Trans } from '@lingui/macro';
 import { Alert, Grid } from '@mui/material';
 import React, { useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState, forwardRef } from 'react';

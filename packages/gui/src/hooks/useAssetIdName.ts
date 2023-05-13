@@ -1,7 +1,7 @@
-import { WalletType } from '@chia-network/api';
-import { useGetCatListQuery, useGetWalletsQuery } from '@chia-network/api-react';
-import type { CATToken, Wallet } from '@chia-network/core';
-import { useCurrencyCode } from '@chia-network/core';
+import { WalletType } from '@chik-network/api';
+import { useGetCatListQuery, useGetWalletsQuery } from '@chik-network/api-react';
+import type { CATToken, Wallet } from '@chik-network/core';
+import { useCurrencyCode } from '@chik-network/core';
 import { useMemo, useRef, useCallback } from 'react';
 
 export type AssetIdMapEntry = {
@@ -39,7 +39,7 @@ export default function useAssetIdName() {
 
       if (walletType === WalletType.STANDARD_WALLET) {
         assetId = 'xch';
-        name = 'Chia';
+        name = 'Chik';
         symbol = currencyCode;
         isVerified = true;
       } else if (walletType === WalletType.CAT) {
@@ -92,11 +92,11 @@ export default function useAssetIdName() {
       assetIdNameMapping.set(assetId, entry);
     });
 
-    // If using testnet, add a TXCH assetId entry
-    if (currencyCode === 'TXCH') {
+    // If using testnet, add a TXCK assetId entry
+    if (currencyCode === 'TXCK') {
       const assetId = 'txch';
-      const name = 'Chia (Testnet)';
-      const symbol = 'TXCH';
+      const name = 'Chik (Testnet)';
+      const symbol = 'TXCK';
       const displayName = symbol || name;
       const entry: AssetIdMapEntry = {
         walletId: 1,

@@ -1,4 +1,4 @@
-import { Back, Flex } from '@chia-network/core';
+import { Back, Flex } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Typography } from '@mui/material';
 import React from 'react';

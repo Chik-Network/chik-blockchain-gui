@@ -1,5 +1,5 @@
-import api, { store, useGetLoggedInFingerprintQuery, useLogInMutation } from '@chia-network/api-react';
-import { useOpenDialog } from '@chia-network/core';
+import api, { store, useGetLoggedInFingerprintQuery, useLogInMutation } from '@chik-network/api-react';
+import { useOpenDialog } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import debug from 'debug';
 import React, { ReactNode } from 'react';
@@ -12,7 +12,7 @@ import waitForWalletSync from '../util/waitForWalletSync';
 import useWalletConnectPairs from './useWalletConnectPairs';
 import useWalletConnectPreferences from './useWalletConnectPreferences';
 
-const log = debug('chia-gui:walletConnectCommand');
+const log = debug('chik-gui:walletConnectCommand');
 
 /*
 export const STANDARD_ERROR_MAP = {

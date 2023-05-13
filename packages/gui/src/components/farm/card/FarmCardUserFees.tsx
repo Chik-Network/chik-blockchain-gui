@@ -1,5 +1,5 @@
-import { useGetFarmedAmountQuery } from '@chia-network/api-react';
-import { useCurrencyCode, mojoToChiaLocaleString, CardSimple, useLocale } from '@chia-network/core';
+import { useGetFarmedAmountQuery } from '@chik-network/api-react';
+import { useCurrencyCode, mojoToChikLocaleString, CardSimple, useLocale } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import React, { useMemo } from 'react';
 
@@ -14,7 +14,7 @@ export default function FarmCardUserFees() {
     if (feeAmount !== undefined) {
       return (
         <>
-          {mojoToChiaLocaleString(feeAmount, locale)}
+          {mojoToChikLocaleString(feeAmount, locale)}
           &nbsp;
           {currencyCode}
         </>

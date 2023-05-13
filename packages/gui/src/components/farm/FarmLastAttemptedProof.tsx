@@ -1,5 +1,5 @@
-import { useGetFarmingInfoQuery } from '@chia-network/api-react';
-import { Link, Table, Card } from '@chia-network/core';
+import { useGetFarmingInfoQuery } from '@chik-network/api-react';
+import { Link, Table, Card } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import moment from 'moment';
 import React from 'react';
@@ -49,7 +49,7 @@ export default function FarmLastAttemptedProof() {
           This table shows you the last time your farm attempted to win a block challenge.{' '}
           <Link
             target="_blank"
-            href="https://github.com/Chia-Network/chia-blockchain/wiki/FAQ#what-is-the-plot-filter-and-why-didnt-my-plot-pass-it"
+            href="https://github.com/Chik-Network/chik-blockchain/wiki/FAQ#what-is-the-plot-filter-and-why-didnt-my-plot-pass-it"
           >
             Learn more
           </Link>

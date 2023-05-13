@@ -1,4 +1,4 @@
-import { IconMessage, Loading, Flex, SandboxedIframe, usePersistState, useDarkMode } from '@chia-network/core';
+import { IconMessage, Loading, Flex, SandboxedIframe, usePersistState, useDarkMode } from '@chik-network/core';
 import { t, Trans } from '@lingui/macro';
 import { NotInterested /* , Error as ErrorIcon */ } from '@mui/icons-material';
 import { Box } from '@mui/material';

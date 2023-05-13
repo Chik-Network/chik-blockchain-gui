@@ -69,7 +69,7 @@ test('Verify that a recipient wallet receives funds from sending wallet!', async
 
   const balance = getWalletBalance('854449615');
 
-  console.log(`XCH Balance: ${balance}`);
+  console.log(`XCK Balance: ${balance}`);
   // End: Wait for Wallet to Sync
 
   // Given I send funds back

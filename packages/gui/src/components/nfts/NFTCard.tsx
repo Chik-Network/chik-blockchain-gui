@@ -1,4 +1,4 @@
-import { IconButton, Flex } from '@chia-network/core';
+import { IconButton, Flex } from '@chik-network/core';
 import { MoreVert } from '@mui/icons-material';
 import { Card, CardActionArea, CardContent, Checkbox, Typography } from '@mui/material';
 import React, { useMemo, memo } from 'react';

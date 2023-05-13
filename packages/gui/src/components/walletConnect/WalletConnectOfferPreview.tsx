@@ -1,4 +1,4 @@
-import { Button, Flex, useOpenDialog, chiaToMojo } from '@chia-network/core';
+import { Button, Flex, useOpenDialog, chikToMojo } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Typography } from '@mui/material';
 import BigNumber from 'bignumber.js';
@@ -50,9 +50,9 @@ export default function WalletConnectOfferPreview(props: WalletConnectOfferPrevi
     const offerBuilderData = await openDialog(<OfferBuilderViewerDialog offer={offer} fee={fee} />);
     if (offerBuilderData) {
       // use new fee value
-      const feeChia = offerBuilderData.offered.fee?.[0]?.amount;
-      if (feeChia) {
-        const feeMojos = feeChia ? chiaToMojo(feeChia).toFixed() : '0';
+      const feeChik = offerBuilderData.offered.fee?.[0]?.amount;
+      if (feeChik) {
+        const feeMojos = feeChik ? chikToMojo(feeChik).toFixed() : '0';
         onChange({
           ...values,
           fee: feeMojos,

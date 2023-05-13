@@ -1,7 +1,7 @@
-import type { Wallet, CATToken } from '@chia-network/api';
-import { WalletType } from '@chia-network/api';
-import { useGetCatListQuery, useGetWalletsQuery } from '@chia-network/api-react';
-import { Select, useCurrencyCode } from '@chia-network/core';
+import type { Wallet, CATToken } from '@chik-network/api';
+import { WalletType } from '@chik-network/api';
+import { useGetCatListQuery, useGetWalletsQuery } from '@chik-network/api-react';
+import { Select, useCurrencyCode } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { FormControl, InputLabel, MenuItem } from '@mui/material';
 import React, { useMemo } from 'react';
@@ -25,11 +25,11 @@ type BuildAssetSelectorListParams = {
   rows: OfferEditorRowData[];
   otherRows: OfferEditorRowData[];
   selectedWalletId: number;
-  chiaCurrencyCode: string;
+  chikCurrencyCode: string;
 };
 
 function buildAssetSelectorList(params: BuildAssetSelectorListParams): WalletOfferAssetSelection[] {
-  const { wallets, catList, rows, otherRows, selectedWalletId, chiaCurrencyCode } = params;
+  const { wallets, catList, rows, otherRows, selectedWalletId, chikCurrencyCode } = params;
   const list: WalletOfferAssetSelection[] = [];
   const usedWalletIds: Set<number> = new Set();
   const otherUsedWalletIds: Set<number> = new Set();
@@ -64,8 +64,8 @@ function buildAssetSelectorList(params: BuildAssetSelectorListParams): WalletOff
     }
 
     if (wallet.type === WalletType.STANDARD_WALLET) {
-      name = 'Chia';
-      symbol = chiaCurrencyCode;
+      name = 'Chik';
+      symbol = chikCurrencyCode;
     } else if (wallet.type === WalletType.CAT) {
       name = wallet.name;
       tail = wallet.meta.assetId;
@@ -122,7 +122,7 @@ function OfferAssetSelector(props: OfferAssetSelectorProps) {
       rows,
       otherRows,
       selectedWalletId,
-      chiaCurrencyCode: currencyCode,
+      chikCurrencyCode: currencyCode,
     });
   }, [isLoading, isCatListLoading, wallets, catList, rows, otherRows, selectedWalletId, currencyCode]);
 

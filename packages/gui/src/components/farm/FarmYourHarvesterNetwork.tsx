@@ -1,7 +1,7 @@
-import type { Connection } from '@chia-network/api';
-import { ServiceName } from '@chia-network/api';
-import { useService, useGetHarvesterConnectionsQuery } from '@chia-network/api-react';
-import { Table, FormatBytes, FormatConnectionStatus, Card } from '@chia-network/core';
+import type { Connection } from '@chik-network/api';
+import { ServiceName } from '@chik-network/api';
+import { useService, useGetHarvesterConnectionsQuery } from '@chik-network/api-react';
+import { Table, FormatBytes, FormatConnectionStatus, Card } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Delete as DeleteIcon } from '@mui/icons-material';
 import { Typography, Tooltip, IconButton } from '@mui/material';

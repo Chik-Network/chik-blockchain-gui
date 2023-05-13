@@ -1,5 +1,5 @@
-import type { NFTAttribute } from '@chia-network/api';
-import { CopyToClipboard, Flex, Loading, TooltipIcon, truncateValue } from '@chia-network/core';
+import type { NFTAttribute } from '@chik-network/api';
+import { CopyToClipboard, Flex, Loading, TooltipIcon, truncateValue } from '@chik-network/core';
 import { t, Trans } from '@lingui/macro';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';

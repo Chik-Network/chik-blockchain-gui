@@ -1,7 +1,7 @@
-import { store, walletApi } from '@chia-network/api-react';
+import { store, walletApi } from '@chik-network/api-react';
 import BigNumber from 'bignumber.js';
 
-// The original content of the type comes from '@chia-network/src/services/wallet.ts'
+// The original content of the type comes from '@chik-network/src/services/wallet.ts'
 export type WalletBalanceFormatted = {
   confirmedWalletBalance: number;
   maxSendAmount: number;

@@ -1,5 +1,5 @@
-import { useResyncWalletMutation } from '@chia-network/api-react';
-import { AlertDialog, Button, DialogActions, useOpenDialog } from '@chia-network/core';
+import { useResyncWalletMutation } from '@chik-network/api-react';
+import { AlertDialog, Button, DialogActions, useOpenDialog } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import React from 'react';
@@ -39,8 +39,8 @@ export default function ResyncPrompt(props: Props) {
       <DialogContent>
         <DialogContentText>
           <Trans>
-            To initiate a wallet resync, all Chia services must first be shut down. After shutting down, you will be
-            required to restart Chia to begin the resyncing process. Are you sure you want to shut down and resync?
+            To initiate a wallet resync, all Chik services must first be shut down. After shutting down, you will be
+            required to restart Chik to begin the resyncing process. Are you sure you want to shut down and resync?
           </Trans>
         </DialogContentText>
       </DialogContent>

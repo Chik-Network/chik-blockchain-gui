@@ -1,4 +1,4 @@
-import { toBech32m } from '@chia-network/api';
+import { toBech32m } from '@chik-network/api';
 import {
   Flex,
   CardKeyValue,
@@ -8,7 +8,7 @@ import {
   truncateValue,
   Link,
   useCurrencyCode,
-} from '@chia-network/core';
+} from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Box, Typography } from '@mui/material';
 import React, { useMemo } from 'react';

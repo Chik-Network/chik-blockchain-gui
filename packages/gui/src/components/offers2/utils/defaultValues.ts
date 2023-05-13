@@ -1,12 +1,12 @@
 export const emptyDefaultValues = {
   offered: {
-    xch: [],
+    xck: [],
     tokens: [],
     nfts: [],
     fee: [],
   },
   requested: {
-    xch: [],
+    xck: [],
     tokens: [],
     nfts: [],
     fee: [],

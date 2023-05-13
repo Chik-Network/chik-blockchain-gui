@@ -1,5 +1,5 @@
-import { Flex } from '@chia-network/core';
-import { WalletGraphTooltip } from '@chia-network/wallets';
+import { Flex } from '@chik-network/core';
+import { WalletGraphTooltip } from '@chik-network/wallets';
 import { t } from '@lingui/macro';
 import { Box, Typography } from '@mui/material';
 import React, { ReactNode } from 'react';

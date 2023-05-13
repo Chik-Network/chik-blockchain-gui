@@ -1,17 +1,17 @@
-import type { Wallet } from '@chia-network/api';
-import { WalletType } from '@chia-network/api';
-import { useGetWalletBalanceQuery, useGetWalletsQuery } from '@chia-network/api-react';
+import type { Wallet } from '@chik-network/api';
+import { WalletType } from '@chik-network/api';
+import { useGetWalletBalanceQuery, useGetWalletsQuery } from '@chik-network/api-react';
 import {
   Amount,
   Fee,
   Flex,
   TooltipIcon,
-  mojoToChia,
-  mojoToChiaLocaleString,
+  mojoToChik,
+  mojoToChikLocaleString,
   mojoToCAT,
   mojoToCATLocaleString,
   useLocale,
-} from '@chia-network/core';
+} from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Add, Remove } from '@mui/icons-material';
 import { Box, Divider, IconButton, Typography } from '@mui/material';
@@ -61,8 +61,8 @@ function OfferEditorConditionRow(props: OfferEditorConditionsRowProps) {
     if (!isLoading && tradeSide === 'sell' && walletBalance && walletBalance.walletId === row.assetWalletId) {
       switch (item.walletType) {
         case WalletType.STANDARD_WALLET:
-          balanceString = mojoToChiaLocaleString(walletBalance.spendableBalance, locale);
-          balance = mojoToChia(walletBalance.spendableBalance);
+          balanceString = mojoToChikLocaleString(walletBalance.spendableBalance, locale);
+          balance = mojoToChik(walletBalance.spendableBalance);
           break;
         case WalletType.CAT:
           balanceString = mojoToCATLocaleString(walletBalance.spendableBalance, locale);
@@ -391,7 +391,7 @@ function OfferEditorConditionsPanel(props: OfferEditorConditionsPanelProps) {
             <TooltipIcon>
               <Trans>
                 Including a fee in the offer can help expedite the transaction when the offer is accepted. The
-                recommended minimum fee is 0.000005 XCH (5,000,000 mojos)
+                recommended minimum fee is 0.000005 XCK (5,000,000 mojos)
               </Trans>
             </TooltipIcon>
           </Box>

@@ -1,5 +1,5 @@
-import type { NFTInfo } from '@chia-network/api';
-import { useCurrencyCode } from '@chia-network/core';
+import type { NFTInfo } from '@chik-network/api';
+import { useCurrencyCode } from '@chik-network/core';
 
 import useOpenExternal from './useOpenExternal';
 
@@ -29,7 +29,7 @@ const UrlBuilderMapping = {
 
 export default function useViewNFTOnExplorer() {
   const openExternal = useOpenExternal();
-  const testnet = useCurrencyCode() === 'TXCH';
+  const testnet = useCurrencyCode() === 'TXCK';
 
   function handleViewNFTOnExplorer(nft: NFTInfo, explorer: NFTExplorer) {
     const urlBuilder = UrlBuilderMapping[explorer];

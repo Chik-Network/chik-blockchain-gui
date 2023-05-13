@@ -1,5 +1,5 @@
-import { OfferSummaryRecord } from '@chia-network/api';
-import { mojoToCAT, mojoToChia } from '@chia-network/core';
+import { OfferSummaryRecord } from '@chik-network/api';
+import { mojoToCAT, mojoToChik } from '@chik-network/core';
 import BigNumber from 'bignumber.js';
 
 import type OfferBuilderData from '../@types/OfferBuilderData';
@@ -13,12 +13,12 @@ export default function offerToOfferBuilderData(
 ): OfferBuilderData {
   const { fees, offered, requested, infos } = offerSummary;
 
-  const defaultFeeXCH = defaultFee ? mojoToChia(defaultFee).toFixed() : '';
+  const defaultFeeXCK = defaultFee ? mojoToChik(defaultFee).toFixed() : '';
 
   const offeredXch: OfferBuilderData['offered']['xch'] = [];
   const offeredTokens: OfferBuilderData['offered']['tokens'] = [];
   const offeredNfts: OfferBuilderData['offered']['nfts'] = [];
-  const offeredFee: OfferBuilderData['offered']['fee'] = setDefaultOfferedFee ? [{ amount: defaultFeeXCH }] : [];
+  const offeredFee: OfferBuilderData['offered']['fee'] = setDefaultOfferedFee ? [{ amount: defaultFeeXCK }] : [];
   const requestedXch: OfferBuilderData['requested']['xch'] = [];
   const requestedTokens: OfferBuilderData['requested']['tokens'] = [];
   const requestedNfts: OfferBuilderData['requested']['nfts'] = [];
@@ -40,7 +40,7 @@ export default function offerToOfferBuilderData(
       });
     } else if (id === 'xch') {
       offeredXch.push({
-        amount: mojoToChia(amount).toFixed(),
+        amount: mojoToChik(amount).toFixed(),
       });
     }
   });
@@ -60,7 +60,7 @@ export default function offerToOfferBuilderData(
       });
     } else if (id === 'xch') {
       requestedXch.push({
-        amount: mojoToChia(amount).toFixed(),
+        amount: mojoToChik(amount).toFixed(),
       });
     }
   });
@@ -78,7 +78,7 @@ export default function offerToOfferBuilderData(
       nfts: requestedNfts,
       fee: [
         {
-          amount: mojoToChia(fees).toFixed(),
+          amount: mojoToChik(fees).toFixed(),
         },
       ],
     },

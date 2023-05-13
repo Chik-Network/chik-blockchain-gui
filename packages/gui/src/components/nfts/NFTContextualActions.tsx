@@ -1,14 +1,14 @@
 /* eslint-disable no-bitwise -- enable bitwise operators for this file */
 
-import type { NFTInfo } from '@chia-network/api';
-import { useSetNFTStatusMutation, useLocalStorage } from '@chia-network/api-react';
-import { AlertDialog, DropdownActions, MenuItem, useOpenDialog } from '@chia-network/core';
+import type { NFTInfo } from '@chik-network/api';
+import { useSetNFTStatusMutation, useLocalStorage } from '@chik-network/api-react';
+import { AlertDialog, DropdownActions, MenuItem, useOpenDialog } from '@chik-network/core';
 import {
   Burn as BurnIcon,
   LinkSmall as LinkSmallIcon,
   NFTsSmall as NFTsSmallIcon,
   OffersSmall as OffersSmallIcon,
-} from '@chia-network/icons';
+} from '@chik-network/icons';
 import { Trans } from '@lingui/macro';
 import {
   ArrowForward as TransferIcon,
