@@ -1,5 +1,5 @@
-import { SyncingStatus } from '@chia-network/api';
-import { useGetSyncStatusQuery } from '@chia-network/api-react';
+import { SyncingStatus } from '@chik-network/api';
+import { useGetSyncStatusQuery } from '@chik-network/api-react';
 // import { Trans } from '@lingui/macro';
 import { Box, Typography } from '@mui/material';
 import React from 'react';

@@ -1,5 +1,5 @@
-import { Flex /* , Button */ } from '@chia-network/core';
-import { Search as SearchIcon } from '@chia-network/icons';
+import { Flex /* , Button */ } from '@chik-network/core';
+import { Search as SearchIcon } from '@chik-network/icons';
 import data from '@emoji-mart/data';
 import { t, Trans } from '@lingui/macro';
 import ShuffleIcon from '@mui/icons-material/Shuffle';

@@ -1,4 +1,4 @@
-import { Search as SearchIcon } from '@chia-network/icons';
+import { Search as SearchIcon } from '@chik-network/icons';
 import { t } from '@lingui/macro';
 import { InputBase /* , InputBaseProps */, Box } from '@mui/material';
 import { useTheme } from '@mui/material/styles';

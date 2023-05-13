@@ -1,8 +1,8 @@
 import BigNumber from 'bignumber.js';
 
 import Unit from '../constants/Unit';
-import chiaFormatter from './chiaFormatter';
+import chikFormatter from './chikFormatter';
 
-export default function mojoToChiaLocaleString(mojo: string | number | BigNumber, locale?: string) {
-  return chiaFormatter(mojo, Unit.MOJO).to(Unit.CHIA).toLocaleString(locale);
+export default function mojoToChikLocaleString(mojo: string | number | BigNumber, locale?: string) {
+  return chikFormatter(mojo, Unit.MOJO).to(Unit.CHIK).toLocaleString(locale);
 }

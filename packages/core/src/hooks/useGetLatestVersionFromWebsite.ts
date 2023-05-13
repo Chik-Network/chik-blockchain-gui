@@ -1,4 +1,4 @@
-import { useLocalStorage } from '@chia-network/api-react';
+import { useLocalStorage } from '@chik-network/api-react';
 import { useCallback, useState, useEffect } from 'react';
 
 import compareAppVersions from '../utils/compareAppVersion';
@@ -25,7 +25,7 @@ export default function useGetLatestVersionFromWebsite(): UseGetLatestVersionFro
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [latestVersionURL] = useLocalStorage<string>(
     'latestVersionURL',
-    'https://download.chia.net/latest/latest.json'
+    'https://download.chiknetwork.org/latest/latest.json'
   );
   const [skipVersions, setSkipVersions] = useLocalStorage<string[]>('skipVersions', []);
   const { version: appVersion } = useAppVersion();
@@ -54,14 +54,14 @@ export default function useGetLatestVersionFromWebsite(): UseGetLatestVersionFro
         }, 1000); /* we need the delay, otherwise dialog will close too fast */
       } catch (e) {
         /* we don't need to handle error here, if we are unable to fetch version number
-           from chia.net, we just ignore showing reminder dialog */
+           from chiknetwork.org, we just ignore showing reminder dialog */
       }
     });
   }, [latestVersionURL]);
 
-  const downloadUrl = downloadPath ? new URL(downloadPath, 'https://www.chia.net/').toString() : undefined;
-  const releaseNotesUrl = releaseNotesPath ? new URL(releaseNotesPath, 'https://www.chia.net/').toString() : undefined;
-  const blogUrl = blogPath ? new URL(blogPath, 'https://www.chia.net/').toString() : undefined;
+  const downloadUrl = downloadPath ? new URL(downloadPath, 'https://www.chiknetwork.org/').toString() : undefined;
+  const releaseNotesUrl = releaseNotesPath ? new URL(releaseNotesPath, 'https://www.chiknetwork.org/').toString() : undefined;
+  const blogUrl = blogPath ? new URL(blogPath, 'https://www.chiknetwork.org/').toString() : undefined;
 
   return {
     appVersion,

@@ -1,8 +1,8 @@
 import BigNumber from 'bignumber.js';
 
 import Unit from '../constants/Unit';
-import chiaFormatter from './chiaFormatter';
+import chikFormatter from './chikFormatter';
 
-export default function chiaToMojo(chia: string | number | BigNumber): BigNumber {
-  return chiaFormatter(chia, Unit.CHIA).to(Unit.MOJO).toBigNumber();
+export default function chikToMojo(chik: string | number | BigNumber): BigNumber {
+  return chikFormatter(chik, Unit.CHIK).to(Unit.MOJO).toBigNumber();
 }

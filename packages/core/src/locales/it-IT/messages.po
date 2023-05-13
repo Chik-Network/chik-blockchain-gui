@@ -15,7 +15,7 @@ msgstr ""
 "X-Crowdin-Project: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "X-Crowdin-Project-ID: 1\n"
 "X-Crowdin-Language: it\n"
-"X-Crowdin-File: /[Chia-Network.chia-blockchain-gui] main/packages/core/src/locales/en-US/messages.po\n"
+"X-Crowdin-File: /[Chik-Network.chik-blockchain-gui] main/packages/core/src/locales/en-US/messages.po\n"
 "X-Crowdin-File-ID: 1304\n"
 
 #: src/components/Amount/Amount.tsx:36
@@ -122,7 +122,7 @@ msgstr ""
 
 #: src/screens/SelectKey/SelectKeyDeleteKeyDialog.tsx:58
 msgid "Farmer public key:"
-msgstr "Chiave pubblica del farmer:"
+msgstr "Chikve pubblica del farmer:"
 
 #: src/components/Settings/SettingsApp.tsx:73
 msgid "Farming"
@@ -173,7 +173,7 @@ msgstr "Lingua"
 
 #: src/components/Settings/SettingsApp.tsx:97
 msgid "Light"
-msgstr "Chiaro"
+msgstr "Chikro"
 
 #: src/components/EstimatedFee/EstimatedFee.tsx:232
 msgid "Likely in {0} seconds"
@@ -244,16 +244,16 @@ msgstr ""
 
 #: src/screens/SelectKey/SelectKeyDeleteKeyDialog.tsx:66
 msgid "Pool public key:"
-msgstr "Chiave Pubblica Pool:"
+msgstr "Chikve Pubblica Pool:"
 
 #: src/screens/SelectKey/SelectKeyDeleteKeyDialog.tsx:27
 #: src/screens/SelectKey/SelectKeyDeleteKeyDialog.tsx:34
 msgid "Private key {fingerprint}"
-msgstr "Chiave privata {fingerprint}"
+msgstr "Chikve privata {fingerprint}"
 
 #: src/screens/SelectKey/SelectKeyDeleteKeyDialog.tsx:42
 msgid "Private key:"
-msgstr "Chiave privata:"
+msgstr "Chikve privata:"
 
 #: src/screens/SelectKey/SelectKeyDetailDialog.tsx:82
 msgid "Public Key"
@@ -261,7 +261,7 @@ msgstr ""
 
 #: src/screens/SelectKey/SelectKeyDeleteKeyDialog.tsx:50
 msgid "Public key:"
-msgstr "Chiave pubblica:"
+msgstr "Chikve pubblica:"
 
 #: src/components/ErrorBoundary/ErrorBoundary.tsx:85
 msgid "Reload Application"
@@ -298,7 +298,7 @@ msgstr "Seed:"
 
 #: src/screens/SelectKey/SelectKey.tsx:134
 msgid "Select Key"
-msgstr "Selezione Chiave"
+msgstr "Selezione Chikve"
 
 #: src/components/Dropdown/Dropdown.tsx:28
 msgid "Select..."
@@ -417,8 +417,8 @@ msgid "Wallet {0}"
 msgstr ""
 
 #: src/screens/SelectKey/SelectKey.tsx:142
-msgid "Welcome to Chia. Please log in with an existing key, or create a new key."
-msgstr "Benvenuto da Chia. Per favore accedi con una chiave esistente, o crea una nuova chiave."
+msgid "Welcome to Chik. Please log in with an existing key, or create a new key."
+msgstr "Benvenuto da Chik. Per favore accedi con una chiave esistente, o crea una nuova chiave."
 
 #: src/components/Back/Back.tsx:40
 #: src/components/FormBackButton/FormBackButton.tsx:31

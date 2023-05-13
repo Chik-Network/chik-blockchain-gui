@@ -1,4 +1,4 @@
-import { ConnectCheckmark, ConnectCancel, ConnectReload } from '@chia-network/icons';
+import { ConnectCheckmark, ConnectCancel, ConnectReload } from '@chik-network/icons';
 import React from 'react';
 import styled from 'styled-components';
 
