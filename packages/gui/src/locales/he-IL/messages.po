@@ -56,8 +56,8 @@ msgstr ""
 
 #: src/electron/main.tsx:681
 #: src/electron/main.tsx:768
-msgid "About Cactus Blockchain"
-msgstr "אודות Cactus Blockchain"
+msgid "About CHIK Blockchain"
+msgstr "אודות CHIK Blockchain"
 
 #: src/components/offers/NFTOfferViewer.tsx:749
 #: src/components/offers/OfferAcceptConfirmationDialog.tsx:23
@@ -247,7 +247,7 @@ msgid "Block VDF Iterations"
 msgstr "בלוק VDF איטרציות"
 
 #: src/components/block/Block.jsx:295
-msgid "Block at height {0} in the Cactus blockchain"
+msgid "Block at height {0} in the CHIK blockchain"
 msgstr "בלוק בגובה {0} בבלוקצ'יין צ'יה"
 
 #: src/components/block/Block.jsx:128
@@ -360,7 +360,7 @@ msgstr "שנה/י בריכה (Pool)"
 
 #: src/components/settings/SettingsDataLayer.tsx:57
 #: src/components/settings/SettingsStartup.tsx:36
-msgid "Changes will take effect the next time Cactus is started"
+msgid "Changes will take effect the next time CHIK is started"
 msgstr ""
 
 #: src/electron/main.tsx:660
@@ -380,11 +380,11 @@ msgid "Check Provenance on Spacescan.io"
 msgstr ""
 
 #: src/electron/main.tsx:678
-msgid "Cactus"
+msgid "CHIK"
 msgstr "צ'יה"
 
 #: src/electron/main.tsx:617
-msgid "Cactus Blockchain Wiki"
+msgid "CHIK Blockchain Wiki"
 msgstr "ארנק צ'יה"
 
 #: src/components/app/AppSelectMode.tsx:155
@@ -676,7 +676,7 @@ msgid "Deleting key"
 msgstr ""
 
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:92
-msgid "Depending on your system configuration, you may find that an alternative plotter produces plots faster than the default Cactus Proof of Space plotter. If unsure, use the default Cactus Proof of Space plotter."
+msgid "Depending on your system configuration, you may find that an alternative plotter produces plots faster than the default CHIK Proof of Space plotter. If unsure, use the default CHIK Proof of Space plotter."
 msgstr ""
 
 #: src/components/settings/SettingsPanel.tsx:180
@@ -879,7 +879,7 @@ msgid "Exclude final directory"
 msgstr "אל תכלול את התקייה הסופית"
 
 #: src/components/nfts/gallery/NFTGalleryHero.tsx:17
-msgid "Explore the Cactus ecosystem; discover and trade great NFTs"
+msgid "Explore the CHIK ecosystem; discover and trade great NFTs"
 msgstr ""
 
 #: src/components/offers/utils.ts:175
@@ -1997,7 +1997,7 @@ msgid "Plots With Missing Keys"
 msgstr ""
 
 #: src/components/plot/overview/PlotOverviewHero.tsx:33
-msgid "Plots are allocated space on your hard drive used to farm and earn Cactus.<0>Learn more</0>"
+msgid "Plots are allocated space on your hard drive used to farm and earn CHIK.<0>Learn more</0>"
 msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:228
@@ -2771,8 +2771,8 @@ msgstr ""
 msgid "Total Amount Requested"
 msgstr ""
 
-#: src/components/farm/card/FarmCardTotalCactusFarmed.tsx:27
-msgid "Total Cactus Farmed"
+#: src/components/farm/card/FarmCardTotalCHIKFarmed.tsx:27
+msgid "Total CHIK Farmed"
 msgstr ""
 
 #: src/components/plot/card/PlotCardTotalHarvesters.tsx:11
@@ -3157,7 +3157,7 @@ msgstr ""
 #: src/components/app/AppKeyringMigrator.tsx:239
 #: src/components/settings/ChangePassphrasePrompt.tsx:271
 #: src/components/settings/SetPassphrasePrompt.tsx:242
-msgid "Your passphrase can be stored in your system's secure credential store. Cactus will be able to access your keys without prompting for your passphrase."
+msgid "Your passphrase can be stored in your system's secure credential store. CHIK will be able to access your keys without prompting for your passphrase."
 msgstr ""
 
 #: src/components/settings/SettingsPanel.tsx:52
