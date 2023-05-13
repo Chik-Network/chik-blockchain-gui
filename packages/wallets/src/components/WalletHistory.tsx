@@ -1,10 +1,10 @@
-import { WalletType, TransactionType, toBech32m } from '@chia-network/api';
-import type { Transaction } from '@chia-network/api';
+import { WalletType, TransactionType, toBech32m } from '@chik-network/api';
+import type { Transaction } from '@chik-network/api';
 import {
   useGetOfferRecordMutation,
   useGetSyncStatusQuery,
   useGetTransactionMemoMutation,
-} from '@chia-network/api-react';
+} from '@chik-network/api-react';
 import {
   Card,
   CopyToClipboard,
@@ -13,12 +13,12 @@ import {
   TableControlled,
   useCurrencyCode,
   useSerializedNavigationState,
-  mojoToChia,
+  mojoToChik,
   mojoToCAT,
   FormatLargeNumber,
   truncateValue,
-} from '@chia-network/core';
-import type { Row } from '@chia-network/core';
+} from '@chik-network/core';
+import type { Row } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import {
   CallReceived as CallReceivedIcon,
@@ -118,7 +118,7 @@ const getCols = (type: WalletType, isSyncing, getOfferRecord, navigate, location
           <strong>{isOutgoing ? <Trans>-</Trans> : <Trans>+</Trans>}</strong>
           &nbsp;
           <strong>
-            <FormatLargeNumber value={type === WalletType.CAT ? mojoToCAT(row.amount) : mojoToChia(row.amount)} />
+            <FormatLargeNumber value={type === WalletType.CAT ? mojoToCAT(row.amount) : mojoToChik(row.amount)} />
           </strong>
           &nbsp;
           {metadata.unit}
@@ -131,7 +131,7 @@ const getCols = (type: WalletType, isSyncing, getOfferRecord, navigate, location
     field: (row: Row, metadata) => (
       <>
         <strong>
-          <FormatLargeNumber value={mojoToChia(row.feeAmount)} />
+          <FormatLargeNumber value={mojoToChik(row.feeAmount)} />
         </strong>
         &nbsp;
         {metadata.feeUnit}

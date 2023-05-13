@@ -1,5 +1,5 @@
-import type { Wallet, CATToken } from '@chia-network/api';
-import { WalletType } from '@chia-network/api';
+import type { Wallet, CATToken } from '@chik-network/api';
+import { WalletType } from '@chik-network/api';
 
 export default function isCATWalletPresent(wallets: Wallet[], token: CATToken): boolean {
   return !!wallets?.find((wallet) => {

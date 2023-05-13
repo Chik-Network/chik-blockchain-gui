@@ -1,7 +1,7 @@
-import type { Wallet } from '@chia-network/api';
-import { WalletType } from '@chia-network/api';
-import { useGetCatListQuery } from '@chia-network/api-react';
-import { Tooltip } from '@chia-network/core';
+import type { Wallet } from '@chik-network/api';
+import { WalletType } from '@chik-network/api';
+import { useGetCatListQuery } from '@chik-network/api-react';
+import { Tooltip } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { VerifiedUser as VerifiedUserIcon, VerifiedUserProps } from '@mui/icons-material';
 import React from 'react';

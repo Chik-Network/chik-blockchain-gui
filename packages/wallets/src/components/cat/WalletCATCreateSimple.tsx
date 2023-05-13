@@ -1,7 +1,7 @@
-import type { CATToken } from '@chia-network/api';
-import { SyncingStatus } from '@chia-network/api';
-import { useGetWalletsQuery, useAddCATTokenMutation, useGetCatListQuery } from '@chia-network/api-react';
-import { Back, Flex, Loading, useShowError } from '@chia-network/core';
+import type { CATToken } from '@chik-network/api';
+import { SyncingStatus } from '@chik-network/api';
+import { useGetWalletsQuery, useAddCATTokenMutation, useGetCatListQuery } from '@chik-network/api-react';
+import { Back, Flex, Loading, useShowError } from '@chik-network/core';
 import { Trans, t } from '@lingui/macro';
 import { Add as AddIcon } from '@mui/icons-material';
 import { Grid } from '@mui/material';

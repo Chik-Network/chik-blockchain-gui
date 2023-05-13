@@ -1,5 +1,5 @@
-import { useGetWalletBalanceQuery } from '@chia-network/api-react';
-import { CardSimple } from '@chia-network/core';
+import { useGetWalletBalanceQuery } from '@chik-network/api-react';
+import { CardSimple } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import React, { ReactElement } from 'react';
 

@@ -1,6 +1,6 @@
-import { useGetCurrentAddressQuery, useGetNextAddressMutation } from '@chia-network/api-react';
-import { Flex, Loading, truncateValue, useColorModeValue } from '@chia-network/core';
-import { Reload } from '@chia-network/icons';
+import { useGetCurrentAddressQuery, useGetNextAddressMutation } from '@chik-network/api-react';
+import { Flex, Loading, truncateValue, useColorModeValue } from '@chik-network/core';
+import { Reload } from '@chik-network/icons';
 import { Trans } from '@lingui/macro';
 import { Button, IconButton, Tooltip, Typography } from '@mui/material';
 import React, { useState } from 'react';

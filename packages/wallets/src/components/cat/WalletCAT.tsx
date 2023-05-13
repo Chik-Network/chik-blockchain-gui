@@ -1,7 +1,7 @@
-import { WalletType } from '@chia-network/api';
-import { useSetCATNameMutation, useGetCatListQuery } from '@chia-network/api-react';
-import { Flex, Loading, MenuItem, useOpenDialog } from '@chia-network/core';
-import { Offers as OffersIcon } from '@chia-network/icons';
+import { WalletType } from '@chik-network/api';
+import { useSetCATNameMutation, useGetCatListQuery } from '@chik-network/api-react';
+import { Flex, Loading, MenuItem, useOpenDialog } from '@chik-network/core';
+import { Offers as OffersIcon } from '@chik-network/icons';
 import { Trans } from '@lingui/macro';
 import { Edit as RenameIcon, Fingerprint as FingerprintIcon } from '@mui/icons-material';
 import { Box, ListItemIcon, Alert, Typography } from '@mui/material';

@@ -1,6 +1,6 @@
-import { WalletType } from '@chia-network/api';
-import { useSetCATNameMutation, useGetLocalCatName } from '@chia-network/api-react';
-import { Tooltip, CardListItem, Flex, Link, useShowError, Form, TextField } from '@chia-network/core';
+import { WalletType } from '@chik-network/api';
+import { useSetCATNameMutation, useGetLocalCatName } from '@chik-network/api-react';
+import { Tooltip, CardListItem, Flex, Link, useShowError, Form, TextField } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
 import { Box, Typography, Switch, CircularProgress } from '@mui/material';
 import React, { useEffect, useMemo, useState, useRef } from 'react';
