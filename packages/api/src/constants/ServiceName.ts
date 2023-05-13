@@ -1,6 +1,6 @@
 const ServiceName = {
-  WALLET: 'chia_wallet',
-  FULL_NODE: 'chia_full_node',
+  WALLET: 'chik_wallet',
+  FULL_NODE: 'chik_full_node',
   FARMER: 'chik_farmer',
   HARVESTER: 'chik_harvester',
   SIMULATOR: 'chik_full_node_simulator',

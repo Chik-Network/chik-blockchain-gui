@@ -3534,7 +3534,7 @@ msgstr ""
 
 #: src/components/farm/card/FarmCardTotalChikFarmed.tsx:27
 msgid "Total Chik Farmed"
-msgstr "Nombre de chias cultivés"
+msgstr "Nombre de chiks cultivés"
 
 #: src/components/plot/card/PlotCardTotalHarvesters.tsx:11
 msgid "Total Harvesters"
