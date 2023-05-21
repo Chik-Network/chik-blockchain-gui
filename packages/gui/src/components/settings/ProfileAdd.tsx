@@ -68,7 +68,7 @@ export default function ProfileAdd() {
   const canCreateProfile = spendableBalance > 0;
 
   function handleClick() {
-    const url = `https://${isTestnet ? 'testnet10-faucet.chiknetwork.org' : 'faucet.chiknetwork.org'}/?address=${currentAddress}`;
+    const url = `https://${isTestnet ? 'testnet10-faucet.chiknetwork.com' : 'faucet.chiknetwork.com'}/?address=${currentAddress}`;
     openExternal(url);
   }
 

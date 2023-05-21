@@ -25,7 +25,7 @@ export default function useGetLatestVersionFromWebsite(): UseGetLatestVersionFro
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [latestVersionURL] = useLocalStorage<string>(
     'latestVersionURL',
-    'https://download.chiknetwork.org/latest/latest.json'
+    'https://download.chiknetwork.com/latest/latest.json'
   );
   const [skipVersions, setSkipVersions] = useLocalStorage<string[]>('skipVersions', []);
   const { version: appVersion } = useAppVersion();
@@ -54,14 +54,14 @@ export default function useGetLatestVersionFromWebsite(): UseGetLatestVersionFro
         }, 1000); /* we need the delay, otherwise dialog will close too fast */
       } catch (e) {
         /* we don't need to handle error here, if we are unable to fetch version number
-           from chiknetwork.org, we just ignore showing reminder dialog */
+           from chiknetwork.com, we just ignore showing reminder dialog */
       }
     });
   }, [latestVersionURL]);
 
-  const downloadUrl = downloadPath ? new URL(downloadPath, 'https://www.chiknetwork.org/').toString() : undefined;
-  const releaseNotesUrl = releaseNotesPath ? new URL(releaseNotesPath, 'https://www.chiknetwork.org/').toString() : undefined;
-  const blogUrl = blogPath ? new URL(blogPath, 'https://www.chiknetwork.org/').toString() : undefined;
+  const downloadUrl = downloadPath ? new URL(downloadPath, 'https://www.chiknetwork.com/').toString() : undefined;
+  const releaseNotesUrl = releaseNotesPath ? new URL(releaseNotesPath, 'https://www.chiknetwork.com/').toString() : undefined;
+  const blogUrl = blogPath ? new URL(blogPath, 'https://www.chiknetwork.com/').toString() : undefined;
 
   return {
     appVersion,
