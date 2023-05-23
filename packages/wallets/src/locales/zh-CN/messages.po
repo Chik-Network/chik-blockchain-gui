@@ -81,7 +81,7 @@ msgstr "授权的 Payee 钱包"
 #: src/components/create/WalletCreateList.tsx:32
 #: src/constants/WalletName.ts:23
 msgid "Chik Asset Token"
-msgstr "奇亚资产代币"
+msgstr "奇克资产代币"
 
 #: src/components/PasteMnemonic.tsx:76
 #: src/components/WalletRenameDialog.tsx:72
@@ -91,7 +91,7 @@ msgstr "取消"
 #: src/components/WalletSend.tsx:107
 #: src/components/cat/WalletCATSend.tsx:117
 msgid "Cannot send chik to coloured address. Please enter a chik address."
-msgstr "错误: 无法发送奇亚到上色的地址. 请输入一个奇亚钱包地址."
+msgstr "错误: 无法发送奇克到上色的地址. 请输入一个奇克钱包地址."
 
 #: src/components/WalletsSidebar.tsx:130
 #~ msgid "Check my snapshot balance"
@@ -485,7 +485,7 @@ msgstr "这不是一个有效的可发送资金进入的地址"
 
 #: src/components/standard/WalletStandardCards.tsx:23
 msgid "This is the amount of Chik that you can currently use to make transactions. It does not include pending farming rewards, pending incoming transactions, and Chik that you have just spent but is not yet in the blockchain."
-msgstr "这是你目前可以交易的奇亚币数额。该数额不包含处理中的农场奖励、收入交易，以及未经区块链确认的支付交易。"
+msgstr "这是你目前可以交易的奇克币数额。该数额不包含处理中的农场奖励、收入交易，以及未经区块链确认的支付交易。"
 
 #: src/components/standard/WalletStandardCards.tsx:42
 msgid "This is the pending change, which are change coins which you have sent to yourself, but have not been confirmed yet."
@@ -497,7 +497,7 @@ msgstr "待处理的收入与支出总和(还未上链). 不包括农场耕种�
 
 #: src/components/standard/WalletStandardCards.tsx:17
 msgid "This is the total amount of chik in the blockchain at the current peak block that is controlled by your private keys. It includes frozen farming rewards, but not pending incoming and outgoing transactions."
-msgstr "这里是你的私钥所控制的，到目前最新子块高度为止的全部奇亚数。包含被冻结的耕种奖励， 但不包含待处理的收入与支出。"
+msgstr "这里是你的私钥所控制的，到目前最新子块高度为止的全部奇克数。包含被冻结的耕种奖励， 但不包含待处理的收入与支出。"
 
 #: src/components/standard/WalletStandardCards.tsx:30
 msgid "This is the total balance + pending balance: it is what your balance will be after all pending transactions are confirmed."
@@ -562,7 +562,7 @@ msgstr "未找到钱包 {walletId}"
 
 #: src/components/WalletAdd.tsx:67
 msgid "Welcome! The following words are used for your wallet backup. Without them, you will lose access to your wallet, keep them safe! Write down each word along with the order number next to them. (Order is important)"
-msgstr "欢迎使用奇亚! 下面的词语列表是你的钱包密语, 请务必严格完整的把它们记下来(保持顺序). 没有这段密语的话, 你就没办法找回钱包里的币. 千万也不要透露给别人."
+msgstr "欢迎使用奇克! 下面的词语列表是你的钱包密语, 请务必严格完整的把它们记下来(保持顺序). 没有这段密语的话, 你就没办法找回钱包里的币. 千万也不要透露给别人."
 
 #: src/components/WalletsSidebar.tsx:106
 #~ msgid "Your CAT tokens have been upgraded!"

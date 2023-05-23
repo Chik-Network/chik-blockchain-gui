@@ -507,7 +507,7 @@ msgstr ""
 
 #: src/screens/SelectKey/SelectKey.tsx:142
 #~ msgid "Welcome to Chik. Please log in with an existing key, or create a new key."
-#~ msgstr "欢迎来到奇亚。请用已有的密钥登录，或者创建一个新的密钥。"
+#~ msgstr "欢迎来到奇克。请用已有的密钥登录，或者创建一个新的密钥。"
 
 #: src/components/LayoutDashboard/LayoutDashboard.tsx:176
 #: src/components/LayoutDashboard/NewerAppVersionAvailable.tsx:66
