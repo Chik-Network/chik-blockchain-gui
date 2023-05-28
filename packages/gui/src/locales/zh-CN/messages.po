@@ -85,7 +85,7 @@ msgstr "建议值 {0}"
 #: src/electron/main.tsx:771
 #: src/electron/main.tsx:865
 msgid "About Chik Blockchain"
-msgstr "关于奇亚Chik区块链项目"
+msgstr "关于奇克Chik区块链项目"
 
 #: src/components/offers/NFTOfferViewer.tsx:638
 #: src/components/offers/OfferAcceptConfirmationDialog.tsx:21
@@ -399,7 +399,7 @@ msgstr "区块可验证延迟函数迭代"
 
 #: src/components/block/Block.jsx:250
 msgid "Block at height {0} in the Chik blockchain"
-msgstr "奇亚区块链上高度为 {0} 的区块"
+msgstr "奇克区块链上高度为 {0} 的区块"
 
 #: src/components/block/Block.jsx:120
 msgid "Block with hash {headerHash}"
@@ -451,7 +451,7 @@ msgstr ""
 
 #: src/electron/main.tsx:768
 msgid "Chik"
-msgstr "奇亚"
+msgstr "奇克"
 
 #: src/components/offers2/OfferBuilderXCKSection.tsx:76
 msgid "Chik ({currencyCode}) is a digital currency that is secure and sustainable"
@@ -463,7 +463,7 @@ msgstr ""
 
 #: src/electron/main.tsx:717
 msgid "Chik Blockchain Wiki"
-msgstr "奇亚区块链项目维基"
+msgstr "奇克区块链项目维基"
 
 #: src/components/app/AppPassPrompt.tsx:183
 #: src/components/farm/FarmManageFarmingRewards.tsx:163
@@ -3911,7 +3911,7 @@ msgstr ""
 
 #: src/components/farm/card/FarmCardTotalChikFarmed.tsx:27
 msgid "Total Chik Farmed"
-msgstr "总共收获的奇亚"
+msgstr "总共收获的奇克"
 
 #: src/components/plot/card/PlotCardTotalHarvesters.tsx:11
 msgid "Total Harvesters"
