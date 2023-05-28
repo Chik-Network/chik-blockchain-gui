@@ -87,7 +87,6 @@ build
 build_scripts/dist
 build_scripts/*.Dmg
 packages/**/src/locales/_build
-packages/**/src/locales/**/*.js
 daemon/
 win_code_sign_cert.p12
 
