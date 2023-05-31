@@ -65,7 +65,7 @@ export default function ProfileAdd() {
   const navigate = useNavigate();
   const openExternal = useOpenExternal();
   const spendableBalance = mojoToChikLocaleString(balance?.spendableBalance);
-  const canCreateProfile = spendableBalance > 0;
+  const canCreateProfile = (balance?.spendableBalance ?? 0) > 0;
 
   function handleClick() {
     const url = `https://${isTestnet ? 'testnet10-faucet.chiknetwork.com' : 'faucet.chiknetwork.com'}/?address=${currentAddress}`;

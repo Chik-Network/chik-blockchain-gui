@@ -59,8 +59,8 @@ export default async function offerBuilderDataToOffer({
   assetsToUnlock: AssetStatusForOffer[];
 }> {
   const {
-    offered: { xck: offeredCac = [], tokens: offeredTokens = [], nfts: offeredNfts = [], fee: [firstFee] = [] },
-    requested: { xck: requestedCac = [], tokens: requestedTokens = [], nfts: requestedNfts = [] },
+    offered: { xck: offeredXck = [], tokens: offeredTokens = [], nfts: offeredNfts = [], fee: [firstFee] = [] },
+    requested: { xck: requestedXck = [], tokens: requestedTokens = [], nfts: requestedNfts = [] },
   } = data;
 
   const usedNFTs: string[] = [];
@@ -71,7 +71,7 @@ export default async function offerBuilderDataToOffer({
   const driverDict: Record<string, Driver> = {};
 
   if (!allowEmptyOfferColumn) {
-    const hasOffer = !!offeredCac.length || !!offeredTokens.length || !!offeredNfts.length;
+    const hasOffer = !!offeredXck.length || !!offeredTokens.length || !!offeredNfts.length;
 
     if (!hasOffer) {
       throw new Error(t`Please specify at least one offered asset`);
@@ -137,15 +137,15 @@ export default async function offerBuilderDataToOffer({
 
   let standardWallet: Wallet | undefined;
   let standardWalletBalance: WalletBalanceFormatted | undefined;
-  let pendingCacOffer: AssetStatusForOffer | undefined;
-  let pendingCac = new BigNumber(0);
-  if (offeredCac.length > 0 || feeInMojos.gt(0)) {
+  let pendingXckOffer: AssetStatusForOffer | undefined;
+  let pendingXck = new BigNumber(0);
+  if (offeredXck.length > 0 || feeInMojos.gt(0)) {
     standardWallet = wallets.find((w) => w.type === WalletType.STANDARD_WALLET);
     for (let i = 0; i < pendingOffers.length; i++) {
       const po = pendingOffers[i];
       if (po.type === 'XCK') {
-        pendingCacOffer = po;
-        pendingCac = po.lockedAmount;
+        pendingXckOffer = po;
+        pendingXck = po.lockedAmount;
         break;
       }
     }
@@ -154,8 +154,8 @@ export default async function offerBuilderDataToOffer({
     }
   }
 
-  // offeredCac.length should be always 0 or 1
-  const xckTasks = offeredCac.map(async (xck) => {
+  // offeredXck.length should be always 0 or 1
+  const xckTasks = offeredXck.map(async (xck) => {
     const { amount } = xck;
     if (!amount || amount === '0') {
       throw new Error(t`Please enter an XCK amount`);
@@ -168,26 +168,26 @@ export default async function offerBuilderDataToOffer({
     walletIdsAndAmounts[standardWallet.id] = mojoAmount.negated();
 
     const spendableBalance = new BigNumber(standardWalletBalance.spendableBalance);
-    const hasEnoughTotalBalance = spendableBalance.plus(pendingCac).minus(feeInMojos).gte(mojoAmount);
+    const hasEnoughTotalBalance = spendableBalance.plus(pendingXck).minus(feeInMojos).gte(mojoAmount);
     if (!hasEnoughTotalBalance) {
       throw new Error(t`Amount exceeds XCK total balance`);
     }
 
-    if (pendingCacOffer) {
-      // Assuming offeredCac.length is always less then or equal to 1
-      pendingCacOffer.spendingAmount = mojoAmount.plus(feeInMojos);
-      pendingCacOffer.spendableAmount = spendableBalance;
-      pendingCacOffer.confirmedAmount = new BigNumber(standardWalletBalance.confirmedWalletBalance);
-      const hasEnoughSpendableBalance = spendableBalance.gte(pendingCacOffer.spendingAmount);
+    if (pendingXckOffer) {
+      // Assuming offeredXck.length is always less then or equal to 1
+      pendingXckOffer.spendingAmount = mojoAmount.plus(feeInMojos);
+      pendingXckOffer.spendableAmount = spendableBalance;
+      pendingXckOffer.confirmedAmount = new BigNumber(standardWalletBalance.confirmedWalletBalance);
+      const hasEnoughSpendableBalance = spendableBalance.gte(pendingXckOffer.spendingAmount);
       if (!hasEnoughSpendableBalance) {
-        pendingCacOffer.status = 'conflictsWithNewOffer';
+        pendingXckOffer.status = 'conflictsWithNewOffer';
       } else {
-        pendingCacOffer.status = 'alsoUsedInNewOfferWithoutConflict';
+        pendingXckOffer.status = 'alsoUsedInNewOfferWithoutConflict';
       }
     }
   });
   // Treat fee as xck spending
-  if (offeredCac.length === 0 && feeInMojos.gt(0)) {
+  if (offeredXck.length === 0 && feeInMojos.gt(0)) {
     if (!standardWallet || !standardWalletBalance) {
       throw new Error(t`No standard wallet found`);
     }
@@ -197,15 +197,15 @@ export default async function offerBuilderDataToOffer({
     if (!hasEnoughTotalBalance) {
       throw new Error(t`Fee exceeds XCK total balance`);
     }
-    if (pendingCacOffer) {
-      pendingCacOffer.spendingAmount = feeInMojos;
-      pendingCacOffer.spendableAmount = spendableBalance;
-      pendingCacOffer.confirmedAmount = new BigNumber(standardWalletBalance.confirmedWalletBalance);
-      const hasEnoughSpendableBalance = spendableBalance.gte(pendingCacOffer.spendingAmount);
+    if (pendingXckOffer) {
+      pendingXckOffer.spendingAmount = feeInMojos;
+      pendingXckOffer.spendableAmount = spendableBalance;
+      pendingXckOffer.confirmedAmount = new BigNumber(standardWalletBalance.confirmedWalletBalance);
+      const hasEnoughSpendableBalance = spendableBalance.gte(pendingXckOffer.spendingAmount);
       if (!hasEnoughSpendableBalance) {
-        pendingCacOffer.status = 'conflictsWithNewOffer';
+        pendingXckOffer.status = 'conflictsWithNewOffer';
       } else {
-        pendingCacOffer.status = 'alsoUsedInNewOfferWithoutConflict';
+        pendingXckOffer.status = 'alsoUsedInNewOfferWithoutConflict';
       }
     }
   }
@@ -282,7 +282,7 @@ export default async function offerBuilderDataToOffer({
   await Promise.all([...xckTasks, ...tokenTasks, ...nftTasks]);
 
   // requested
-  requestedCac.forEach((xck) => {
+  requestedXck.forEach((xck) => {
     const { amount } = xck;
 
     // For one-sided offers where nothing is requested, we allow the amount to be '0'
@@ -342,19 +342,19 @@ export default async function offerBuilderDataToOffer({
     if (driver) {
       driverDict[id] = driver;
 
-      if (considerNftRoyalty && pendingCacOffer) {
+      if (considerNftRoyalty && pendingXckOffer) {
         const royaltyPercentageStr = driver.also.also?.transfer_program.royalty_percentage;
         if (royaltyPercentageStr) {
           const royaltyMultiplier = 1 + +royaltyPercentageStr / 10_000;
-          const spendingCac = pendingCacOffer.spendingAmount.minus(feeInMojos);
-          const newSpendingCac = spendingCac.multipliedBy(royaltyMultiplier).plus(feeInMojos);
-          pendingCacOffer.spendingAmount = newSpendingCac;
+          const spendingXck = pendingXckOffer.spendingAmount.minus(feeInMojos);
+          const newSpendingXck = spendingXck.multipliedBy(royaltyMultiplier).plus(feeInMojos);
+          pendingXckOffer.spendingAmount = newSpendingXck;
 
-          const hasEnoughSpendableBalance = pendingCacOffer.spendableAmount.gte(pendingCacOffer.spendingAmount);
+          const hasEnoughSpendableBalance = pendingXckOffer.spendableAmount.gte(pendingXckOffer.spendingAmount);
           if (!hasEnoughSpendableBalance) {
-            pendingCacOffer.status = 'conflictsWithNewOffer';
+            pendingXckOffer.status = 'conflictsWithNewOffer';
           } else {
-            pendingCacOffer.status = 'alsoUsedInNewOfferWithoutConflict';
+            pendingXckOffer.status = 'alsoUsedInNewOfferWithoutConflict';
           }
         }
       }
