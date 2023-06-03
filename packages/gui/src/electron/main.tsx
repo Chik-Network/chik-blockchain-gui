@@ -734,7 +734,7 @@ function getMenuTemplate() {
         {
           label: i18n._(/* i18n */ { id: 'Chat on Discord' }),
           click: () => {
-            openExternal('https://discord.gg/VXRjXBsXn3');
+            openExternal('https://discord.gg/SNbcMMvNBE');
           },
         },
         {
