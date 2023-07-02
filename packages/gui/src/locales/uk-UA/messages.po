@@ -6,17 +6,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: uk_UA\n"
-"Project-Id-Version: chik-blockchain\n"
+"Project-Id-Version: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-10-24 18:15\n"
+"PO-Revision-Date: 2023-03-29 23:27\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
-"X-Crowdin-Project: chik-blockchain\n"
-"X-Crowdin-Project-ID: 440660\n"
+"X-Crowdin-Project: 1263bc1f20e1271bda78e84d2f4a6562\n"
+"X-Crowdin-Project-ID: 1\n"
 "X-Crowdin-Language: uk\n"
-"X-Crowdin-File: /main/packages/gui/src/locales/en-US/messages.po\n"
-"X-Crowdin-File-ID: 1888\n"
+"X-Crowdin-File: /[Chik-Network.chia-blockchain-gui] main/packages/gui/src/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 1306\n"
 
 #: src/components/offers2/OfferBuilderImport.tsx:167
 msgid "(Ctrl-V) a blob"
@@ -47,8 +47,8 @@ msgid "+ Add a Plot"
 msgstr "+ Додати ділянку"
 
 #: src/components/settings/ProfileAdd.tsx:80
-msgid "<0>Need some XCK?</0>"
-msgstr "<0>Потрібно трохи XCK?</0>"
+msgid "<0>Need some XCH?</0>"
+msgstr "<0>Потрібно трохи XCH?</0>"
 
 #: src/components/settings/ProfileAdd.tsx:92
 msgid "<0>Use one (1) mojo to create a Profile.</0>"
@@ -208,7 +208,7 @@ msgid "Amount before adding royalties"
 msgstr ""
 
 #: src/util/offerBuilderDataToOffer.ts:59
-msgid "Amount exceeds XCK spendable balance"
+msgid "Amount exceeds XCH spendable balance"
 msgstr ""
 
 #: src/components/offers/NFTOfferEditor.tsx:596
@@ -319,8 +319,8 @@ msgid "Back"
 msgstr "Назад"
 
 #: src/components/settings/ProfileAdd.tsx:98
-msgid "Balance: {standardBalance} XCK"
-msgstr "Баланс: {standardBalance} XCK"
+msgid "Balance: {standardBalance} XCH"
+msgstr "Баланс: {standardBalance} XCH"
 
 #: src/components/block/Block.jsx:235
 msgid "Base Farmer Reward Amount"
@@ -503,12 +503,12 @@ msgstr "Перевірити походження на Spacescan.io"
 msgid "Chik"
 msgstr "Chik"
 
-#: src/components/offers2/OfferBuilderXCKSection.tsx:76
+#: src/components/offers2/OfferBuilderXCHSection.tsx:76
 msgid "Chik ({currencyCode}) is a digital currency that is secure and sustainable"
 msgstr ""
 
 #: src/components/offers2/OfferBuilderTokensSection.tsx:114
-msgid "Chik Asset Tokens (CATs) are tokens built on top of XCK"
+msgid "Chik Asset Tokens (CATs) are tokens built on top of XCH"
 msgstr ""
 
 #: src/electron/main.tsx:1047
@@ -748,7 +748,7 @@ msgid "Create a Plot NFT"
 msgstr "Створити NFT ділянку"
 
 #: src/components/offers/OfferManager.tsx:440
-msgid "Create a file that you can use to trade XCK, Chik Asset Tokens, or NFTs with no counter-party risk."
+msgid "Create a file that you can use to trade XCH, Chik Asset Tokens, or NFTs with no counter-party risk."
 msgstr ""
 
 #: src/components/settings/ProfileAdd.tsx:75
@@ -831,7 +831,7 @@ msgstr "Data URL {0}"
 
 #: src/components/settings/Settings.tsx:70
 msgid "DataLayer"
-msgstr "DataLayer"
+msgstr ""
 
 #: src/components/settings/SettingsDataLayer.tsx:18
 msgid "DataLayer Services"
@@ -1559,8 +1559,8 @@ msgstr ""
 
 #: src/components/offers/NFTOfferEditor.tsx:91
 #: src/components/offers/OfferEditorConditionsPanel.tsx:392
-msgid "Including a fee in the offer can help expedite the transaction when the offer is accepted. The recommended minimum fee is 0.000005 XCK (5,000,000 mojos)"
-msgstr "Включення комісії в пропозицію може допомогти пришвидшити транзакцію, коли пропозицію буде прийнято. Рекомендована мінімальна комісія становить 0,000005 XCK (5 000 000 mojos)"
+msgid "Including a fee in the offer can help expedite the transaction when the offer is accepted. The recommended minimum fee is 0.000005 XCH (5,000,000 mojos)"
+msgstr "Включення комісії в пропозицію може допомогти пришвидшити транзакцію, коли пропозицію буде прийнято. Рекомендована мінімальна комісія становить 0,000005 XCH (5 000 000 mojos)"
 
 #: src/components/offers2/OfferIncomingTable.tsx:112
 msgid "Incoming Offers"
@@ -1579,15 +1579,13 @@ msgid "Install Keybase"
 msgstr "Встановити Keybase"
 
 #: src/hooks/useAcceptOfferHook.tsx:67
-msgid ""
-"Insufficient funds available to accept offer. Ensure that your\n"
+msgid "Insufficient funds available to accept offer. Ensure that your\n"
 "spendable balance is sufficient to cover the offer amount."
 msgstr "Недостатньо доступних коштів для прийняття пропозиції. Переконайтеся, що вашого балансу достатньо для покриття суми пропозиції."
 
 #: src/components/offers/OfferEditor.tsx:148
 #: src/components/offers2/CreateOfferBuilder.tsx:121
-msgid ""
-"Insufficient funds available to create offer. Ensure that your\n"
+msgid "Insufficient funds available to create offer. Ensure that your\n"
 "spendable balance is sufficient to cover the offer amount."
 msgstr "Недостатньо доступних коштів для створення пропозиції. Переконайтеся, що вашого балансу достатньо для покриття суми пропозиції."
 
@@ -1628,16 +1626,16 @@ msgid "Join a Pool"
 msgstr "Приєднатися до пулу"
 
 #: src/components/plot/add/PlotAddNFT.tsx:41
-msgid "Join a pool and get consistent XCK farming rewards. The average returns are the same, but it is much less volatile."
-msgstr "Приєднуйтесь до пулу та отримуйте послідовні нагороди за фермерство у XCK. Середній дохід однаковий, але набагато менш волатильний."
+msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile."
+msgstr "Приєднуйтесь до пулу та отримуйте послідовні нагороди за фермерство у XCH. Середній дохід однаковий, але набагато менш волатильний."
 
 #: src/components/plotNFT/PlotNFTAdd.tsx:61
-msgid "Join a pool and get consistent XCK farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
-msgstr "Приєднуйтесь до пулу та отримуйте послідовні нагороди за фермерство у XCK. Середній дохід однаковий, але набагато менш волатильний. Призначити ділянки у NFT дільниці. Ви можете легко перемикатися на пули без повторного засіву."
+msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
+msgstr "Приєднуйтесь до пулу та отримуйте послідовні нагороди за фермерство у XCH. Середній дохід однаковий, але набагато менш волатильний. Призначити ділянки у NFT дільниці. Ви можете легко перемикатися на пули без повторного засіву."
 
 #: src/components/plot/add/PlotAddNFT.tsx:122
-msgid "Join a pool and get more consistent XCK farming rewards. Create a plot NFT and assign your new plots to a group."
-msgstr "Приєднуйтесь до пулу та отримайте більш послідовні нагороди за фермерство у XCK. Створіть ділянки NFT та призначте свої нові ділянки до групи."
+msgid "Join a pool and get more consistent XCH farming rewards. Create a plot NFT and assign your new plots to a group."
+msgstr "Приєднуйтесь до пулу та отримайте більш послідовні нагороди за фермерство у XCH. Створіть ділянки NFT та призначте свої нові ділянки до групи."
 
 #: src/components/app/AppSelectMode.tsx:133
 msgid "Join farming pools"
@@ -1867,7 +1865,7 @@ msgstr ""
 
 #: src/components/offers/OfferSummaryRow.tsx:115
 msgid "Minter:"
-msgstr "Minter:"
+msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:94
 msgid "Minutes"
@@ -2043,7 +2041,7 @@ msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:397
 msgid "No CPU Affinity"
-msgstr "No CPU Affinity"
+msgstr ""
 
 #: src/components/walletConnect/WalletConnectPairInfoDialog.tsx:113
 msgid "No Paired Keys"
@@ -2120,8 +2118,8 @@ msgid "Not connected"
 msgstr "Немає з'єднання"
 
 #: src/components/farm/FarmManageFarmingRewards.tsx:152
-msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCK reward for pooling plots."
-msgstr "Зауважте, що це не змінює адреси виплат пула. Це впливає лише на старий формат ділянок та на винагороду 0.25XCK за ділянки у пулі."
+msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCH reward for pooling plots."
+msgstr "Зауважте, що це не змінює адреси виплат пула. Це впливає лише на старий формат ділянок та на винагороду 0.25XCH за ділянки у пулі."
 
 #: src/components/notification/NotificationSendDialog.tsx:145
 msgid "Notification has successfully been sent to a full node and included in the mempool."
@@ -2458,7 +2456,7 @@ msgstr "Введіть NFT ідентифікатор"
 
 #: src/util/offerBuilderDataToOffer.ts:46
 #: src/util/offerBuilderDataToOffer.ts:111
-msgid "Please enter an XCK amount"
+msgid "Please enter an XCH amount"
 msgstr ""
 
 #: src/components/offers/NFTOfferEditor.tsx:591
@@ -2801,8 +2799,8 @@ msgid "Recommended"
 msgstr "Рекомендується"
 
 #: src/components/settings/ProfileAdd.tsx:114
-msgid "Recommended: 0.000005 XCK"
-msgstr "Рекомендовано: 0.000005 XCK"
+msgid "Recommended: 0.000005 XCH"
+msgstr "Рекомендовано: 0.000005 XCH"
 
 #: src/components/nfts/NFTContextualActions.tsx:602
 msgid "Refresh NFT data"
@@ -3006,8 +3004,8 @@ msgid "Self Pooling"
 msgstr "Самостійне виставлення рахунків"
 
 #: src/components/plotNFT/select/PlotNFTSelectBase.tsx:86
-msgid "Self pool. When you win a block you will earn XCK rewards."
-msgstr "Свій пул. Коли ви виграєте блок, ви отримаєте нагороду XCK."
+msgid "Self pool. When you win a block you will earn XCH rewards."
+msgstr "Свій пул. Коли ви виграєте блок, ви отримаєте нагороду XCH."
 
 #: src/components/offers/NFTOfferEditor.tsx:313
 msgid "Sell an NFT"
@@ -3172,8 +3170,8 @@ msgid "Skips adding a final directory to harvester for farming"
 msgstr "Пропустити додавання фінальної директорії у комбайн для землеробства"
 
 #: src/components/pool/PoolHero.tsx:21
-msgid "Smooth out your XCK farming rewards by joining a pool."
-msgstr "Отримайте свої нагороди за фарм XCK, приєднавшись до пулу."
+msgid "Smooth out your XCH farming rewards by joining a pool."
+msgstr "Отримайте свої нагороди за фарм XCH, приєднавшись до пулу."
 
 #: src/components/notification/NotificationNFTTitle.tsx:30
 msgid "Something went wrong"
@@ -3181,7 +3179,7 @@ msgstr ""
 
 #: src/components/offers/OfferShareDialog.tsx:935
 msgid "Spacescan.io URL"
-msgstr "Spacescan.io URL"
+msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:134
 msgid "Specify a value of 0 to use all available threads"
@@ -3234,8 +3232,8 @@ msgid "Status"
 msgstr "Стан"
 
 #: src/components/app/AppSelectMode.tsx:78
-msgid "Store and Send XCK"
-msgstr "Зберігати та відправляти XCK"
+msgid "Store and Send XCH"
+msgstr "Зберігати та відправляти XCH"
 
 #: src/components/app/AppPassPrompt.tsx:111
 msgid "Submit"
@@ -3312,8 +3310,8 @@ msgid "The NFT transfer transaction has been successfully submitted to the block
 msgstr "Транзакцію передачі NFT успішно відправлено в блокчейн."
 
 #: src/components/settings/SettingsPanel.tsx:165
-msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCK, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
-msgstr "Індекс деривації встановлює діапазон адрес гаманця, для яких гаманець відсканує блокчейн. Це число, в загальному, більше за використання багатьох транзакцій або скасованих пропозицій для XCK, CATS або NFTs. Якщо ви вважаєте, що ваш баланс неправильний тому що на ньому недостатньо транзакцій, тоді збільшення індексу деривації може допомогти для формування правильного балансу."
+msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCH, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
+msgstr "Індекс деривації встановлює діапазон адрес гаманця, для яких гаманець відсканує блокчейн. Це число, в загальному, більше за використання багатьох транзакцій або скасованих пропозицій для XCH, CATS або NFTs. Якщо ви вважаєте, що ваш баланс неправильний тому що на ньому недостатньо транзакцій, тоді збільшення індексу деривації може допомогти для формування правильного балансу."
 
 #: src/components/plot/add/PlotAddSelectTemporaryDirectory.tsx:88
 #: src/components/plot/add/PlotAddSelectTemporaryDirectory.tsx:137
@@ -3395,8 +3393,8 @@ msgid "The total transactions fees in this block. Rewarded to the farmer."
 msgstr "Загальна комісія за транзакції в цьому блоці, що була отримана фермерами."
 
 #: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:91
-msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCK address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
-msgstr "Це інструкції щодо того, як фермер хоче отримувати гроші. За замовчуванням це буде адреса XCK, але її можна встановити як будь-який рядок розміром менше 1024 символів, тому він може представляти інший ідентифікатор блокчейну або платіжної системи."
+msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCH address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
+msgstr "Це інструкції щодо того, як фермер хоче отримувати гроші. За замовчуванням це буде адреса XCH, але її можна встановити як будь-який рядок розміром менше 1024 символів, тому він може представляти інший ідентифікатор блокчейну або платіжної системи."
 
 #: src/components/plot/card/PlotCardPlotsFailedToOpen.tsx:13
 msgid "These plots are invalid, you might want to delete them."
@@ -3532,7 +3530,7 @@ msgstr "Загальна сума запиту"
 msgid "Total Amount with Royalties"
 msgstr ""
 
-#: src/components/farm/card/FarmCardTotalChikFarmed.tsx:27
+#: src/components/farm/card/FarmCardTotalChiaFarmed.tsx:27
 msgid "Total Chik Farmed"
 msgstr "Усього вирощено монет"
 
@@ -4161,3 +4159,4 @@ msgstr "{value} з {max_value}"
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:106
 msgid "{warning}"
 msgstr "{warning}"
+

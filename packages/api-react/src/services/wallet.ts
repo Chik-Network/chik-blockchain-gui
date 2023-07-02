@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign -- This file use Immer */
-import { CAT, DID, Farmer, NFT, Pool, WalletService, WalletType, toBech32m } from '@chik-network/api';
+import { CAT, DID, Farmer, NFT, Pool, WalletService, WalletType, toBech32m, VC } from '@chik-network/api';
 import type { NFTInfo, Transaction, Wallet, WalletBalance } from '@chik-network/api';
 import BigNumber from 'bignumber.js';
 
@@ -8,38 +8,41 @@ import normalizePoolState from '../utils/normalizePoolState';
 import onCacheEntryAddedInvalidate from '../utils/onCacheEntryAddedInvalidate';
 import { query, mutation } from '../utils/reduxToolkitEndpointAbstractions';
 
+const tagTypes = [
+  'Address',
+  'CATWalletInfo',
+  'DID',
+  'DIDCoinInfo',
+  'DIDInfo',
+  'DIDName',
+  'DIDPubKey',
+  'DIDRecoveryInfo',
+  'DIDRecoveryList',
+  'DIDWallet',
+  'Keys',
+  'LoggedInFingerprint',
+  'NFTCount',
+  'NFTInfo',
+  'NFTRoyalties',
+  'NFTWalletWithDID',
+  'OfferCounts',
+  'OfferTradeRecord',
+  'PlotNFT',
+  'PoolWalletStatus',
+  'TransactionCount',
+  'Transactions',
+  'WalletBalance',
+  'WalletConnections',
+  'Wallets',
+  'DerivationIndex',
+  'CATs',
+  'DaemonKey',
+  'Notification',
+  'AutoClaim',
+];
+
 const apiWithTag = api.enhanceEndpoints({
-  addTagTypes: [
-    'Address',
-    'CATWalletInfo',
-    'DID',
-    'DIDCoinInfo',
-    'DIDInfo',
-    'DIDName',
-    'DIDPubKey',
-    'DIDRecoveryInfo',
-    'DIDRecoveryList',
-    'DIDWallet',
-    'Keys',
-    'LoggedInFingerprint',
-    'NFTCount',
-    'NFTInfo',
-    'NFTRoyalties',
-    'NFTWalletWithDID',
-    'OfferCounts',
-    'OfferTradeRecord',
-    'PlotNFT',
-    'PoolWalletStatus',
-    'TransactionCount',
-    'Transactions',
-    'WalletBalance',
-    'WalletConnections',
-    'Wallets',
-    'DerivationIndex',
-    'CATs',
-    'DaemonKey',
-    'Notification',
-  ],
+  addTagTypes: tagTypes,
 });
 
 export const walletApi = apiWithTag.injectEndpoints({
@@ -164,6 +167,10 @@ export const walletApi = apiWithTag.injectEndpoints({
       ]),
     }),
 
+    getTransactionAsync: mutation(build, WalletService, 'getTransaction', {
+      transformResponse: (response) => response.transaction,
+    }),
+
     getTransactionMemo: mutation(build, WalletService, 'getTransactionMemo', {
       transformResponse: (response) => {
         const id = Object.keys(response)[0];
@@ -258,6 +265,8 @@ export const walletApi = apiWithTag.injectEndpoints({
         },
       ]),
     }),
+
+    getWalletBalances: query(build, WalletService, 'getWalletBalances', {}),
 
     getFarmedAmount: query(build, WalletService, 'getFarmedAmount', {
       onCacheEntryAdded: onCacheEntryAddedInvalidate(baseQuery, api, [
@@ -433,7 +442,9 @@ export const walletApi = apiWithTag.injectEndpoints({
     }),
 
     logIn: mutation(build, WalletService, 'logIn', {
-      invalidatesTags: ['LoggedInFingerprint', 'Address', 'Wallets', 'Transactions', 'WalletBalance', 'Notification'],
+      // we need to use useClearCache after logIn,
+      // invalidateTags will not work because it will just do refetch and user see data from previous key until new data will be fetched
+      // invalidatesTags: tagTypes, // invalidates all tags
     }),
 
     getPrivateKey: query(build, WalletService, 'getPrivateKey', {
@@ -1339,6 +1350,10 @@ export const walletApi = apiWithTag.injectEndpoints({
       providesTags: (result, _error) => (result ? [{ type: 'NFTInfo', id: result.launcherId }] : []),
     }),
 
+    mintNFT: mutation(build, NFT, 'mintNFT', {
+      invalidatesTags: (result, _error) => (result ? [{ type: 'NFTInfo', id: 'LIST' }] : []),
+    }),
+
     transferNFT: mutation(build, NFT, 'transferNft', {
       invalidatesTags: (result, _error) => (result ? [{ type: 'NFTInfo', id: 'LIST' }] : []),
     }),
@@ -1396,6 +1411,42 @@ export const walletApi = apiWithTag.injectEndpoints({
     }),
 
     verifySignature: mutation(build, WalletService, 'verifySignature'),
+
+    getVC: query(build, VC, 'getVC', {
+      transformResponse: (response) => response.vcRecord,
+    }),
+
+    getVCList: query(build, VC, 'getVCList', {
+      onCacheEntryAdded: onCacheEntryAddedInvalidate(baseQuery, api, [
+        {
+          command: 'onVCCoinAdded',
+          service: VC,
+          endpoint: 'getVCList',
+        },
+        {
+          command: 'onVCCoinRemoved',
+          service: VC,
+          endpoint: 'getVCList',
+        },
+      ]),
+    }),
+
+    spendVC: mutation(build, VC, 'spendVC'),
+
+    addVCProofs: mutation(build, VC, 'addVCProofs'),
+
+    getProofsForRoot: query(build, VC, 'getProofsForRoot'),
+
+    revokeVC: mutation(build, VC, 'revokeVC'),
+    // clawback
+    setAutoClaim: mutation(build, WalletService, 'setAutoClaim', {
+      invalidatesTags: [{ type: 'AutoClaim' }],
+    }),
+    getAutoClaim: query(build, WalletService, 'getAutoClaim', {
+      providesTags: (result) => (result ? [{ type: 'AutoClaim' }] : []),
+    }),
+
+    spendClawbackCoins: mutation(build, WalletService, 'spendClawbackCoins'),
   }),
 });
 
@@ -1404,6 +1455,7 @@ export const {
   useGetLoggedInFingerprintQuery,
   useGetWalletsQuery,
   useGetTransactionQuery,
+  useGetTransactionAsyncMutation,
   useGetTransactionMemoMutation,
   useGetPwStatusQuery,
   usePwAbsorbRewardsMutation,
@@ -1412,6 +1464,7 @@ export const {
   useCreateNewWalletMutation,
   useDeleteUnconfirmedTransactionsMutation,
   useGetWalletBalanceQuery,
+  useGetWalletBalancesQuery,
   useGetFarmedAmountQuery,
   useSendTransactionMutation,
   useGenerateMnemonicMutation,
@@ -1427,6 +1480,7 @@ export const {
   useGetNextAddressMutation,
   useFarmBlockMutation,
   useGetTimestampForHeightQuery,
+  useLazyGetTimestampForHeightQuery,
   useGetHeightInfoQuery,
   useGetNetworkInfoQuery,
   useGetSyncStatusQuery,
@@ -1485,6 +1539,7 @@ export const {
   useGetNFTWalletsWithDIDsQuery,
   useGetNFTInfoQuery,
   useLazyGetNFTInfoQuery,
+  useMintNFTMutation,
   useTransferNFTMutation,
   useSetNFTDIDMutation,
   useSetNFTStatusMutation,
@@ -1500,4 +1555,17 @@ export const {
 
   // verify
   useVerifySignatureMutation,
+
+  // VC
+  useGetVCQuery,
+  useGetVCListQuery,
+  useSpendVCMutation,
+  useAddVCProofsMutation,
+  useGetProofsForRootQuery,
+  useLazyGetProofsForRootQuery,
+  useRevokeVCMutation,
+  // clawback
+  useSetAutoClaimMutation,
+  useGetAutoClaimQuery,
+  useSpendClawbackCoinsMutation,
 } = walletApi;

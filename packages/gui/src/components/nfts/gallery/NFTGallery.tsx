@@ -1,7 +1,15 @@
 // eslint-ignore-file - in progress
 import type { NFTInfo } from '@chik-network/api';
 import { useLocalStorage } from '@chik-network/api-react';
-import { Button, FormatLargeNumber, Flex, LayoutDashboardSub, Tooltip, usePersistState } from '@chik-network/core';
+import {
+  Button,
+  FormatLargeNumber,
+  Flex,
+  LayoutDashboardSub,
+  Tooltip,
+  usePersistState,
+  Mute,
+} from '@chik-network/core';
 import { t, Trans } from '@lingui/macro';
 import { FilterList as FilterListIcon, LibraryAddCheck as LibraryAddCheckIcon } from '@mui/icons-material';
 import {
@@ -66,10 +74,6 @@ const ListContainer = styled('div')({
   paddingLeft: 16,
   paddingRight: 16,
 });
-
-const Mute = styled('span')(({ theme }) => ({
-  color: theme.palette.text.secondary,
-}));
 
 const COMPONENTS = {
   Item: ItemContainer,

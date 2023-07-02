@@ -6,17 +6,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: it_IT\n"
-"Project-Id-Version: chik-blockchain\n"
+"Project-Id-Version: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2022-10-24 18:15\n"
+"PO-Revision-Date: 2023-03-29 23:26\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Crowdin-Project: chik-blockchain\n"
-"X-Crowdin-Project-ID: 440660\n"
+"X-Crowdin-Project: 1263bc1f20e1271bda78e84d2f4a6562\n"
+"X-Crowdin-Project-ID: 1\n"
 "X-Crowdin-Language: it\n"
-"X-Crowdin-File: /main/packages/gui/src/locales/en-US/messages.po\n"
-"X-Crowdin-File-ID: 1888\n"
+"X-Crowdin-File: /[Chik-Network.chik-blockchain-gui] main/packages/gui/src/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 1306\n"
 
 #: src/components/offers2/OfferBuilderImport.tsx:167
 msgid "(Ctrl-V) a blob"
@@ -162,7 +162,7 @@ msgstr ""
 
 #: src/components/app/AppKeyringMigrator.tsx:250
 msgid "After your keys are successfully migrated to the new keyring, you may choose to have your keys removed from the old keyring."
-msgstr "Dopo che le chikvi saranno migrate con successo al nuovo keyring, sarà possibile rimuoverle da vecchio"
+msgstr "Dopo che le chiavi saranno migrate con successo al nuovo keyring, sarà possibile rimuoverle da vecchio"
 
 #: src/components/nfts/NFTProfileDropdown.tsx:101
 #: src/components/nfts/NFTProfileDropdown.tsx:114
@@ -861,7 +861,7 @@ msgstr "Elimina"
 
 #: src/components/app/AppPassPrompt.tsx:107
 msgid "Delete Key"
-msgstr "Elimina Chikve"
+msgstr "Elimina Chiave"
 
 #: src/components/plot/PlotAction.tsx:24
 #: src/components/plot/queue/PlotQueueActions.tsx:32
@@ -874,7 +874,7 @@ msgstr "Elimina Transazioni non Confermate"
 
 #: src/components/app/AppPassPrompt.tsx:100
 msgid "Deleting key"
-msgstr "Chikve in cancellazione"
+msgstr "Chiave in cancellazione"
 
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:81
 msgid "Depending on your system configuration, you may find that an alternative plotter produces plots faster than the default Chik Proof of Space plotter. If unsure, use the default Chik Proof of Space plotter."
@@ -1096,11 +1096,11 @@ msgstr ""
 
 #: src/components/app/AppKeyringMigrator.tsx:136
 msgid "Enter a strong passphrase and click Migrate Keys to secure your keys"
-msgstr "Inserisci una Passphrase complessa e fai click su Migrare per mettere al sicuro le tue chikvi"
+msgstr "Inserisci una Passphrase complessa e fai click su Migrare per mettere al sicuro le tue chiavi"
 
 #: src/components/settings/SetPassphrasePrompt.tsx:164
 msgid "Enter a strong passphrase to secure your keys:"
-msgstr "Inserisci una Passphrase complessa per proteggere le tue chikvi:"
+msgstr "Inserisci una Passphrase complessa per proteggere le tue chiavi:"
 
 #: src/components/signVerify/SignMessage.tsx:66
 msgid "Enter a wallet address to sign with"
@@ -1199,7 +1199,7 @@ msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:454
 msgid "Farmer Public Key"
-msgstr "Chikve pubblica del farmer"
+msgstr "Chiave pubblica del farmer"
 
 #: src/components/block/Block.jsx:214
 msgid "Farmer Puzzle Hash"
@@ -1579,15 +1579,13 @@ msgid "Install Keybase"
 msgstr ""
 
 #: src/hooks/useAcceptOfferHook.tsx:67
-msgid ""
-"Insufficient funds available to accept offer. Ensure that your\n"
+msgid "Insufficient funds available to accept offer. Ensure that your\n"
 "spendable balance is sufficient to cover the offer amount."
 msgstr ""
 
 #: src/components/offers/OfferEditor.tsx:148
 #: src/components/offers2/CreateOfferBuilder.tsx:121
-msgid ""
-"Insufficient funds available to create offer. Ensure that your\n"
+msgid "Insufficient funds available to create offer. Ensure that your\n"
 "spendable balance is sufficient to cover the offer amount."
 msgstr ""
 
@@ -1613,7 +1611,7 @@ msgstr "Stato non valido"
 
 #: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:66
 msgid "It is a one-time login link that can be used to log in to a pool's website. It contains a signature using the farmer's key from the plot NFT. Not all pools support this feature."
-msgstr "Si tratta di un collegamento di accesso una tantum che può essere utilizzato per accedere al sito web di una pool. Contiene una firma che utilizza la chikve del farmer dal plot NFT. Non tutte le pool supportano questa funzione."
+msgstr "Si tratta di un collegamento di accesso una tantum che può essere utilizzato per accedere al sito web di una pool. Contiene una firma che utilizza la chiave del farmer dal plot NFT. Non tutte le pool supportano questa funzione."
 
 #: src/components/plotNFT/PlotNFTCard.tsx:334
 msgid "Join Pool"
@@ -1835,7 +1833,7 @@ msgstr "Migra Keyring"
 
 #: src/components/app/AppKeyringMigrator.tsx:268
 msgid "Migrate Keys"
-msgstr "Migra Chikvi"
+msgstr "Migra Chiavi"
 
 #: src/components/app/AppKeyringMigrator.tsx:129
 msgid "Migration required"
@@ -1875,7 +1873,7 @@ msgstr "Minuti"
 
 #: src/components/plot/PlotHarvester.tsx:108
 msgid "Missing Keys"
-msgstr "Chikvi mancanti"
+msgstr "Chiavi mancanti"
 
 #: src/components/nfts/NFTPreview.tsx:641
 msgid "Missing preview_image_hash key"
@@ -2075,7 +2073,7 @@ msgstr "Ancora nessun plot"
 
 #: src/components/farm/FarmManageFarmingRewards.tsx:125
 msgid "No private keys for one or both addresses. Safe only if you are sending rewards to another wallet."
-msgstr "Nessuna chikve privata per uno o entrambi gli indirizzi. Sicuro solo se stai inviando ricompense ad un altro wallet."
+msgstr "Nessuna chiave privata per uno o entrambi gli indirizzi. Sicuro solo se stai inviando ricompense ad un altro wallet."
 
 #: src/util/offerBuilderDataToOffer.ts:51
 #: src/util/offerBuilderDataToOffer.ts:116
@@ -2391,7 +2389,7 @@ msgstr "La protezione Passphrase è stata abilitata"
 
 #: src/components/settings/SettingsPanel.tsx:93
 msgid "Passphrase support requires migrating your keys to a new keyring"
-msgstr "Il supporto alla Passphrase richiede la migrazione delle chikvi a un nuovo Keyring"
+msgstr "Il supporto alla Passphrase richiede la migrazione delle chiavi a un nuovo Keyring"
 
 #: src/components/offers/OfferDataEntryDialog.tsx:33
 #: src/components/offers/OfferImport.tsx:157
@@ -2538,7 +2536,7 @@ msgstr "Id Plot"
 
 #: src/components/plot/PlotHarvesterPlots.tsx:45
 msgid "Plot Key"
-msgstr "Chikve Plot"
+msgstr "Chiave Plot"
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:475
 msgid "Plot NFT Plot Target Address"
@@ -2555,7 +2553,7 @@ msgstr "Il Plot NFT con p2_singleton_puzzle_hash {plotNFTId} non esiste"
 
 #: src/components/block/Block.jsx:206
 msgid "Plot Public Key"
-msgstr "Chikve Pubblica del Plot"
+msgstr "Chiave Pubblica del Plot"
 
 #: src/components/plot/add/PlotAddChooseSize.tsx:87
 msgid "Plot Size"
@@ -2588,7 +2586,7 @@ msgstr "Plot che hanno passato il filtro"
 
 #: src/components/plot/card/PlotCardNotFound.tsx:11
 msgid "Plots With Missing Keys"
-msgstr "Plot con chikvi mancanti"
+msgstr "Plot con chiavi mancanti"
 
 #: src/components/plot/overview/PlotOverviewHero.tsx:34
 msgid "Plots are allocated space on your hard drive used to farm and earn Chik.  <0>Learn more</0>"
@@ -2640,7 +2638,7 @@ msgstr "Indirizzo Contratto Pool"
 
 #: src/components/plot/PlotHarvesterPlots.tsx:51
 msgid "Pool Key"
-msgstr "Chikve Pool"
+msgstr "Chiave Pool"
 
 #: src/components/plotNFT/PlotNFTGetPoolLoginLinkDialog.tsx:53
 msgid "Pool Login Link"
@@ -2653,7 +2651,7 @@ msgstr "Istruzioni Di Pagamento Pool"
 #: src/components/block/Block.jsx:210
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:465
 msgid "Pool Public Key"
-msgstr "Chikve Pubblica Pool"
+msgstr "Chiave Pubblica Pool"
 
 #: src/components/block/Block.jsx:218
 msgid "Pool Puzzle Hash"
@@ -2838,7 +2836,7 @@ msgstr "Rimuovi Passphrase"
 
 #: src/components/app/AppKeyringMigrator.tsx:246
 msgid "Remove keys from old keyring upon successful migration"
-msgstr "Rimuovere le chikvi dal vecchio keyring al momento della migrazione riuscita"
+msgstr "Rimuovere le chiavi dal vecchio keyring al momento della migrazione riuscita"
 
 #: src/components/plot/queue/PlotQueueIndicator.tsx:37
 msgid "Removing"
@@ -2939,7 +2937,7 @@ msgstr ""
 
 #: src/components/settings/SettingsPanel.tsx:95
 msgid "Secure your keychain using a strong passphrase"
-msgstr "Proteggi il tuo portachikvi usando una Passphrase complessa"
+msgstr "Proteggi il tuo portachiavi usando una Passphrase complessa"
 
 #: src/components/notification/NotificationsMenu.tsx:60
 msgid "See All Activity"
@@ -3467,7 +3465,7 @@ msgstr ""
 
 #: src/components/plotNFT/PlotExternalNFTCard.tsx:267
 msgid "This plot NFT is assigned to a different key. You can still create plots for this plot NFT, but you can not make changes."
-msgstr "Questo plot NFT è assegnato a una chikve diversa. Puoi ancora creare dei plot per questo plot NFT, ma non puoi apportare modifiche."
+msgstr "Questo plot NFT è assegnato a una chiave diversa. Puoi ancora creare dei plot per questo plot NFT, ma non puoi apportare modifiche."
 
 #: src/components/farm/FarmLastAttemptedProof.tsx:48
 msgid "This table shows you the last time your farm attempted to win a block challenge. <0>Learn more</0>"
@@ -4069,7 +4067,7 @@ msgstr ""
 #: src/components/settings/ChangePassphrasePrompt.tsx:277
 #: src/components/settings/SetPassphrasePrompt.tsx:246
 msgid "Your passphrase can be stored in your system's secure credential store. Chik will be able to access your keys without prompting for your passphrase."
-msgstr "La tua passphrase può essere memorizzata nell'archivio credenziali sicuro del tuo sistema. Chik sarà in grado di accedere alle tue chikvi senza richiedere la tua passphrase."
+msgstr "La tua passphrase può essere memorizzata nell'archivio credenziali sicuro del tuo sistema. Chik sarà in grado di accedere alle tue chiavi senza richiedere la tua passphrase."
 
 #: src/components/settings/SettingsPanel.tsx:55
 msgid "Your passphrase has been set"
@@ -4161,3 +4159,4 @@ msgstr ""
 #: src/components/plot/add/PlotAddChoosePlotter.tsx:106
 msgid "{warning}"
 msgstr "{warning}"
+
