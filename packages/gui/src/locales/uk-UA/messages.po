@@ -3530,7 +3530,7 @@ msgstr "Загальна сума запиту"
 msgid "Total Amount with Royalties"
 msgstr ""
 
-#: src/components/farm/card/FarmCardTotalChiaFarmed.tsx:27
+#: src/components/farm/card/FarmCardTotalChikFarmed.tsx:27
 msgid "Total Chik Farmed"
 msgstr "Усього вирощено монет"
 

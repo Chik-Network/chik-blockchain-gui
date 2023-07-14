@@ -81,7 +81,7 @@ type CommonShareServiceDialogProps = CommonDialogProps & {
 
 type OfferShareServiceDialogProps = CommonOfferProps & CommonShareServiceDialogProps;
 
-const testnetDummyHost = 'offers-api-sim.chik.net';
+const testnetDummyHost = 'offers-api-sim.chiknetwork.com';
 
 const OfferSharingProviders: {
   [key in OfferSharingService]: OfferSharingProvider;
