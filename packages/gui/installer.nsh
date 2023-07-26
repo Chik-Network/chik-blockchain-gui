@@ -92,7 +92,7 @@ Function checkIsChikRunning
       ${EndIf}
     ${EndIf}
 
-    StrCpy $R0 "daemon.exe chik_data_layer.exe start_data_layer.exe chik_data_layer_http.exe start_data_layer_http.exe chik_farmer.exe start_farmer.exe chik_full_node.exe start_full_node.exe chik_harvester.exe start_harvester.exe chik_wallet.exe start_wallet.exe"
+    StrCpy $R0 "chik_data_layer.exe chik_data_layer_http.exe chik_farmer.exe chik_full_node.exe chik_harvester.exe chik_wallet.exe"
     StrCpy $R3 "" ; Accumulator for the names of all running processes
   processLoop:
     ClearErrors

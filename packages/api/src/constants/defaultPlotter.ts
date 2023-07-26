@@ -4,7 +4,7 @@ import PlotterName from './PlotterName';
 
 export default {
   displayName: 'Chik Proof of Space',
-  options: optionsForPlotter(PlotterName.CHIAPOS),
-  defaults: defaultsForPlotter(PlotterName.CHIAPOS),
+  options: optionsForPlotter(PlotterName.CHIKPOS),
+  defaults: defaultsForPlotter(PlotterName.CHIKPOS),
   installInfo: { installed: true },
 };

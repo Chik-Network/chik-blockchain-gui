@@ -76,7 +76,7 @@ vdf_bench
 # Backup Files
 *.backup
 
-# Compiled CLVM
+# Compiled KLVM
 main.sym
 
 # Dev config react

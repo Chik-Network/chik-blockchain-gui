@@ -115,7 +115,7 @@ export default class DIDWallet extends Wallet {
       numVerification: number;
       metadata: Record<string, string>;
       launcherId: string;
-      fullPuzzle: string; // hex bytes of serialized CLVM program
+      fullPuzzle: string; // hex bytes of serialized KLVM program
       solution: any;
       hints: string[];
     }>('did_get_info', {

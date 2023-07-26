@@ -24,8 +24,8 @@ export default function PlotAddChoosePlotter(props: Props) {
 
   function getDisplayablePlotters(p: PlotterMap<PlotterName, Plotter>): PlotterName[] {
     const displayablePlotters = Object.keys(p) as PlotterName[];
-    // Sort chiapos to the top of the list
-    displayablePlotters.sort((a, b) => (a === PlotterName.CHIAPOS ? -1 : a.localeCompare(b)));
+    // Sort chikpos to the top of the list
+    displayablePlotters.sort((a, b) => (a === PlotterName.CHIKPOS ? -1 : a.localeCompare(b)));
     return displayablePlotters;
   }
 
