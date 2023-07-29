@@ -24,8 +24,8 @@ export default function FullNodeAddConnection(props: Props) {
 
   const methods = useForm<FormData>({
     defaultValues: {
-      host: '',
-      port: '',
+      host: 'node.chiknetwork.com',
+      port: '9678',
     },
   });
 
