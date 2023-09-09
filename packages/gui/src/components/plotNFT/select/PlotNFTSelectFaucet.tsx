@@ -15,9 +15,13 @@ export default function PlotNFTSelectFaucet(props: Props) {
   const currencyCode = useCurrencyCode();
   const openExternal = useOpenExternal();
 
-  function handleClick() {
-    openExternal('https://faucet.chiknetwork.com/');
-  }
+  const handleClick = React.useCallback(() => {
+    if (currencyCode === 'TXCK') {
+      openExternal('https://testnet10-faucet.chiknetwork.com/');
+    } else {
+      openExternal('https://faucet.chiknetwork.com/');
+    }
+  }, [currencyCode, openExternal]);
 
   return (
     <CardStep
