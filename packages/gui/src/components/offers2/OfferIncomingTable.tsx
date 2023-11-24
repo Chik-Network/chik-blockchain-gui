@@ -25,6 +25,7 @@ import { launcherIdFromNFTId } from '../../util/nfts';
 import offerToOfferBuilderData from '../../util/offerToOfferBuilderData';
 import HumanTimestamp from '../helpers/HumanTimestamp';
 import NotificationPreview from '../notification/NotificationPreview';
+
 import OfferDetails from './OfferDetails';
 
 const cols = [
@@ -74,7 +75,11 @@ const cols = [
     title: <Trans>Offering</Trans>,
   },
   {
-    field: (notification: Notification) => <HumanTimestamp value={notification.timestamp} />,
+    field: (notification: Notification) => (
+      <Flex flexDirection="column">
+        <HumanTimestamp value={notification.timestamp} />
+      </Flex>
+    ),
     title: <Trans>Creation Date</Trans>,
   },
   {

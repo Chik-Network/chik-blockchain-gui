@@ -5,6 +5,7 @@ import { useGetOfferDataMutation } from '@chik-network/api-react';
 import { useShowSaveDialog } from '@chik-network/core';
 
 import { suggestedFilenameForOffer } from '../components/offers/utils';
+
 import useAssetIdName from './useAssetIdName';
 
 export type SaveOfferFileHook = (tradeId: string) => Promise<void>;

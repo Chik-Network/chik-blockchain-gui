@@ -79,7 +79,7 @@ export const walletApi = apiWithTag.injectEndpoints({
               wallets.map(async (wallet: Wallet) => {
                 const { type } = wallet;
                 const meta: any = {};
-                if (type === WalletType.CAT) {
+                if ([WalletType.CAT, WalletType.CRCAT].includes(type)) {
                   // get CAT asset
                   const { data: assetData, error: assetError } = await fetchWithBQ({
                     command: 'getAssetId',
@@ -1516,6 +1516,7 @@ export const {
   useSpendCATMutation,
   useAddCATTokenMutation,
   useGetStrayCatsQuery,
+  useCrCatApprovePendingMutation,
 
   // PlotNFTS
   useGetPlotNFTsQuery,

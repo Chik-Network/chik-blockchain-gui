@@ -1,4 +1,4 @@
-import { SyncingStatus, toBech32m } from '@chik-network/api';
+import { SyncingStatus, toBech32m, WalletType } from '@chik-network/api';
 import { useSpendCATMutation, useFarmBlockMutation } from '@chik-network/api-react';
 import {
   AdvancedOptions,
@@ -71,13 +71,12 @@ export default function WalletCATSend(props: Props) {
     formState: { isSubmitting },
   } = methods;
 
-  const addressValue = useWatch<string>({
+  const addressValue = useWatch({
     control: methods.control,
     name: 'address',
   });
 
   const { wallet, unit, loading } = useWallet(walletId);
-
   async function farm() {
     if (addressValue) {
       await farmBlock({
@@ -196,6 +195,14 @@ export default function WalletCATSend(props: Props) {
                 required
                 disabled={isSubmitting}
               />
+              {wallet?.type === WalletType.CRCAT && (
+                <Typography variant="caption">
+                  <Trans>
+                    The recipient of this transaction will need to have valid credentials in order to claim the sent
+                    assets. See the CR CAT restrictions above.
+                  </Trans>
+                </Typography>
+              )}
             </Grid>
             <Grid xs={12} md={6} item>
               <TextFieldNumber
