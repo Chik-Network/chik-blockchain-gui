@@ -58,7 +58,7 @@ describe('calculateRoyalties', () => {
     it('converts testnet NFTInfo to a RoyaltyCalculationRoyaltyAsset object', () => {
       const royaltyAsset: RoyaltyCalculationRoyaltyAsset = royaltyAssetFromNFTInfo(exampleNFT, true);
       expect(royaltyAsset.asset).toBe('nft1g9xfeujpq402dhxrms5wqvh73rr02remvwvycr9s4cxzzlkg324s3nu8vj');
-      expect(royaltyAsset.royaltyAddress).toBe('txch17mp20xhhy7l6m20u37nw4ft338r2tt2yquenu4earcyzjwqh6kksaanaaq');
+      expect(royaltyAsset.royaltyAddress).toBe('txck17mp20xhhy7l6m20u37nw4ft338r2tt2yquenu4earcyzjwqh6kksaanaaq');
       expect(royaltyAsset.royaltyPercentage).toBe(350);
     });
   });
