@@ -15,7 +15,7 @@ test.afterAll(async () => {
 });
 
 test('Confirm that User cannot send a TXCK amount greater then in Wallet', async () => {
-  let receiveWallet = 'txck1ksr59en3j3t9zaprmya0jp9k6mkazq2u5lfccaf85sej7kgmvjjscanfxd';
+  let receiveWallet = 'txck1ksr59en3j3t9zaprmya0jp9k6mkazq2u5lfccaf85sej7kgmvjjssq2xgx';
   let fundedWallet = '1922132445';
 
   //Pre-requisites to get user back to Wallet selection page

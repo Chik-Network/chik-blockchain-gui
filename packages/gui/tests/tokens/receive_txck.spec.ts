@@ -17,8 +17,8 @@ test.afterAll(async () => {
 
 test('Verify that a recipient wallet receives funds from sending wallet!', async () => {
   //Pre-requisites
-  let receiveWallet = 'txck17m0jla968szqmw7mf6msaea2jxl553g9m5kx8ryuqadvml8w49tqr75l9y';
-  let sendWallet = 'txck1rkk6haccvw095t9ajc6h9tqekm2rz4zwurhep8dcrmsr2q2446zsndld57';
+  let receiveWallet = 'txck17m0jla968szqmw7mf6msaea2jxl553g9m5kx8ryuqadvml8w49tqtrdst0';
+  let sendWallet = 'txck1rkk6haccvw095t9ajc6h9tqekm2rz4zwurhep8dcrmsr2q2446zsmsxz64';
 
   //Pre-requisites to get user back to Wallet selection page
   await page.locator('button:has-text("Close")').click();

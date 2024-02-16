@@ -17,8 +17,8 @@ test.afterAll(async () => {
 
 test('Verify that a recipient wallet receives funds from sending wallet!', async () => {
   //Pre-requisites
-  let receiveWallet = 'txck1km02nle6485x6fv676m7nx67zfyk75ed0znq3dwumj8wvxm2pvms9m0dnf';
-  let sendWallet = 'txck1ls7ur56shuh58zlvzkqkwgzch8zy6llfwr7ydm3n8rvky4rdf3dqlceyzx';
+  let receiveWallet = 'txck1km02nle6485x6fv676m7nx67zfyk75ed0znq3dwumj8wvxm2pvmsdxkzaz';
+  let sendWallet = 'txck1ls7ur56shuh58zlvzkqkwgzch8zy6llfwr7ydm3n8rvky4rdf3dqh9qtvd';
 
   //Pre-requisites to get user back to Wallet selection page
   await new CloseDialog(page).closeIt();

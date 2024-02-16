@@ -16,8 +16,8 @@ test.afterAll(async () => {
 
 test('Verify that an NFT can be Transfer to another account', async () => {
   //Pre-requisites
-  let ReceiveNftWallet = 'txck15zuw5285d075w8ge99sz23tdcf9kyq2pzez9x3x82z22l5u8g68qs5gec8';
-  let SendNftWallet = 'txck1z23pn6l698hxygxrrdz0sz3j87dnuylp52d53h96tl4g5p09qtes5r5r2f';
+  let ReceiveNftWallet = 'txck15zuw5285d075w8ge99sz23tdcf9kyq2pzez9x3x82z22l5u8g68qcf3kkv';
+  let SendNftWallet = 'txck1z23pn6l698hxygxrrdz0sz3j87dnuylp52d53h96tl4g5p09qtesu7dvyz';
 
   //Pre-requisites to get user back to Wallet selection page
   await new CloseDialog(page).closeIt();

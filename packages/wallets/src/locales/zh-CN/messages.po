@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh_CN\n"
 "Project-Id-Version: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-09-14 22:49\n"
+"PO-Revision-Date: 2023-11-26 00:04\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -28,7 +28,7 @@ msgstr "- 备注帮助接收方识别付款。<0/>- 输入的任何内容将公�
 
 #: src/components/WalletSend.tsx:294
 msgid "- Set a time frame which allows you claw back (revoke) the transaction.<0/>- Recipient of the transaction can only claim the funds once that time frame expires."
-msgstr "- 设置一个时间框架，允许撤回(撤销) 交易。<0/>- 交易的接收者只能在该时间框架到期后才能领取资金。"
+msgstr "- 设置一个时间框架，允许撤回(撤销)交易。<0/>- 交易的接收者只能在该时间到期后才能确认资金。"
 
 #: src/components/WalletHistory.tsx:118
 msgid "+"
@@ -84,11 +84,11 @@ msgstr "批准"
 
 #: src/components/crCat/CrCatApprovePendingDialog.tsx:91
 msgid "Approve pending CR-CAT transactions"
-msgstr "批准待处理的 CR-CAT 交易"
+msgstr "批准待确认的受限代币交易"
 
 #: src/components/crCat/CrCatApprovePendingDialog.tsx:147
 msgid "Approve pending transactions"
-msgstr "批准待处理的交易"
+msgstr "批准待确认的交易"
 
 #: src/components/WalletHeader.tsx:30
 msgid "Are you sure you want to delete unconfirmed transactions?"
@@ -116,13 +116,13 @@ msgstr "授权的收款钱包"
 msgid "Authorized providers"
 msgstr "授权的提供商"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:227
+#: src/components/ClawbackClaimTransactionDialog.tsx:234
 msgid "Auto-claim transactions with this fee from now on."
 msgstr "从现在开始，以此手续费自动确认交易。"
 
 #: src/components/WalletSend.tsx:336
 msgid "Before sending this transaction, you should ensure that the recipient has a wallet that can claim it manually after the timer has expired."
-msgstr "在发送此交易之前，请确保接收方拥有一个可以在定时到期后手动领取的钱包。"
+msgstr "在发起此交易前，应确保接收方的钱包，在定时到期后可以手动确认这笔交易。"
 
 #: src/components/WalletHistoryClawbackChip.tsx:61
 msgid "Can be claimed in "
@@ -156,8 +156,8 @@ msgstr "Chik资产代币"
 msgid "Claim transaction"
 msgstr "确认交易"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:137
-#: src/components/ClawbackClaimTransactionDialog.tsx:260
+#: src/components/ClawbackClaimTransactionDialog.tsx:138
+#: src/components/ClawbackClaimTransactionDialog.tsx:267
 msgid "Claim Transaction"
 msgstr "确认交易"
 
@@ -177,25 +177,25 @@ msgstr "可撤回有效期"
 msgid "Claw back this transaction"
 msgstr "撤回这笔交易"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:260
+#: src/components/ClawbackClaimTransactionDialog.tsx:267
 msgid "Claw back Transaction"
 msgstr "撤回交易"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:137
+#: src/components/ClawbackClaimTransactionDialog.tsx:138
 msgid "Claw Back Transaction"
 msgstr "撤回交易"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:129
+#: src/components/ClawbackClaimTransactionDialog.tsx:130
 msgid "Clawback payment claimed"
 msgstr "已确认的可撤回交易"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:129
+#: src/components/ClawbackClaimTransactionDialog.tsx:130
 msgid "Clawback payment clawed back"
 msgstr "已取消的可撤回交易"
 
 #: src/components/WalletSend.tsx:334
 msgid "Clawback will be applied."
-msgstr "待确认的可撤回交易"
+msgstr "可撤回交易注意事项!"
 
 #: src/components/WalletSend.tsx:344
 msgid "Clawback will not be applied."
@@ -209,8 +209,8 @@ msgstr "正在撤回交易..."
 #~ msgid "Click here to download an older version of the wallet"
 #~ msgstr "Click here to download an older version of the wallet"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:158
-#: src/components/ClawbackClaimTransactionDialog.tsx:249
+#: src/components/ClawbackClaimTransactionDialog.tsx:159
+#: src/components/ClawbackClaimTransactionDialog.tsx:256
 #: src/components/crCat/CrCatApprovePendingDialog.tsx:136
 msgid "Close"
 msgstr "关闭"
@@ -267,7 +267,7 @@ msgstr "自定义"
 
 #: src/constants/WalletName.ts:38
 msgid "Datalayer Wallet"
-msgstr "Datalayer钱包"
+msgstr "数据层钱包"
 
 #: src/components/WalletHistory.tsx:100
 #~ msgid "Date"
@@ -316,7 +316,7 @@ msgstr "农场"
 msgid "Fee"
 msgstr "手续费"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:176
+#: src/components/ClawbackClaimTransactionDialog.tsx:183
 msgid "From:"
 msgstr "来自："
 
@@ -454,11 +454,11 @@ msgstr "支付已批准"
 
 #: src/components/WalletHistory.tsx:202
 msgid "Pending"
-msgstr "待处理"
+msgstr "待确认"
 
 #: src/components/card/WalletCardPendingBalance.tsx:40
 msgid "Pending Balance"
-msgstr "待处理的金额"
+msgstr "待确认余额"
 
 #: src/components/card/WalletCardCRCatApprove.tsx:47
 msgid "Pending Balance for Approval"
@@ -466,15 +466,15 @@ msgstr "待批准的余额"
 
 #: src/components/card/WalletCardPendingChange.tsx:41
 msgid "Pending Change"
-msgstr "待处理的找零"
+msgstr "待确认找零"
 
 #: src/components/WalletHistoryPending.tsx:63
 msgid "Pending claw back transactions"
-msgstr "待处理的可撤回交易"
+msgstr "待确认的可撤回交易"
 
 #: src/components/card/WalletCardPendingTotalBalance.tsx:41
 msgid "Pending Total Balance"
-msgstr "待处理总余额"
+msgstr "待确认总余额"
 
 #: src/components/crCat/CrCatApprovePendingDialog.tsx:83
 msgid "Please allow some time for the payments to reflect in the blockchain."
@@ -484,11 +484,11 @@ msgstr "请等待一些时间让支付在区块链上进行确认。"
 msgid "Please enter a transaction fee to approve the above amount:"
 msgstr "请输入一个交易手续费来批准上述金额："
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:207
+#: src/components/ClawbackClaimTransactionDialog.tsx:214
 msgid "Please enter a transaction fee to claim the above amount:"
 msgstr "请提供确认的手续费："
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:209
+#: src/components/ClawbackClaimTransactionDialog.tsx:216
 msgid "Please enter a transaction fee to claw back the above amount:"
 msgstr "请提供撤回的手续费："
 
@@ -637,8 +637,8 @@ msgid "Syncing"
 msgstr "正在同步"
 
 #: src/components/card/WalletCardTotalBalance.tsx:70
-msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCK, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
-msgstr "派生索引设置了钱包在区块链上扫描钱包地址的范围。如果您有大量的交易或取消了的XCK、CAT或NFT报价，通常情况下这个数字会更高。如果您认为余额不正确，因为缺少某些币，那么增加派生索引可能有助于钱包将缺失的硬币纳入余额总数中。"
+msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCH, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
+msgstr "派生索引设置了钱包在区块链上扫描钱包地址的范围。如果您有大量的交易或取消了的XCH、CAT或NFT报价，通常情况下这个数字会更高。如果您认为余额不正确，因为缺少某些币，那么增加派生索引可能有助于钱包将缺失的硬币纳入余额总数中。"
 
 #: src/components/cat/WalletCATSend.tsx:200
 msgid "The recipient of this transaction will need to have valid credentials in order to claim the sent assets. See the CR CAT restrictions above."
@@ -658,25 +658,25 @@ msgstr "这不是一个可用于发送资金的有效地址"
 
 #: src/components/standard/WalletStandardCards.tsx:23
 msgid "This is the amount of Chik that you can currently use to make transactions. It does not include pending farming rewards, pending incoming transactions, and Chik that you have just spent but is not yet in the blockchain."
-msgstr "这是当前可以用来进行交易的Chik金额。它不包括待处理的耕种奖励、待处理的收入交易以及刚刚花费但尚未在链上确认的Chik金额。"
+msgstr "这是当前可以用来进行交易的Chik金额。它不包括待确认的耕种奖励、待确认的转入交易以及刚刚转出但尚未在链上确认的Chik金额。"
 
 #: src/components/standard/WalletStandardCards.tsx:42
 msgid "This is the pending change, which are change coins which you have sent to yourself, but have not been confirmed yet."
-msgstr "这是待处理的找零金额，也就是您发送给自己的找零币，但尚未确认的金额。"
+msgstr "这是待确认的找零金额，是您发送给自己但尚待确认的找零硬币。"
 
 #: src/components/standard/WalletStandardCards.tsx:36
 msgid "This is the sum of the incoming and outgoing pending transactions (not yet included into the blockchain). This does not include farming rewards."
-msgstr "这是待处理的收入和支出交易的总和(尚未包含在区块链中)。这不包括耕种奖励。"
+msgstr "这是待确认的收入和支出交易的总和(尚未包含在区块链中)。这不包括耕种奖励。"
 
 #: src/components/standard/WalletStandardCards.tsx:17
 msgid "This is the total amount of chik in the blockchain at the current peak block that is controlled by your private keys. It includes frozen farming rewards, but not pending incoming and outgoing transactions."
-msgstr "这是由您的私钥控制的当前最高区块上的区块链中的Chik总量。它包括冻结的耕种奖励，但不包括待处理的入账和出账交易。"
+msgstr "这是由您的私钥控制的当前最高区块上的区块链中的Chik总量。它包括冻结的耕种奖励，但不包括未确认的转入和转出交易。"
 
 #: src/components/standard/WalletStandardCards.tsx:30
 msgid "This is the total balance + pending balance: it is what your balance will be after all pending transactions are confirmed."
-msgstr "这是总余额 + 待处理余额，即：待处理的交易确认后的总余额。"
+msgstr "这是总余额+待确认余额，即：待确认的交易完成后的总余额。"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:194
+#: src/components/ClawbackClaimTransactionDialog.tsx:201
 msgid "This transaction will be automatically claimed with a fee:"
 msgstr "此交易将自动用以下手续费进行确认："
 
@@ -684,7 +684,7 @@ msgstr "此交易将自动用以下手续费进行确认："
 #~ msgid "To"
 #~ msgstr "To"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:176
+#: src/components/ClawbackClaimTransactionDialog.tsx:183
 #: src/components/WalletHistory.tsx:168
 msgid "To:"
 msgstr "发送到："
@@ -713,11 +713,11 @@ msgstr "交易已成功发送到全节点，且已添加到内存池中。"
 msgid "Transactions"
 msgstr "交易"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:233
+#: src/components/ClawbackClaimTransactionDialog.tsx:240
 msgid "Transactions will be claimed automatically when the Clawback time expires."
 msgstr "当可撤回时间到期时，交易将自动确认。"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:236
+#: src/components/ClawbackClaimTransactionDialog.tsx:243
 msgid "Transactions with values smaller than the fee will not be auto claimed."
 msgstr "小于手续费的交易将不会自动确认。"
 
@@ -742,7 +742,7 @@ msgstr "钱包名称"
 msgid "Wallet needs to be synced before approving transactions"
 msgstr "在批准交易之前需要同步钱包"
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:201
+#: src/components/ClawbackClaimTransactionDialog.tsx:208
 msgid "Wallet needs to be synced for claiming clawback transactions"
 msgstr "需要同步钱包才能确认可撤回交易"
 
@@ -766,7 +766,7 @@ msgstr "欢迎！以下是用于备份您的钱包的单词。如果没有它们
 msgid "Will be autoclaimed in "
 msgstr "将自动确认于 "
 
-#: src/components/ClawbackClaimTransactionDialog.tsx:239
+#: src/components/ClawbackClaimTransactionDialog.tsx:246
 msgid "You can change the Clawback Auto Claim fee in Settings."
 msgstr "可以在设置中更改可撤回交易自动确认的手续费。"
 

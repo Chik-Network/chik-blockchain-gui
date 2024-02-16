@@ -31,6 +31,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: '${{ inputs.pr_target || github.ref_name }}'
 
       - name: Vault Login
         uses: Chik-Network/actions/vault/login@main
