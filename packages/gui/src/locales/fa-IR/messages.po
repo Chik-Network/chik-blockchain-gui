@@ -310,8 +310,8 @@ msgid "<0>Loading...</0> {0}%"
 msgstr "<0>درحال بارگزاری...</0>{0}%"
 
 #: src/components/settings/ProfileAdd.tsx:80
-#~ msgid "<0>Need some XCH?</0>"
-#~ msgstr "<0>Need some XCH?</0>"
+#~ msgid "<0>Need some XCK?</0>"
+#~ msgstr "<0>Need some XCK?</0>"
 
 #: src/components/nfts/gallery/NFTGallery.tsx:296
 msgid "<0>Showing</0> {0} <1>of</1> {1}  <2>items</2>"
@@ -531,11 +531,11 @@ msgid "Amount exceeds total balance for {catName} token"
 msgstr "بیشتر است {catName} مقدار از کل موجودی برای توکن"
 
 #: src/util/offerBuilderDataToOffer.ts:59
-#~ msgid "Amount exceeds XCH spendable balance"
+#~ msgid "Amount exceeds XCK spendable balance"
 #~ msgstr ""
 
 #: src/util/offerBuilderDataToOffer.ts:174
-msgid "Amount exceeds XCH total balance"
+msgid "Amount exceeds XCK total balance"
 msgstr "مقدار از موجودی کل چیا بیشتر است"
 
 #: src/components/farm/FarmHealth.tsx:321
@@ -698,8 +698,8 @@ msgid "Badging"
 msgstr "نمایش"
 
 #: src/components/settings/ProfileAdd.tsx:98
-#~ msgid "Balance: {standardBalance} XCH"
-#~ msgstr "Balance: {standardBalance} XCH"
+#~ msgid "Balance: {standardBalance} XCK"
+#~ msgstr "Balance: {standardBalance} XCK"
 
 #: src/components/block/Block.jsx:236
 msgid "Base Farmer Reward Amount"
@@ -912,12 +912,12 @@ msgstr "بررسی کنید Spacescan.io منشأ را در"
 #~ msgid "Chik"
 #~ msgstr "Chik"
 
-#: src/components/offers2/OfferBuilderXCHSection.tsx:77
+#: src/components/offers2/OfferBuilderXCKSection.tsx:77
 msgid "Chik ({currencyCode}) is a digital currency that is secure and sustainable"
 msgstr "یک ارز دیجیتال امن و پایدار است ({currencyCode}) چیا"
 
 #: src/components/offers2/OfferBuilderTokensSection.tsx:115
-msgid "Chik Asset Tokens (CATs) are tokens built on top of XCH"
+msgid "Chik Asset Tokens (CATs) are tokens built on top of XCK"
 msgstr "توکن‌های دارایی چیا (کت) توکن‌هایی هستند که بر روی چیا ساخته شده‌اند"
 
 #: src/electron/main.tsx:1047
@@ -1202,7 +1202,7 @@ msgid "Create & Manage plots"
 msgstr "پلات ها را ایجاد و مدیریت کنید"
 
 #: src/components/offers/OfferManager.tsx:416
-msgid "Create a file that you can use to trade XCH, Chik Asset Tokens, or NFTs with no counter-party risk."
+msgid "Create a file that you can use to trade XCK, Chik Asset Tokens, or NFTs with no counter-party risk."
 msgstr "فایلی ایجاد کنید که بتوانید از آن برای معامله دارایی چیا، یا ان اف تی بدون ریسک طرف مقابل استفاده کنید."
 
 #: src/components/settings/ProfileAdd.tsx:113
@@ -1366,7 +1366,7 @@ msgid "Decompressor Thread Count"
 msgstr "شمارش رشته های غیر فشرده کردن"
 
 #: src/components/settings/SettingsCustody.tsx:41
-msgid "Default claw back time for outgoing XCH transactions"
+msgid "Default claw back time for outgoing XCK transactions"
 msgstr "زمان پیش‌فرض ادعای بازگرداندن برای تراکنش‌های خروجی چیا"
 
 #: src/components/settings/SettingsCustodyClawbackOutgoing.tsx:114
@@ -1823,13 +1823,13 @@ msgstr "خروج"
 #: src/components/farm/card/EstimatedEarning.tsx:65
 #: src/components/farm/card/FarmingRewardsCards.tsx:105
 #: src/components/farm/card/FarmingRewardsCards.tsx:115
-msgid "Estimated daily XCH"
+msgid "Estimated daily XCK"
 msgstr "مقدار تخمینی روزانه چیا"
 
 #: src/components/farm/card/EstimatedEarning.tsx:65
 #: src/components/farm/card/FarmingRewardsCards.tsx:133
 #: src/components/farm/card/FarmingRewardsCards.tsx:143
-msgid "Estimated monthly XCH"
+msgid "Estimated monthly XCK"
 msgstr "مقدار تخمینی ماهانه چیا"
 
 #: src/components/fullNode/card/FullNodeEstimatedNetworkSpace.tsx:14
@@ -2031,7 +2031,7 @@ msgid "Fee (Optional)"
 msgstr "کارمزد (اختیاری)"
 
 #: src/util/offerBuilderDataToOffer.ts:199
-msgid "Fee exceeds XCH total balance"
+msgid "Fee exceeds XCK total balance"
 msgstr "کارمزد از موجودی کل چیا بیشتر است"
 
 #: src/components/plotNFT/PlotNFTChangePool.tsx:115
@@ -2430,7 +2430,7 @@ msgstr "Metadata شامل کیف پول"
 
 #: src/components/offers/NFTOfferEditor.tsx:88
 #: src/components/offers/OfferEditorConditionsPanel.tsx:393
-msgid "Including a fee in the offer can help expedite the transaction when the offer is accepted. The recommended minimum fee is 0.000005 XCH (5,000,000 mojos)"
+msgid "Including a fee in the offer can help expedite the transaction when the offer is accepted. The recommended minimum fee is 0.000005 XCK (5,000,000 mojos)"
 msgstr "درج کارمزد در پیشنهاد میتواند به سرعت معامله در هنگام پذیرش پیشنهاد کمک کند. حداقل هزینه توصیه شده 0.000005 چیا (5000000 موجو) است"
 
 #: src/components/offers2/OfferIncomingTable.tsx:121
@@ -2540,15 +2540,15 @@ msgid "Join a Pool"
 msgstr "پیوسوتن به یک استخر"
 
 #: src/components/plot/add/PlotAddNFT.tsx:49
-msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile."
+msgid "Join a pool and get consistent XCK farming rewards. The average returns are the same, but it is much less volatile."
 msgstr "به یک استخر بپیوندید و پاداش فارم پایدار چیا دریافت کنید. میانگین بازدهی یکسان است، اما نوسان بسیار کمتری دارد."
 
 #: src/components/plotNFT/PlotNFTAdd.tsx:62
-msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
+msgid "Join a pool and get consistent XCK farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
 msgstr "به یک استخر بپیوندید و پاداشهای فارم پایدار چیا دریافت کنید. میانگین بازدهی یکسان است، اما نوسان بسیار کمتری دارد. پلاتها را به یک پلات ان اق تی اختصاص دهید. شما به راحتی میتوانید استخرها را بدون نیاز به پلات سازی مجدد تغییر دهید."
 
 #: src/components/plot/add/PlotAddNFT.tsx:137
-msgid "Join a pool and get more consistent XCH farming rewards. Create a plot NFT and assign your new plots to a group."
+msgid "Join a pool and get more consistent XCK farming rewards. Create a plot NFT and assign your new plots to a group."
 msgstr "به یک استخر بپیوندید و پاداش فارم پایدار چیا دریافت کنید. یک پلات ان اف تی ایجاد کنید و پلاتهای جدید خود را به یک گروه اختصاص دهید."
 
 #: src/components/app/AppSelectMode.tsx:133
@@ -3251,7 +3251,7 @@ msgid "Not Synced"
 msgstr "سینک نشده"
 
 #: src/components/farm/FarmManageFarmingRewards.tsx:152
-msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCH reward for pooling plots."
+msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCK reward for pooling plots."
 msgstr "توجه داشته باشید که این کار آدرس‌های پرداخت استخر شما را تغییر نمیدهد. این فقط بر پلات های طرح قدیمی و پاداش 0.25 چیا برای استخر پلات ها تأثیر میگذارد."
 
 #: src/components/plot/add/PlotAddChooseKeys.tsx:99
@@ -3732,7 +3732,7 @@ msgstr "لطفاً یک شناسه ان اف تی وارد کنید"
 
 #: src/util/offerBuilderDataToOffer.ts:162
 #: src/util/offerBuilderDataToOffer.ts:298
-msgid "Please enter an XCH amount"
+msgid "Please enter an XCK amount"
 msgstr "لطفاً یک مبلغ چیا وارد کنید"
 
 #: src/components/settings/ChangePassphrasePrompt.tsx:86
@@ -4163,8 +4163,8 @@ msgid "Recommended"
 msgstr "توصیه شده"
 
 #: src/components/settings/ProfileAdd.tsx:114
-#~ msgid "Recommended: 0.000005 XCH"
-#~ msgstr "Recommended: 0.000005 XCH"
+#~ msgid "Recommended: 0.000005 XCK"
+#~ msgstr "Recommended: 0.000005 XCK"
 
 #: src/components/settings/SettingsHarvester.tsx:404
 msgid "Recursive Plot Scan"
@@ -4538,7 +4538,7 @@ msgid "Selected"
 msgstr "انتخاب شد"
 
 #: src/components/plotNFT/select/PlotNFTSelectBase.tsx:93
-msgid "Self pool. When you win a block you will earn XCH rewards."
+msgid "Self pool. When you win a block you will earn XCK rewards."
 msgstr "در استخر شخصی وقتی یک بلاک را برنده میشوید، کل پاداش چیا را دریافت خواهید کرد."
 
 #: src/components/plotNFT/PlotNFTExternalState.tsx:24
@@ -4573,7 +4573,7 @@ msgid "Send Transaction"
 msgstr "ارسال تراکنش"
 
 #: src/components/settings/SettingsCustody.tsx:45
-msgid "Set a default time frame for all outbound XCH transactions."
+msgid "Set a default time frame for all outbound XCK transactions."
 msgstr "یک چارچوب زمانی پیش‌فرض برای تمام تراکنش‌های چیا خروجی تنظیم کنید."
 
 #: src/components/offers2/OfferBuilderExpirationSection.tsx:187
@@ -4748,7 +4748,7 @@ msgid "Skips adding a final directory to harvester for farming"
 msgstr "از قراردادن پوشه نهایی به برداشت کننده برای فارم صرفنظر شود"
 
 #: src/components/pool/PoolHero.tsx:21
-msgid "Smooth out your XCH farming rewards by joining a pool."
+msgid "Smooth out your XCK farming rewards by joining a pool."
 msgstr "برای به دست آوردن پاداش پایدار چیا به استخر بپیوندید."
 
 #: src/components/plot/add/PlotAddChooseKeys.tsx:179
@@ -4856,7 +4856,7 @@ msgid "Status"
 msgstr "وضعیت"
 
 #: src/components/app/AppSelectMode.tsx:78
-msgid "Store and Send XCH"
+msgid "Store and Send XCK"
 msgstr "ذخیره و ارسال چیا"
 
 #: src/components/app/AppPassPrompt.tsx:107
@@ -4939,7 +4939,7 @@ msgid "The claw back time can be manually adjusted per transaction."
 msgstr "زمان ادعای بازگرداندن را میتوان به صورت دستی در هر تراکنش تنظیم کرد."
 
 #: src/components/settings/SettingsPanel.tsx:169
-msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCH, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
+msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCK, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
 msgstr "شاخص مشتق که کیف پول بلاکچین را اسکن میکند محدوده آدرس های کیف پول را تعیین مینماید. اگر تراکنش‌های زیادی دارید یا پیشنهادات لغو شده برای چیا، نوکن یا ان اف تی دارید، این عدد معمولاً بیشتر است. اگر فکر میکنید موجودی‌ شما نادرست است، ارزهای درون آن کمتر است، افزایش شاخص مشتق‌گیری میتواند به کیف پول کمک کندتا ارزهای گمشده را در کل موجودی قراردهد."
 
 #: src/components/plot/add/PlotAddSelectHybridDiskMode.tsx:148
@@ -5068,7 +5068,7 @@ msgid "There was a network issue and your Full Node or Farmer could not receive 
 msgstr "مشکلی در شبکه وجود داشت که قول نود یا فارم شما نتوانستند اس پی ها را دریافت کنند."
 
 #: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:91
-msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCH address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
+msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCK address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
 msgstr "این دستورالعمل‌هایی است که نشان میدهد فارمر چگونه میخواهد دریافت کند. به طور پیش‌فرض این یک آدرس چیاخواهد بود، اما میتوان آنرا روی هر رشته‌ای با اندازه کمتر از 1024 کاراکتر تنظیم کرد، بنابراین میتواند یک شناسه بلاکچین یا سیستم پرداخت دیگر را نشان دهد."
 
 #: src/components/plot/card/PlotCardPlotsFailedToOpen.tsx:13
@@ -5323,7 +5323,7 @@ msgstr "کل تکرارهای تابع تاخیر قابل تاییدVDF"
 
 #: src/components/farm/card/FarmingRewardsHistoryCards.tsx:31
 #: src/components/farm/card/FarmingRewardsHistoryCards.tsx:82
-msgid "Total XCH Farmed"
+msgid "Total XCK Farmed"
 msgstr "مجموع فارم شده چیا"
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:362

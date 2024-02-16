@@ -310,8 +310,8 @@ msgid "<0>Loading...</0> {0}%"
 msgstr ""
 
 #: src/components/settings/ProfileAdd.tsx:80
-#~ msgid "<0>Need some XCH?</0>"
-#~ msgstr "<0>Need some XCH?</0>"
+#~ msgid "<0>Need some XCK?</0>"
+#~ msgstr "<0>Need some XCK?</0>"
 
 #: src/components/nfts/gallery/NFTGallery.tsx:296
 msgid "<0>Showing</0> {0} <1>of</1> {1}  <2>items</2>"
@@ -531,11 +531,11 @@ msgid "Amount exceeds total balance for {catName} token"
 msgstr ""
 
 #: src/util/offerBuilderDataToOffer.ts:59
-#~ msgid "Amount exceeds XCH spendable balance"
+#~ msgid "Amount exceeds XCK spendable balance"
 #~ msgstr ""
 
 #: src/util/offerBuilderDataToOffer.ts:174
-msgid "Amount exceeds XCH total balance"
+msgid "Amount exceeds XCK total balance"
 msgstr ""
 
 #: src/components/farm/FarmHealth.tsx:321
@@ -698,8 +698,8 @@ msgid "Badging"
 msgstr ""
 
 #: src/components/settings/ProfileAdd.tsx:98
-#~ msgid "Balance: {standardBalance} XCH"
-#~ msgstr "Balance: {standardBalance} XCH"
+#~ msgid "Balance: {standardBalance} XCK"
+#~ msgstr "Balance: {standardBalance} XCK"
 
 #: src/components/block/Block.jsx:236
 msgid "Base Farmer Reward Amount"
@@ -912,12 +912,12 @@ msgstr ""
 #~ msgid "Chik"
 #~ msgstr "Chik"
 
-#: src/components/offers2/OfferBuilderXCHSection.tsx:77
+#: src/components/offers2/OfferBuilderXCKSection.tsx:77
 msgid "Chik ({currencyCode}) is a digital currency that is secure and sustainable"
 msgstr ""
 
 #: src/components/offers2/OfferBuilderTokensSection.tsx:115
-msgid "Chik Asset Tokens (CATs) are tokens built on top of XCH"
+msgid "Chik Asset Tokens (CATs) are tokens built on top of XCK"
 msgstr ""
 
 #: src/electron/main.tsx:1047
@@ -1202,7 +1202,7 @@ msgid "Create & Manage plots"
 msgstr "Criar e Gerenciar lotes"
 
 #: src/components/offers/OfferManager.tsx:416
-msgid "Create a file that you can use to trade XCH, Chik Asset Tokens, or NFTs with no counter-party risk."
+msgid "Create a file that you can use to trade XCK, Chik Asset Tokens, or NFTs with no counter-party risk."
 msgstr ""
 
 #: src/components/settings/ProfileAdd.tsx:113
@@ -1366,7 +1366,7 @@ msgid "Decompressor Thread Count"
 msgstr ""
 
 #: src/components/settings/SettingsCustody.tsx:41
-msgid "Default claw back time for outgoing XCH transactions"
+msgid "Default claw back time for outgoing XCK transactions"
 msgstr ""
 
 #: src/components/settings/SettingsCustodyClawbackOutgoing.tsx:114
@@ -1823,13 +1823,13 @@ msgstr ""
 #: src/components/farm/card/EstimatedEarning.tsx:65
 #: src/components/farm/card/FarmingRewardsCards.tsx:105
 #: src/components/farm/card/FarmingRewardsCards.tsx:115
-msgid "Estimated daily XCH"
+msgid "Estimated daily XCK"
 msgstr ""
 
 #: src/components/farm/card/EstimatedEarning.tsx:65
 #: src/components/farm/card/FarmingRewardsCards.tsx:133
 #: src/components/farm/card/FarmingRewardsCards.tsx:143
-msgid "Estimated monthly XCH"
+msgid "Estimated monthly XCK"
 msgstr ""
 
 #: src/components/fullNode/card/FullNodeEstimatedNetworkSpace.tsx:14
@@ -2031,7 +2031,7 @@ msgid "Fee (Optional)"
 msgstr ""
 
 #: src/util/offerBuilderDataToOffer.ts:199
-msgid "Fee exceeds XCH total balance"
+msgid "Fee exceeds XCK total balance"
 msgstr ""
 
 #: src/components/plotNFT/PlotNFTChangePool.tsx:115
@@ -2430,7 +2430,7 @@ msgstr ""
 
 #: src/components/offers/NFTOfferEditor.tsx:88
 #: src/components/offers/OfferEditorConditionsPanel.tsx:393
-msgid "Including a fee in the offer can help expedite the transaction when the offer is accepted. The recommended minimum fee is 0.000005 XCH (5,000,000 mojos)"
+msgid "Including a fee in the offer can help expedite the transaction when the offer is accepted. The recommended minimum fee is 0.000005 XCK (5,000,000 mojos)"
 msgstr ""
 
 #: src/components/offers2/OfferIncomingTable.tsx:121
@@ -2536,16 +2536,16 @@ msgid "Join a Pool"
 msgstr "Juntar-se ao bolão"
 
 #: src/components/plot/add/PlotAddNFT.tsx:49
-msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile."
-msgstr "Junte-se a um bolão e obtenha recompensas consistentes de cultivo em XCH. Os retornos médios são iguais, mas são muito menos voláteis."
+msgid "Join a pool and get consistent XCK farming rewards. The average returns are the same, but it is much less volatile."
+msgstr "Junte-se a um bolão e obtenha recompensas consistentes de cultivo em XCK. Os retornos médios são iguais, mas são muito menos voláteis."
 
 #: src/components/plotNFT/PlotNFTAdd.tsx:62
-msgid "Join a pool and get consistent XCH farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
-msgstr "Junte-se a um bolão e obtenha recompensas consistentes de cultivo em XCH. Os retornos médios são iguais, mas são muito menos voláteis. Atribua seus lotes a um lote NFT. Você pode facilmente trocar de bolão sem precisar recriar seus lotes."
+msgid "Join a pool and get consistent XCK farming rewards. The average returns are the same, but it is much less volatile. Assign plots to a plot NFT. You can easily switch pools without having to re-plot."
+msgstr "Junte-se a um bolão e obtenha recompensas consistentes de cultivo em XCK. Os retornos médios são iguais, mas são muito menos voláteis. Atribua seus lotes a um lote NFT. Você pode facilmente trocar de bolão sem precisar recriar seus lotes."
 
 #: src/components/plot/add/PlotAddNFT.tsx:137
-msgid "Join a pool and get more consistent XCH farming rewards. Create a plot NFT and assign your new plots to a group."
-msgstr "Junte-se a um bolão e obtenha recompensas de cultivo XCH mais consistentes. Crie um lote NFT e atribua seu lote a um bolão."
+msgid "Join a pool and get more consistent XCK farming rewards. Create a plot NFT and assign your new plots to a group."
+msgstr "Junte-se a um bolão e obtenha recompensas de cultivo XCK mais consistentes. Crie um lote NFT e atribua seu lote a um bolão."
 
 #: src/components/app/AppSelectMode.tsx:133
 msgid "Join farming pools"
@@ -3247,8 +3247,8 @@ msgid "Not Synced"
 msgstr "Não sincronizado"
 
 #: src/components/farm/FarmManageFarmingRewards.tsx:152
-msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCH reward for pooling plots."
-msgstr "Note que isso não muda seus endereços de pagamento no bolão. Isso afeta apenas os lotes de formato antigo e a recompensa 0.25XCH em lotes de bolão."
+msgid "Note that this does not change your pooling payout addresses. This only affects old format plots, and the 0.25XCK reward for pooling plots."
+msgstr "Note que isso não muda seus endereços de pagamento no bolão. Isso afeta apenas os lotes de formato antigo e a recompensa 0.25XCK em lotes de bolão."
 
 #: src/components/plot/add/PlotAddChooseKeys.tsx:99
 msgid "Note: the farmer public key corresponding to the current logged-in wallet is {farmerPublicKeyForFingerprint}"
@@ -3728,7 +3728,7 @@ msgstr ""
 
 #: src/util/offerBuilderDataToOffer.ts:162
 #: src/util/offerBuilderDataToOffer.ts:298
-msgid "Please enter an XCH amount"
+msgid "Please enter an XCK amount"
 msgstr ""
 
 #: src/components/settings/ChangePassphrasePrompt.tsx:86
@@ -4159,8 +4159,8 @@ msgid "Recommended"
 msgstr "Recomendado"
 
 #: src/components/settings/ProfileAdd.tsx:114
-#~ msgid "Recommended: 0.000005 XCH"
-#~ msgstr "Recommended: 0.000005 XCH"
+#~ msgid "Recommended: 0.000005 XCK"
+#~ msgstr "Recommended: 0.000005 XCK"
 
 #: src/components/settings/SettingsHarvester.tsx:404
 msgid "Recursive Plot Scan"
@@ -4534,8 +4534,8 @@ msgid "Selected"
 msgstr "Selecionado"
 
 #: src/components/plotNFT/select/PlotNFTSelectBase.tsx:93
-msgid "Self pool. When you win a block you will earn XCH rewards."
-msgstr "Bolão próprio. Quando você ganhar um bloco, você receberá recompensas em XCH."
+msgid "Self pool. When you win a block you will earn XCK rewards."
+msgstr "Bolão próprio. Quando você ganhar um bloco, você receberá recompensas em XCK."
 
 #: src/components/plotNFT/PlotNFTExternalState.tsx:24
 #: src/components/plotNFT/PlotNFTState.tsx:55
@@ -4569,7 +4569,7 @@ msgid "Send Transaction"
 msgstr ""
 
 #: src/components/settings/SettingsCustody.tsx:45
-msgid "Set a default time frame for all outbound XCH transactions."
+msgid "Set a default time frame for all outbound XCK transactions."
 msgstr ""
 
 #: src/components/offers2/OfferBuilderExpirationSection.tsx:187
@@ -4744,8 +4744,8 @@ msgid "Skips adding a final directory to harvester for farming"
 msgstr "Ignorar adicionando um diretório final para os coletores da fazenda"
 
 #: src/components/pool/PoolHero.tsx:21
-msgid "Smooth out your XCH farming rewards by joining a pool."
-msgstr "Suavize suas recompensas de coleta XCH ao se juntar a um bolão."
+msgid "Smooth out your XCK farming rewards by joining a pool."
+msgstr "Suavize suas recompensas de coleta XCK ao se juntar a um bolão."
 
 #: src/components/plot/add/PlotAddChooseKeys.tsx:179
 msgid "Solo Farming"
@@ -4852,7 +4852,7 @@ msgid "Status"
 msgstr "Estado"
 
 #: src/components/app/AppSelectMode.tsx:78
-msgid "Store and Send XCH"
+msgid "Store and Send XCK"
 msgstr ""
 
 #: src/components/app/AppPassPrompt.tsx:107
@@ -4935,7 +4935,7 @@ msgid "The claw back time can be manually adjusted per transaction."
 msgstr ""
 
 #: src/components/settings/SettingsPanel.tsx:169
-msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCH, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
+msgid "The derivation index sets the range of wallet addresses that the wallet scans the blockchain for. This number is generally higher if you have a lot of transactions or canceled offers for XCK, CATs, or NFTs. If you believe your balance is incorrect because it’s missing coins, then increasing the derivation index could help the wallet include the missing coins in the balance total."
 msgstr ""
 
 #: src/components/plot/add/PlotAddSelectHybridDiskMode.tsx:148
@@ -5064,8 +5064,8 @@ msgid "There was a network issue and your Full Node or Farmer could not receive 
 msgstr ""
 
 #: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:91
-msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCH address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
-msgstr "Estas são as instruções sobre como o fazendeiro quer ser pago. Por padrão este será um endereço XCH, mas pode ser definido como qualquer sequência de caracteres com menos de 1024 caracteres, assim, ele pode representar outro blockchain ou identificador do sistema de pagamento."
+msgid "These are the instructions for how the farmer wants to get paid. By default this will be an XCK address, but it can be set to any string with a size of less than 1024 characters, so it can represent another blockchain or payment system identifier."
+msgstr "Estas são as instruções sobre como o fazendeiro quer ser pago. Por padrão este será um endereço XCK, mas pode ser definido como qualquer sequência de caracteres com menos de 1024 caracteres, assim, ele pode representar outro blockchain ou identificador do sistema de pagamento."
 
 #: src/components/plot/card/PlotCardPlotsFailedToOpen.tsx:13
 msgid "These plots are invalid, you might want to delete them."
@@ -5319,7 +5319,7 @@ msgstr "Total de iterações VDF"
 
 #: src/components/farm/card/FarmingRewardsHistoryCards.tsx:31
 #: src/components/farm/card/FarmingRewardsHistoryCards.tsx:82
-msgid "Total XCH Farmed"
+msgid "Total XCK Farmed"
 msgstr ""
 
 #: src/components/plot/add/PlotAddNumberOfPlots.tsx:362
