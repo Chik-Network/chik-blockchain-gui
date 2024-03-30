@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh_CN\n"
 "Project-Id-Version: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-11-26 00:04\n"
+"PO-Revision-Date: 2024-01-07 00:04\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -324,9 +324,15 @@ msgstr "来自："
 msgid "HD or Hierarchical Deterministic keys are a type of public key/private key scheme where one private key can have a nearly infinite number of different public keys (and therefore wallet receive addresses) that will all ultimately come back to and be spendable by a single private key."
 msgstr "HD（分层确定性）密钥是一种公钥/私钥方案，其中一个私钥可以有几乎无限数量的不同公钥（因此也有多个钱包接收地址），而所有这些地址最终都可以由单个私钥进行支出。"
 
-#: src/components/WalletSendTransactionResultDialog.tsx:41
-msgid "If you would like to speed up the transaction, please delete unconfirmed transactions and retry with a higher fee."
+#: src/components/WalletSendTransactionResultDialog.tsx:47
+msgid ""
+"If you would like to speed up the transaction, please delete unconfirmed transactions and retry with a\n"
+"higher fee."
 msgstr "如果希望加快交易速度，请删除未确认的交易，并使用更高的手续费重试。"
+
+#: src/components/WalletSendTransactionResultDialog.tsx:41
+#~ msgid "If you would like to speed up the transaction, please delete unconfirmed transactions and retry with a higher fee."
+#~ msgstr "If you would like to speed up the transaction, please delete unconfirmed transactions and retry with a higher fee."
 
 #: src/components/PasteMnemonic.tsx:79
 msgid "Import"
@@ -366,6 +372,10 @@ msgid "Memos"
 msgstr "备注"
 
 #: src/components/WalletSendTransactionResultDialog.tsx:16
+msgid "Mempool Conflict"
+msgstr "内存池冲突"
+
+#: src/components/WalletSendTransactionResultDialog.tsx:20
 msgid "Mempool Full"
 msgstr "内存池已满"
 
@@ -458,7 +468,7 @@ msgstr "待确认"
 
 #: src/components/card/WalletCardPendingBalance.tsx:40
 msgid "Pending Balance"
-msgstr "待确认余额"
+msgstr "待确认金额"
 
 #: src/components/card/WalletCardCRCatApprove.tsx:47
 msgid "Pending Balance for Approval"
@@ -474,7 +484,7 @@ msgstr "待确认的可撤回交易"
 
 #: src/components/card/WalletCardPendingTotalBalance.tsx:41
 msgid "Pending Total Balance"
-msgstr "待确认总余额"
+msgstr "待确认总金额"
 
 #: src/components/crCat/CrCatApprovePendingDialog.tsx:83
 msgid "Please allow some time for the payments to reflect in the blockchain."
@@ -644,9 +654,23 @@ msgstr "派生索引设置了钱包在区块链上扫描钱包地址的范围。
 msgid "The recipient of this transaction will need to have valid credentials in order to claim the sent assets. See the CR CAT restrictions above."
 msgstr "交易的接收方将需要有效的凭证才能领取发送的资产。请参阅上面的CR CAT限制。"
 
-#: src/components/WalletSendTransactionResultDialog.tsx:34
-msgid "The transaction could not be immediately included in the mempool because the specified fee is too low. The transaction will be retried periodically, and may be included in the mempool once fees are lower, or if space becomes available."
+#: src/components/WalletSendTransactionResultDialog.tsx:44
+msgid ""
+"The transaction could not be immediately included in the mempool because the specified fee is too low. The\n"
+"transaction will be retried periodically, and may be included in the mempool once fees are lower, or if\n"
+"space becomes available."
 msgstr "由于指定的手续费过低，该交易无法立即添加到内存池中。该交易将定期重试，并在要求的手续费变低或内存池空间可用时被添加到内存池中。"
+
+#: src/components/WalletSendTransactionResultDialog.tsx:34
+#~ msgid "The transaction could not be immediately included in the mempool because the specified fee is too low. The transaction will be retried periodically, and may be included in the mempool once fees are lower, or if space becomes available."
+#~ msgstr "The transaction could not be immediately included in the mempool because the specified fee is too low. The transaction will be retried periodically, and may be included in the mempool once fees are lower, or if space becomes available."
+
+#: src/components/WalletSendTransactionResultDialog.tsx:38
+msgid ""
+"The transaction is pending inclusion in the mempool because it conflicts with one or more other transactions\n"
+"already in the mempool. The transaction will be retried periodically, and may be included in the mempool if\n"
+"the conflicting transactions are removed."
+msgstr "这笔交易暂未添加到内存池中，因为它与内存池中已有的一笔或多笔交易存在冲突。交易将会定期重试，如果冲突的交易被移除，则这笔交易可能会添加到内存池中。"
 
 #: src/components/WalletBadge.tsx:26
 msgid "This access token is verified"
@@ -674,7 +698,7 @@ msgstr "这是由您的私钥控制的当前最高区块上的区块链中的Chi
 
 #: src/components/standard/WalletStandardCards.tsx:30
 msgid "This is the total balance + pending balance: it is what your balance will be after all pending transactions are confirmed."
-msgstr "这是总余额+待确认余额，即：待确认的交易完成后的总余额。"
+msgstr "这是总余额+待确认金额，即：待确认的交易完成后的总金额。"
 
 #: src/components/ClawbackClaimTransactionDialog.tsx:201
 msgid "This transaction will be automatically claimed with a fee:"
@@ -705,7 +729,7 @@ msgstr "代币"
 msgid "Total Balance"
 msgstr "总余额"
 
-#: src/components/WalletSendTransactionResultDialog.tsx:27
+#: src/components/WalletSendTransactionResultDialog.tsx:31
 msgid "Transaction has successfully been sent to a full node and included in the mempool."
 msgstr "交易已成功发送到全节点，且已添加到内存池中。"
 
