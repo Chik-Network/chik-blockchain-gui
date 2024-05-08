@@ -8,9 +8,11 @@ const path = require('path');
 
 const PY_MAC_DIST_FOLDER = '../../../app.asar.unpacked/daemon';
 const PY_WIN_DIST_FOLDER = '../../../app.asar.unpacked/daemon';
-const PY_DIST_FILE = 'daemon';
-const PY_FOLDER = '../../../chik/daemon';
-const PY_MODULE = 'server'; // without .py suffix
+const PY_DIST_EXECUTABLE = 'chik';
+const PY_DIST_EXEC_ARGS = Object.freeze(['start', 'daemon', '--skip-keyring']);
+
+const PY_DEV_EXECUTABLE = `../../../venv/${process.platform === 'win32' ? 'Scripts/chik.exe' : 'bin/chik'}`;
+const PY_DEV_EXEC_ARGS = Object.freeze(['start', 'daemon', '--skip-keyring']);
 
 let pyProc = null;
 let haveCert = null;
@@ -32,13 +34,6 @@ const getExecutablePath = (dist_file) => {
     return path.join(__dirname, PY_WIN_DIST_FOLDER, `${dist_file}.exe`);
   }
   return path.join(__dirname, PY_MAC_DIST_FOLDER, dist_file);
-};
-
-const getScriptPath = (dist_file) => {
-  if (!guessPackaged()) {
-    return path.join(PY_FOLDER, `${PY_MODULE}.py`);
-  }
-  return getExecutablePath(dist_file);
 };
 
 const getChikVersion = () => {
@@ -67,79 +62,112 @@ const getChikVersion = () => {
   return version;
 };
 
-const startChikDaemon = () => {
-  const script = getScriptPath(PY_DIST_FILE);
-  const processOptions = {};
-  // processOptions.detached = true;
-  // processOptions.stdio = "ignore";
-  pyProc = null;
+const chikInit = () => {
   if (guessPackaged()) {
+    const executablePath = getExecutablePath(PY_DIST_EXECUTABLE);
+    console.info(`Executing: ${executablePath} init`);
+
     try {
-      console.info('Running python executable: ');
-      const Process = childProcess.spawn;
-      pyProc = new Process(script, ['--wait-for-unlock'], processOptions);
+      const output = childProcess.execFileSync(executablePath, ['init']);
+      console.info(output.toString());
     } catch (e) {
-      console.info('Running python executable: Error: ');
-      console.info(`Script ${script}`);
+      console.error('Error: ');
+      console.error(e);
+    }
+  } else {
+    console.info(`Executing: ${PY_DEV_EXECUTABLE} init`);
+
+    try {
+      const output = childProcess.execFileSync(PY_DEV_EXECUTABLE, ['init']);
+      console.info(output.toString());
+    } catch (e) {
+      console.error('Error: ');
+      console.error(e);
+    }
+  }
+};
+
+const startChikDaemon = () => {
+  pyProc = null;
+
+  if (guessPackaged()) {
+    const executablePath = getExecutablePath(PY_DIST_EXECUTABLE);
+    console.info('Running python executable: ');
+    console.info(`Script: ${executablePath} ${PY_DIST_EXEC_ARGS.join(' ')}`);
+
+    try {
+      const Process = childProcess.spawn;
+      pyProc = new Process(executablePath, PY_DIST_EXEC_ARGS);
+    } catch (e) {
+      console.error('Running python executable: Error: ');
+      console.error(e);
     }
   } else {
     console.info('Running python script');
-    console.info(`Script ${script}`);
+    console.info(`Script: ${PY_DEV_EXECUTABLE} ${PY_DEV_EXEC_ARGS.join(' ')}`);
 
-    const Process = childProcess.spawn;
-    pyProc = new Process('python', [script, '--wait-for-unlock'], processOptions);
+    try {
+      const Process = childProcess.spawn;
+      pyProc = new Process(PY_DEV_EXECUTABLE, PY_DEV_EXEC_ARGS);
+    } catch (e) {
+      console.error('Running python script: Error: ');
+      console.error(e);
+    }
   }
-  if (pyProc != null) {
-    pyProc.stdout.setEncoding('utf8');
 
-    pyProc.stdout.on('data', (data) => {
-      if (!haveCert) {
-        process.stdout.write('No cert\n');
-        // listen for ssl path message
-        try {
-          const strArr = data.toString().split('\n');
-          for (let i = 0; i < strArr.length; i++) {
-            const str = strArr[i];
-            try {
-              const json = JSON.parse(str);
-              global.cert_path = json.cert;
-              global.key_path = json.key;
-              // TODO Zlatko: cert_path and key_path were undefined. Prefixed them with global, which changes functionality.
-              // Do they even need to be globals?
-              if (global.cert_path && global.key_path) {
-                haveCert = true;
-                process.stdout.write('Have cert\n');
-                return;
-              }
-            } catch (e) {
-              // Do nothing
+  if (!pyProc) {
+    throw new Error('Failed to start chik daemon');
+  }
+
+  pyProc.stdout.setEncoding('utf8');
+
+  pyProc.stdout.on('data', (data) => {
+    if (!haveCert) {
+      process.stdout.write('No cert\n');
+      // listen for ssl path message
+      try {
+        const strArr = data.toString().split('\n');
+        for (let i = 0; i < strArr.length; i++) {
+          const str = strArr[i];
+          try {
+            const json = JSON.parse(str);
+            global.cert_path = json.cert;
+            global.key_path = json.key;
+            // TODO Zlatko: cert_path and key_path were undefined. Prefixed them with global, which changes functionality.
+            // Do they even need to be globals?
+            if (global.cert_path && global.key_path) {
+              haveCert = true;
+              process.stdout.write('Have cert\n');
+              return;
             }
+          } catch (e) {
+            // Do nothing
           }
-        } catch (e) {
-          // Do nothing
         }
+      } catch (e) {
+        // Do nothing
       }
+    }
 
-      process.stdout.write(data.toString());
-    });
+    process.stdout.write(data.toString());
+  });
 
-    pyProc.stderr.setEncoding('utf8');
-    pyProc.stderr.on('data', (data) => {
-      // Here is where the error output goes
-      process.stdout.write(`stderr: ${data.toString()}`);
-    });
+  pyProc.stderr.setEncoding('utf8');
+  pyProc.stderr.on('data', (data) => {
+    // Here is where the error output goes
+    process.stdout.write(`stderr: ${data.toString()}`);
+  });
 
-    pyProc.on('close', (code) => {
-      // Here you can get the exit code of the script
-      console.info(`closing code: ${code}`);
-    });
+  pyProc.on('close', (code) => {
+    // Here you can get the exit code of the script
+    console.info(`closing code: ${code}`);
+  });
 
-    console.info('child process success');
-  }
-  // pyProc.unref();
+  console.info('child process success');
 };
 
 module.exports = {
+  chikInit,
   startChikDaemon,
   getChikVersion,
   guessPackaged,

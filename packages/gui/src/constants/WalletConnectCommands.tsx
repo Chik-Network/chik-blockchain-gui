@@ -1,6 +1,7 @@
 import { ServiceName } from '@chik-network/api';
 import { MojoToChik } from '@chik-network/core';
 import { Trans } from '@lingui/macro';
+import { Typography } from '@mui/material';
 import React from 'react';
 
 import type WalletConnectCommand from '../@types/WalletConnectCommand';
@@ -211,6 +212,26 @@ const walletConnectCommands: WalletConnectCommand[] = [
         label: <Trans>Message Is Hex Encoded String</Trans>,
         type: 'boolean',
         isOptional: true,
+      },
+      {
+        name: WalletConnectCommandParamName.SAFE_MODE,
+        label: '',
+        type: 'boolean',
+        isOptional: true,
+        displayComponent: (value) =>
+          value ? (
+            ''
+          ) : (
+            <>
+              <Typography variant="h5" color="red">
+                WARNING!
+              </Typography>
+              <Typography variant="subtitle1" color="red">
+                App is requesting to sign a transaction with your private key. Please be sure you trust the app before
+                proceeding.
+              </Typography>
+            </>
+          ),
       },
     ],
   },
@@ -914,7 +935,11 @@ const walletConnectCommands: WalletConnectCommand[] = [
         type: 'string',
         label: <Trans>Parent Coin Info</Trans>,
       },
-      { name: WalletConnectCommandParamName.FEE, type: 'number', label: <Trans>Fee</Trans> },
+      {
+        name: WalletConnectCommandParamName.FEE,
+        type: 'number',
+        label: <Trans>Fee</Trans>,
+      },
     ],
   },
   {

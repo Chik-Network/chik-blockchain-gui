@@ -30,8 +30,8 @@ import packageJson from '../../package.json';
 import AppIcon from '../assets/img/chik64x64.png';
 import About from '../components/about/About';
 import { i18n } from '../config/locales';
-import chikEnvironment from '../util/chikEnvironment';
-import loadConfig from '../util/loadConfig';
+import chikEnvironment, { chikInit } from '../util/chikEnvironment';
+import loadConfig, { checkConfigFileExists } from '../util/loadConfig';
 import manageDaemonLifetime from '../util/manageDaemonLifetime';
 import { setUserDataDir } from '../util/userData';
 
@@ -72,6 +72,12 @@ let mainWindow: BrowserWindow | null = null;
 let currentDownloadRequest: any;
 let abortDownloadingFiles: boolean = false;
 
+// When there is no config file, it is assumed to be the first run.
+// At that time, the config file is created here by `chik init`.
+if (!checkConfigFileExists()) {
+  chikInit();
+}
+
 // Set the userData directory to its location within CHIK_ROOT/gui
 setUserDataDir();
 
@@ -80,7 +86,7 @@ function renderAbout(): string {
   const about = ReactDOMServer.renderToStaticMarkup(
     <StyleSheetManager sheet={sheet.instance}>
       <About packageJson={packageJson} versions={process.versions} version={app.getVersion()} />
-    </StyleSheetManager>
+    </StyleSheetManager>,
   );
 
   const tags = sheet.getStyleTags();
@@ -194,10 +200,10 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
         options: {
           title: string;
           body: string;
-        }
+        },
       ) => {
         new Notification(options).show();
-      }
+      },
     );
 
     ipcMain.handle('fetchTextResponse', async (_event, requestOptions, requestHeaders, requestData) => {
@@ -292,7 +298,7 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
       dialog.showOpenDialog({
         properties: ['openDirectory'],
         defaultPath: app.getPath('downloads'),
-      })
+      }),
     );
 
     type ResponseObjType = { data?: string; error?: string };
@@ -478,40 +484,64 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
     // if (!guessPackaged()) {
     //   mainWindow.webContents.openDevTools();
     // }
-    mainWindow.on('close', (e) => {
+    mainWindow.on('close', async (e) => {
       // if the daemon isn't local we aren't going to try to start/stop it
       if (decidedToClose || !manageDaemonLifetime(NET)) {
         return;
       }
+      if (!mainWindow) {
+        throw new Error('`mainWindow` is empty');
+      }
       e.preventDefault();
+
       if (!isClosing) {
         isClosing = true;
+        let keepBackgroundRunning: boolean | undefined;
+        const p = readPrefs();
+        if (typeof p.keepBackgroundRunning === 'boolean') {
+          keepBackgroundRunning = p.keepBackgroundRunning;
+        }
+
         if (promptOnQuit) {
-          const choice = dialog.showMessageBoxSync({
+          const choice = await dialog.showMessageBox({
             type: 'question',
             buttons: [i18n._(/* i18n */ { id: 'No' }), i18n._(/* i18n */ { id: 'Yes' })],
             title: i18n._(/* i18n */ { id: 'Confirm' }),
             message: i18n._(
               /* i18n */ {
                 id: 'Are you sure you want to quit?',
-              }
+              },
             ),
+            checkboxChecked: keepBackgroundRunning ?? false,
+            checkboxLabel: i18n._(/* i18n */ { id: 'Keep service running in the background' }),
           });
-          if (choice === 0) {
+          if (keepBackgroundRunning !== choice.checkboxChecked) {
+            savePrefs({ ...p, keepBackgroundRunning: choice.checkboxChecked });
+          }
+          if (choice.response === 0) {
             isClosing = false;
             return;
           }
+          keepBackgroundRunning = choice.checkboxChecked;
         }
         isClosing = false;
         decidedToClose = true;
-        mainWindow.webContents.send('exit-daemon');
+
         // save the window state and unmange so we don't restore the mini exiting state
         mainWindowState.saveState(mainWindow);
-        mainWindowState.unmanage(mainWindow);
+        mainWindowState.unmanage();
+
+        if (keepBackgroundRunning) {
+          mainWindow.close();
+          openedWindows.forEach((win) => win.close());
+          return;
+        }
+
+        mainWindow.webContents.send('exit-daemon');
         mainWindow.setBounds({ height: 500, width: 500 });
         mainWindow.center();
         ipcMain.on('daemon-exited', () => {
-          mainWindow.close();
+          mainWindow?.close();
 
           openedWindows.forEach((win) => win.close());
         });
@@ -582,7 +612,7 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
         pathname: path.join(__dirname, arg.file),
         protocol: 'file:',
         slashes: true,
-      }) + arg.query
+      }) + arg.query,
     );
   });
 
@@ -832,7 +862,7 @@ function getMenuTemplate() {
             role: 'stopspeaking',
           },
         ],
-      }
+      },
     );
 
     // Window menu (MacOS)
@@ -872,7 +902,7 @@ function getMenuTemplate() {
         click: () => {
           mainWindow?.webContents.send('checkForUpdates');
         },
-      }
+      },
     );
   }
 

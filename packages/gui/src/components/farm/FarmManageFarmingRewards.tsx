@@ -151,7 +151,7 @@ export default function FarmManageFarmingRewards(props: Props) {
                 <Typography variant="body2" color="textSecondary">
                   <Trans>
                     Note that this does not change your pooling payout addresses. This only affects old format plots,
-                    and the 0.25XCK reward for pooling plots.
+                    and the 0.125XCK reward for pooling plots.
                   </Trans>
                 </Typography>
               </>

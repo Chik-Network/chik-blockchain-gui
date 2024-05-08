@@ -47,7 +47,7 @@ export default function OfferHeader(props: OfferHeaderProps) {
           {'This offer is no longer valid. To understand why, click '}
           <Link
             target="_blank"
-            href="https://chiklisp.com/docs/tutorials/offers_gui_tutorial/#taker-attempts-to-accept-an-invalid-offer"
+            href="https://docs.chiknetwork.com/getting-started/wallet-guide/#taker-attempts-to-accept-an-invalid-offer"
           >
             here
           </Link>{' '}
