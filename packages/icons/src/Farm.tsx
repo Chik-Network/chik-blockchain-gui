@@ -6,4 +6,3 @@ import FarmIcon from './images/Farm.svg';
 export default function Farm(props: SvgIconProps) {
   return <SvgIcon component={FarmIcon} viewBox="0 0 32 32" {...props} />;
 }
-
