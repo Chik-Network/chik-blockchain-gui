@@ -8,7 +8,7 @@ msgstr ""
 "Language: fr_FR\n"
 "Project-Id-Version: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-07 00:04\n"
+"PO-Revision-Date: 2024-06-09 00:04\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -44,134 +44,134 @@ msgid "Would you like to transfer {count} NFTs to a new owner?"
 msgstr "Voulez-vous transférer {count} NFT ?"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:502
+#: src/electron/main.tsx:510
 msgid "No"
 msgstr "Non"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:502
+#: src/electron/main.tsx:510
 msgid "Yes"
 msgstr "Oui"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:503
+#: src/electron/main.tsx:511
 msgid "Confirm"
 msgstr "Confirmer"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:505
+#: src/electron/main.tsx:513
 msgid "Are you sure you want to quit?"
 msgstr "Êtes-vous sûr de vouloir quitter ?"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:510
+#: src/electron/main.tsx:518
 msgid "Keep service running in the background"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:628
-#: src/electron/main.tsx:836
+#: src/electron/main.tsx:636
+#: src/electron/main.tsx:844
 msgid "File"
 msgstr "Fichier"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:636
+#: src/electron/main.tsx:644
 msgid "Edit"
 msgstr "Éditer"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:668
+#: src/electron/main.tsx:676
 msgid "View"
 msgstr "Voir"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:677
+#: src/electron/main.tsx:685
 msgid "Developer"
 msgstr "Développeur"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:680
+#: src/electron/main.tsx:688
 msgid "Developer Tools"
 msgstr "Outils Développeur"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:688
+#: src/electron/main.tsx:696
 msgid "Trigger Desktop Notification"
 msgstr "Déclencher une notification de bureau"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:717
+#: src/electron/main.tsx:725
 msgid "Full Screen"
 msgstr "Plein écran"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:724
+#: src/electron/main.tsx:732
 msgid "Window"
 msgstr "Fenêtre"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:738
+#: src/electron/main.tsx:746
 msgid "Help"
 msgstr "Aide"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:742
+#: src/electron/main.tsx:750
 msgid "Chik Blockchain Wiki"
 msgstr "Wiki de la Blockchain Chik"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:748
+#: src/electron/main.tsx:756
 msgid "Frequently Asked Questions"
 msgstr "Question fréquentes"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:754
+#: src/electron/main.tsx:762
 msgid "Release Notes"
 msgstr "Notes de version"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:760
+#: src/electron/main.tsx:768
 msgid "Contribute on GitHub"
 msgstr "Contribuer sur GitHub"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:769
+#: src/electron/main.tsx:777
 msgid "Report an Issue..."
 msgstr "Remonter un problème..."
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:775
+#: src/electron/main.tsx:783
 msgid "Chat on Discord"
 msgstr "Discuter sur Discord"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:781
+#: src/electron/main.tsx:789
 msgid "Follow on Twitter"
 msgstr "Suivez-nous sur Twitter"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:793
+#: src/electron/main.tsx:801
 msgid "Chik"
 msgstr "Chik"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:796
-#: src/electron/main.tsx:889
+#: src/electron/main.tsx:804
+#: src/electron/main.tsx:897
 msgid "About Chik Blockchain"
 msgstr "À propos de la blockchain Chik"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:802
+#: src/electron/main.tsx:810
 msgid "Check for Updates..."
 msgstr "Vérification des mises à jour..."
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:850
+#: src/electron/main.tsx:858
 msgid "Speech"
 msgstr "Dicter"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:895
+#: src/electron/main.tsx:903
 msgid "Check for updates..."
 msgstr "Vérification des mises à jour..."
 
@@ -639,11 +639,11 @@ msgstr "ID de l'Actif"
 msgid "Asset Type"
 msgstr "Type d'Actif"
 
-#: src/components/offers/OfferShareDialog.tsx:903
+#: src/components/offers/OfferShareDialog.tsx:752
 msgid "Assets I am offering:"
 msgstr "Je propose :"
 
-#: src/components/offers/OfferShareDialog.tsx:908
+#: src/components/offers/OfferShareDialog.tsx:757
 msgid "Assets I will receive:"
 msgstr "Je recevrai :"
 
@@ -820,7 +820,7 @@ msgstr "Taille du cache (Go)"
 #: src/components/offers/OfferAcceptConfirmationDialog.tsx:24
 #: src/components/offers/OfferDataEntryDialog.tsx:58
 #: src/components/offers/OfferEditorConfirmationDialog.tsx:18
-#: src/components/offers/OfferShareDialog.tsx:920
+#: src/components/offers/OfferShareDialog.tsx:769
 #: src/components/offers2/CancelOfferList.tsx:146
 #: src/components/offers2/OfferEditorCancelConflictingOffersDialog.tsx:362
 #: src/components/plotNFT/PlotNFTPayoutInstructionsDialog.tsx:110
@@ -999,12 +999,11 @@ msgstr ""
 #: src/components/notification/NotificationAnnouncementDialog.tsx:75
 #: src/components/notification/NotificationSendDialog.tsx:308
 #: src/components/offers/ConfirmOfferCancellation.tsx:126
-#: src/components/offers/OfferShareDialog.tsx:451
-#: src/components/offers/OfferShareDialog.tsx:526
-#: src/components/offers/OfferShareDialog.tsx:599
-#: src/components/offers/OfferShareDialog.tsx:709
-#: src/components/offers/OfferShareDialog.tsx:831
-#: src/components/offers/OfferShareDialog.tsx:1107
+#: src/components/offers/OfferShareDialog.tsx:373
+#: src/components/offers/OfferShareDialog.tsx:448
+#: src/components/offers/OfferShareDialog.tsx:558
+#: src/components/offers/OfferShareDialog.tsx:680
+#: src/components/offers/OfferShareDialog.tsx:952
 #: src/components/offers2/OfferBuilderViewerDialog.tsx:76
 #: src/components/plot/PlotAddDirectoryDialog.tsx:132
 #: src/components/plot/queue/PlotQueueLogDialog.tsx:66
@@ -1055,7 +1054,7 @@ msgstr "Niveau de compression"
 #: src/components/vcs/VCRevokeDialog.tsx:27
 #: src/components/walletConnect/WalletConnectConfirmDialog.tsx:71
 msgid "Confirm"
-msgstr "Confirmer"
+msgstr ""
 
 #: src/components/fullNode/FullNodeCloseConnection.tsx:19
 msgid "Confirm Disconnect"
@@ -1346,11 +1345,11 @@ msgstr "Dapp {from} envoie le message"
 msgid "Dapp sending the message"
 msgstr "Dapp envoie le message"
 
-#: src/components/nfts/NFTDetails.tsx:236
+#: src/components/nfts/NFTDetails.tsx:235
 msgid "Data Hash"
 msgstr "Hash des données"
 
-#: src/components/nfts/NFTDetails.tsx:223
+#: src/components/nfts/NFTDetails.tsx:222
 msgid "Data URL {0}"
 msgstr "URL des données {0}"
 
@@ -1471,7 +1470,7 @@ msgstr "Destination"
 msgid "Destination:"
 msgstr "Destination :"
 
-#: src/components/nfts/NFTDetails.tsx:352
+#: src/components/nfts/NFTDetails.tsx:353
 msgid "Details"
 msgstr "Détails"
 
@@ -1483,7 +1482,7 @@ msgstr "Détails"
 #~ msgid "Developer Tools"
 #~ msgstr "Developer Tools"
 
-#: src/components/offers/OfferShareDialog.tsx:416
+#: src/components/offers/OfferShareDialog.tsx:338
 msgid "Dexie URL"
 msgstr "URL de Dexie"
 
@@ -1569,7 +1568,7 @@ msgstr "Afficher les données de l'offre"
 msgid "Display sharing options after creating a new offer"
 msgstr "Afficher les options de partage après la création d'une offre"
 
-#: src/components/offers/OfferShareDialog.tsx:1100
+#: src/components/offers/OfferShareDialog.tsx:945
 #: src/hooks/useOpenUnsafeLink.tsx:64
 msgid "Do not show this dialog again"
 msgstr "Ne plus afficher cette fenêtre"
@@ -1818,7 +1817,7 @@ msgstr "Erreur lors de la lecture du fichier"
 #~ msgid "Error parsing json"
 #~ msgstr ""
 
-#: src/components/offers/OfferShareDialog.tsx:812
+#: src/components/offers/OfferShareDialog.tsx:661
 msgid "Error posting offer: {0}"
 msgstr "Erreur lors de la publication de l'offre : {0}"
 
@@ -2302,8 +2301,8 @@ msgstr "Le hachage correspond"
 #~ msgstr ""
 
 #: src/components/offers/OfferShareDialog.tsx:577
-msgid "Hashgreen DEX URL"
-msgstr "URL du DEX Hashgreen"
+#~ msgid "Hashgreen DEX URL"
+#~ msgstr "Hashgreen DEX URL"
 
 #: src/components/block/Block.jsx:156
 msgid "Header hash"
@@ -2673,7 +2672,7 @@ msgstr "Derniers défis de bloc"
 msgid "Launcher Id"
 msgstr "Identifiant du lanceur"
 
-#: src/components/nfts/NFTDetails.tsx:65
+#: src/components/nfts/NFTDetails.tsx:64
 #: src/components/vcs/VCCard.tsx:132
 msgid "Launcher ID"
 msgstr "Launcher ID"
@@ -2700,7 +2699,7 @@ msgstr "L'ancien format de trousseau n'est plus supporté. Vos clés doivent êt
 msgid "Legacy keyrings are no longer supported. Your keys need to be migrated to a new keyring that is secured by a master passphrase."
 msgstr "L'ancien format de trousseau n'est plus supporté. Vos clés doivent être migrées vers un nouveau trousseau sécurisé par une phrase secrète."
 
-#: src/components/nfts/NFTDetails.tsx:296
+#: src/components/nfts/NFTDetails.tsx:295
 #: src/constants/WalletConnectCommands.tsx:683
 msgid "License Hash"
 msgstr "Hash de la licence"
@@ -2709,7 +2708,7 @@ msgstr "Hash de la licence"
 msgid "License Uris"
 msgstr "Uris de licence"
 
-#: src/components/nfts/NFTDetails.tsx:281
+#: src/components/nfts/NFTDetails.tsx:280
 msgid "License URL {0}"
 msgstr "URL de la Licence {0}"
 
@@ -2861,7 +2860,7 @@ msgstr "Hash des données"
 msgid "Meta Uris"
 msgstr "Meta Uris"
 
-#: src/components/nfts/NFTDetails.tsx:266
+#: src/components/nfts/NFTDetails.tsx:265
 msgid "Metadata Hash"
 msgstr "Hash des métadonnées"
 
@@ -2869,7 +2868,7 @@ msgstr "Hash des métadonnées"
 #~ msgid "Metadata hash mismatch"
 #~ msgstr ""
 
-#: src/components/nfts/NFTDetails.tsx:251
+#: src/components/nfts/NFTDetails.tsx:250
 msgid "Metadata URL {0}"
 msgstr "URL des métadonnées {0}"
 
@@ -2901,7 +2900,7 @@ msgstr "Difficulté minimale"
 msgid "Mint NFT"
 msgstr "Frapper le NFT"
 
-#: src/components/nfts/NFTDetails.tsx:214
+#: src/components/nfts/NFTDetails.tsx:213
 msgid "Minted at Block Height"
 msgstr "Créé au bloc"
 
@@ -2909,7 +2908,7 @@ msgstr "Créé au bloc"
 msgid "Minter"
 msgstr "Créateur"
 
-#: src/components/nfts/NFTDetails.tsx:173
+#: src/components/nfts/NFTDetails.tsx:172
 msgid "Minter DID"
 msgstr "Créateur du DID"
 
@@ -2917,7 +2916,7 @@ msgstr "Créateur du DID"
 msgid "Minter:"
 msgstr "Créateur :"
 
-#: src/components/offers/OfferShareDialog.tsx:504
+#: src/components/offers/OfferShareDialog.tsx:426
 msgid "MintGarden URL"
 msgstr "URL de MintGarden"
 
@@ -3069,7 +3068,7 @@ msgstr "Le NFT {nftId} est déjà utilisé dans cette offre"
 #~ msgid "NFT Coin Id"
 #~ msgstr ""
 
-#: src/components/nfts/NFTDetails.tsx:74
+#: src/components/nfts/NFTDetails.tsx:73
 msgid "NFT Coin ID"
 msgstr "ID de la pièce du NFT"
 
@@ -3090,7 +3089,7 @@ msgstr "LE NFT n'a pas de royalties"
 msgid "NFT holder address"
 msgstr "Adresse du détenteur du NFT"
 
-#: src/components/nfts/NFTDetails.tsx:56
+#: src/components/nfts/NFTDetails.tsx:55
 #: src/components/offers2/OfferBuilderNFT.tsx:54
 #: src/components/signVerify/SigningEntityNFT.tsx:65
 msgid "NFT ID"
@@ -3152,7 +3151,7 @@ msgstr "Les NFT catégorisés comme contenu sensible par le créateur seront mas
 
 #: src/components/vcs/VCCard.tsx:89
 msgid "No"
-msgstr "Non"
+msgstr ""
 
 #: src/components/notification/NotificationsMenu.tsx:53
 msgid "No activities yet"
@@ -3307,9 +3306,9 @@ msgstr "Adresse du destinataire de la notification"
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/components/offers/OfferShareDialog.tsx:444
-#: src/components/offers/OfferShareDialog.tsx:702
-#: src/components/offers/OfferShareDialog.tsx:824
+#: src/components/offers/OfferShareDialog.tsx:366
+#: src/components/offers/OfferShareDialog.tsx:551
+#: src/components/offers/OfferShareDialog.tsx:673
 msgid "Notify Current Owner"
 msgstr "Notifier le propriétaire actuel"
 
@@ -3439,11 +3438,10 @@ msgstr "ID de l'offre"
 msgid "Offer Management"
 msgstr "Gestion de l'offre"
 
-#: src/components/offers/OfferShareDialog.tsx:411
-#: src/components/offers/OfferShareDialog.tsx:499
-#: src/components/offers/OfferShareDialog.tsx:572
-#: src/components/offers/OfferShareDialog.tsx:669
-#: src/components/offers/OfferShareDialog.tsx:785
+#: src/components/offers/OfferShareDialog.tsx:333
+#: src/components/offers/OfferShareDialog.tsx:421
+#: src/components/offers/OfferShareDialog.tsx:518
+#: src/components/offers/OfferShareDialog.tsx:634
 msgid "Offer Shared"
 msgstr "Offre partagée"
 
@@ -3471,7 +3469,7 @@ msgstr "Proposition"
 #~ msgid "Offering: [{makerString}], Requesting: [{takerString}]"
 #~ msgstr "Offering: [{makerString}], Requesting: [{takerString}]"
 
-#: src/components/offers/OfferShareDialog.tsx:792
+#: src/components/offers/OfferShareDialog.tsx:641
 msgid "Offerpool URL"
 msgstr "URL d'Offerpool"
 
@@ -3583,15 +3581,15 @@ msgstr "Outrepasser le nombre de processus pour la phase 2"
 msgid "Override the thread count for Phase 3"
 msgstr "Outrepasser le nombre de processus pour la phase 3"
 
-#: src/components/nfts/NFTDetails.tsx:88
+#: src/components/nfts/NFTDetails.tsx:87
 msgid "Owner Address"
 msgstr "Adresse du propriétaire"
 
-#: src/components/nfts/NFTDetails.tsx:109
+#: src/components/nfts/NFTDetails.tsx:108
 msgid "Owner DID"
 msgstr "DID propriétaire"
 
-#: src/components/nfts/NFTDetails.tsx:149
+#: src/components/nfts/NFTDetails.tsx:148
 msgid "Owner Public Key"
 msgstr "Clé publique du propriétaire"
 
@@ -4072,16 +4070,24 @@ msgid "Preview"
 msgstr "Aperçu"
 
 #: src/components/nfts/NFTDetails.tsx:316
-msgid "Preview image uris"
-msgstr "Aperçu des URI des images"
+#~ msgid "Preview image uris"
+#~ msgstr ""
+
+#: src/components/nfts/NFTDetails.tsx:310
+msgid "Preview image URL {index}"
+msgstr ""
 
 #: src/components/nfts/NFTPreview.tsx:621
 #~ msgid "Preview URL is not valid"
 #~ msgstr "Preview URL is not valid"
 
 #: src/components/nfts/NFTDetails.tsx:332
-msgid "Preview video uris"
-msgstr "Aperçu des URI des vidéos"
+#~ msgid "Preview video uris"
+#~ msgstr ""
+
+#: src/components/nfts/NFTDetails.tsx:327
+msgid "Preview video URL {index}"
+msgstr ""
 
 #: src/components/block/Block.jsx:257
 #: src/components/nfts/detail/NFTDetailV2.tsx:133
@@ -4134,7 +4140,7 @@ msgstr "Hachage des preuves"
 msgid "Proofs Object (Key Value Pairs)"
 msgstr "Preuves d'Objet (Paires de Clés Valeurs)"
 
-#: src/components/nfts/NFTProperties.tsx:121
+#: src/components/nfts/NFTProperties.tsx:101
 msgid "Properties"
 msgstr "Propriétés"
 
@@ -4427,7 +4433,7 @@ msgstr "Les royalties sont incorporées au NFT, donc elles seront automatiquemen
 msgid "Royalty Address"
 msgstr "Adresse des Royalties"
 
-#: src/components/nfts/NFTDetails.tsx:160
+#: src/components/nfts/NFTDetails.tsx:159
 #: src/constants/WalletConnectCommands.tsx:645
 msgid "Royalty Percentage"
 msgstr "Pourcentage de Royalties"
@@ -4588,9 +4594,9 @@ msgstr "Vendre un NFT"
 msgid "Send Message"
 msgstr "Envoyer le message"
 
-#: src/components/offers/OfferShareDialog.tsx:446
-#: src/components/offers/OfferShareDialog.tsx:704
-#: src/components/offers/OfferShareDialog.tsx:826
+#: src/components/offers/OfferShareDialog.tsx:368
+#: src/components/offers/OfferShareDialog.tsx:553
+#: src/components/offers/OfferShareDialog.tsx:675
 msgid "Send Notification"
 msgstr "Envoyer une notification"
 
@@ -4638,27 +4644,27 @@ msgid "Settings"
 msgstr "Paramètres"
 
 #: src/components/offers/OfferManager.tsx:269
-#: src/components/offers/OfferShareDialog.tsx:923
+#: src/components/offers/OfferShareDialog.tsx:772
 msgid "Share"
 msgstr "Partager"
 
-#: src/components/offers/OfferShareDialog.tsx:1071
+#: src/components/offers/OfferShareDialog.tsx:916
 msgid "Share Offer"
 msgstr "Partager l'offre"
 
-#: src/components/offers/OfferShareDialog.tsx:465
+#: src/components/offers/OfferShareDialog.tsx:387
 msgid "Share on Dexie"
 msgstr "Partager sur Dexie"
 
 #: src/components/offers/OfferShareDialog.tsx:611
-msgid "Share on Hashgreen DEX"
-msgstr "Partager sur le DEX Hashgreen"
+#~ msgid "Share on Hashgreen DEX"
+#~ msgstr "Share on Hashgreen DEX"
 
 #: src/components/offers/OfferShareDialog.tsx:1160
 #~ msgid "Share on Keybase"
 #~ msgstr "Share on Keybase"
 
-#: src/components/offers/OfferShareDialog.tsx:538
+#: src/components/offers/OfferShareDialog.tsx:460
 msgid "Share on MintGarden"
 msgstr "Partagez sur MintGarden"
 
@@ -4666,11 +4672,11 @@ msgstr "Partagez sur MintGarden"
 #~ msgid "Share on OfferBin"
 #~ msgstr "Share on OfferBin"
 
-#: src/components/offers/OfferShareDialog.tsx:845
+#: src/components/offers/OfferShareDialog.tsx:694
 msgid "Share on offerpool"
 msgstr "Partager sur OfferPool"
 
-#: src/components/offers/OfferShareDialog.tsx:723
+#: src/components/offers/OfferShareDialog.tsx:572
 msgid "Share on Spacescan.io"
 msgstr "Partager sur Spacescan.io"
 
@@ -4802,7 +4808,7 @@ msgstr "Désolé, vous ne pouvez pas passer au réseau principal en cliquant ici
 msgid "Space"
 msgstr ""
 
-#: src/components/offers/OfferShareDialog.tsx:674
+#: src/components/offers/OfferShareDialog.tsx:523
 msgid "Spacescan.io URL"
 msgstr "URL de Spacescan.io"
 
@@ -5185,8 +5191,13 @@ msgstr "Cette offre s'est terminée avec succès"
 
 #: src/components/offers/OfferHeader.tsx:46
 #: src/components/offers2/OfferBuilderViewer.tsx:262
-msgid "This offer is no longer valid. To understand why, click <0>here</0> to learn more."
-msgstr "Cette offre n'est plus valide. Pour en savoir plus, cliquez <0>ici</0>."
+msgid "This offer is no longer valid because it was accepted or cancelled. Click <0>here</0> to learn more."
+msgstr ""
+
+#: src/components/offers/OfferHeader.tsx:46
+#: src/components/offers2/OfferBuilderViewer.tsx:262
+#~ msgid "This offer is no longer valid. To understand why, click <0>here</0> to learn more."
+#~ msgstr "Cette offre n'est plus valide. Pour en savoir plus, cliquez <0>ici</0>."
 
 #: src/components/offers2/OfferBuilderViewer.tsx:279
 msgid "This offer was cancelled"
@@ -5484,9 +5495,9 @@ msgstr "Impossible de trouver le NFT {entityId}"
 #~ msgid "Unable to open Keybase. Install Keybase from https://keybase.io"
 #~ msgstr "Unable to open Keybase. Install Keybase from https://keybase.io"
 
-#: src/components/nfts/NFTDetails.tsx:142
-#: src/components/nfts/NFTDetails.tsx:163
-#: src/components/nfts/NFTDetails.tsx:206
+#: src/components/nfts/NFTDetails.tsx:141
+#: src/components/nfts/NFTDetails.tsx:162
+#: src/components/nfts/NFTDetails.tsx:205
 msgid "Unassigned"
 msgstr "Non attribué"
 
@@ -5670,7 +5681,7 @@ msgstr "Validation du hash..."
 
 #: src/components/offers2/OfferIncomingTable.tsx:95
 msgid "View"
-msgstr "Voir"
+msgstr ""
 
 #: src/components/offers/OfferImport.tsx:184
 msgid "View an Offer"
@@ -5689,16 +5700,16 @@ msgstr "Voir le registre"
 msgid "View Offer"
 msgstr "Voir l'Offre"
 
-#: src/components/offers/OfferShareDialog.tsx:431
+#: src/components/offers/OfferShareDialog.tsx:353
 msgid "View on Dexie"
 msgstr "Voir sur Dexie"
 
 #: src/components/offers/OfferShareDialog.tsx:592
-msgid "View on Hashgreen DEX"
-msgstr "Voir sur le DEX Hashgreen"
+#~ msgid "View on Hashgreen DEX"
+#~ msgstr "View on Hashgreen DEX"
 
 #: src/components/nfts/NFTContextualActions.tsx:643
-#: src/components/offers/OfferShareDialog.tsx:519
+#: src/components/offers/OfferShareDialog.tsx:441
 msgid "View on MintGarden"
 msgstr "Voir sur MintGarden"
 
@@ -5706,12 +5717,12 @@ msgstr "Voir sur MintGarden"
 #~ msgid "View on OfferBin"
 #~ msgstr "View on OfferBin"
 
-#: src/components/offers/OfferShareDialog.tsx:807
+#: src/components/offers/OfferShareDialog.tsx:656
 msgid "View on Offerpool"
 msgstr "Voir sur Offerpool"
 
 #: src/components/nfts/NFTContextualActions.tsx:651
-#: src/components/offers/OfferShareDialog.tsx:689
+#: src/components/offers/OfferShareDialog.tsx:538
 msgid "View on Spacescan.io"
 msgstr "Voir sur Spacescan.io"
 
@@ -5917,7 +5928,7 @@ msgstr "Voulez-vous transférer le NFT spécifié à un nouveau propriétaire ?"
 #: src/components/plot/add/PlotAddChooseSize.tsx:61
 #: src/components/vcs/VCCard.tsx:89
 msgid "Yes"
-msgstr "Oui"
+msgstr ""
 
 #: src/components/offers/OfferAcceptConfirmationDialog.tsx:22
 msgid "Yes, Accept Offer"
