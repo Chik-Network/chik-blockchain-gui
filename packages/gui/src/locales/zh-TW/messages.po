@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh_TW\n"
 "Project-Id-Version: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-12-01 00:06\n"
+"PO-Revision-Date: 2024-12-22 00:05\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Traditional\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -69,109 +69,109 @@ msgid "Keep service running in the background"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:647
-#: src/electron/main.tsx:855
+#: src/electron/main.tsx:755
+#: src/electron/main.tsx:963
 msgid "File"
 msgstr "檔案"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:655
+#: src/electron/main.tsx:763
 msgid "Edit"
 msgstr "編輯"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:687
+#: src/electron/main.tsx:795
 msgid "View"
 msgstr "檢視"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:696
+#: src/electron/main.tsx:804
 msgid "Developer"
 msgstr "開發者"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:699
+#: src/electron/main.tsx:807
 msgid "Developer Tools"
 msgstr "開發者工具"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:707
+#: src/electron/main.tsx:815
 msgid "Trigger Desktop Notification"
 msgstr "觸發桌面通知"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:736
+#: src/electron/main.tsx:844
 msgid "Full Screen"
 msgstr "全畫面"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:743
+#: src/electron/main.tsx:851
 msgid "Window"
 msgstr "視窗"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:757
+#: src/electron/main.tsx:865
 msgid "Help"
 msgstr "幫助"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:761
+#: src/electron/main.tsx:869
 msgid "Chik Blockchain Wiki"
 msgstr "Chik 區塊鏈維基"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:767
+#: src/electron/main.tsx:875
 msgid "Frequently Asked Questions"
 msgstr "常見問題"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:773
+#: src/electron/main.tsx:881
 msgid "Release Notes"
 msgstr "發行說明"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:779
+#: src/electron/main.tsx:887
 msgid "Contribute on GitHub"
 msgstr "在 GitHub 上貢獻"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:788
+#: src/electron/main.tsx:896
 msgid "Report an Issue..."
 msgstr "回報問題..."
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:794
+#: src/electron/main.tsx:902
 msgid "Chat on Discord"
 msgstr "在 Discord 上聊天"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:800
+#: src/electron/main.tsx:908
 msgid "Follow on Twitter"
 msgstr "Twitter 上追隨"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:812
+#: src/electron/main.tsx:920
 msgid "Chik"
 msgstr "奇克"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:815
-#: src/electron/main.tsx:908
+#: src/electron/main.tsx:923
+#: src/electron/main.tsx:1016
 msgid "About Chik Blockchain"
 msgstr "關於 Chik 區塊鏈"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:821
+#: src/electron/main.tsx:929
 msgid "Check for Updates..."
 msgstr "檢查更新..."
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:869
+#: src/electron/main.tsx:977
 msgid "Speech"
 msgstr "語音"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:914
+#: src/electron/main.tsx:1022
 msgid "Check for updates..."
 msgstr "檢查更新..."
 
@@ -211,10 +211,9 @@ msgstr "(建議)"
 msgid "{0, plural, one {mojo} other {mojos}}"
 msgstr "{0, plural, one {mojo} other {mojos}}"
 
-#: src/components/nfts/NFTPreview.tsx:432
-#: src/components/settings/Settings.tsx:85
-#~ msgid "{0}"
-#~ msgstr "{0}"
+#: src/components/chiktools/ChikToolsPage.tsx:56
+msgid "{0}"
+msgstr "{0}"
 
 #: src/components/addressbook/ContactSummary.tsx:155
 msgid "{0} {1}"
@@ -278,7 +277,7 @@ msgstr "{mojos, plural, one {mojo} other {mojos}}"
 #~ msgid "{title}"
 #~ msgstr ""
 
-#: src/components/offers2/OfferBuilderValue.tsx:195
+#: src/components/offers2/OfferBuilderValue.tsx:196
 msgid "{type} is not supported"
 msgstr "{type} 不支援"
 
@@ -845,6 +844,7 @@ msgstr "快取大小（GB）"
 #: src/components/addressbook/ContactEdit.tsx:300
 #: src/components/addressbook/ContactSummary.tsx:43
 #: src/components/app/AppPassPrompt.tsx:184
+#: src/components/chiktools/logViewer/LogViewer.tsx:467
 #: src/components/farm/FarmManageFarmingRewards.tsx:163
 #: src/components/fullNode/FullNodeAddConnection.tsx:100
 #: src/components/nfts/MultipleDownloadDialog.tsx:120
@@ -918,6 +918,10 @@ msgstr "變更"
 
 #: src/components/offers2/OfferBuilderExpirationSection.tsx:190
 msgid "Change default timing."
+msgstr ""
+
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:134
+msgid "Change Log File Location"
 msgstr ""
 
 #: src/components/settings/ChangePassphrasePrompt.tsx:290
@@ -1193,7 +1197,7 @@ msgid "Contact Name"
 msgstr ""
 
 #: src/components/addressbook/AddressBookSideBar.tsx:124
-#: src/components/dashboard/DashboardSideBar.tsx:73
+#: src/components/dashboard/DashboardSideBar.tsx:74
 msgid "Contacts"
 msgstr ""
 
@@ -1224,6 +1228,10 @@ msgstr "複製多媒體URL"
 #: src/components/nfts/NFTContextualActions.tsx:105
 msgid "Copy NFT ID"
 msgstr "複製NFT ID"
+
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:142
+msgid "Copy to Clipboard"
+msgstr ""
 
 #: src/components/signVerify/SignMessageResultDialog.tsx:58
 msgid "Copy To Clipboard"
@@ -1376,7 +1384,7 @@ msgstr "創建費用({royaltyPercentage}%)"
 msgid "Creator royalty percentage seems high"
 msgstr "創建版稅的比例似乎有點高"
 
-#: src/components/dashboard/DashboardSideBar.tsx:60
+#: src/components/dashboard/DashboardSideBar.tsx:61
 msgid "Credentials"
 msgstr "憑證"
 
@@ -1875,6 +1883,10 @@ msgstr "輸入要使用的錢包地址進行簽名"
 msgid "Enter an NFT or DID to sign with"
 msgstr "輸入要使用的NFT或DID進行簽名"
 
+#: src/components/chiktools/logViewer/LogViewer.tsx:454
+msgid "Enter the path to your log file:"
+msgstr ""
+
 #: src/components/settings/RemovePassphrasePrompt.tsx:122
 msgid "Enter your passphrase:"
 msgstr "輸入您的密碼："
@@ -1970,6 +1982,10 @@ msgstr "已過期"
 msgid "Explore the Chik ecosystem; discover and trade great NFTs"
 msgstr "探索 Chik 生態系統；發現並交易精彩的 NFT"
 
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:150
+msgid "Export Logs"
+msgstr ""
+
 #: src/components/offers/utils.ts:126
 #: src/components/plot/PlotHarvester.tsx:122
 msgid "Failed"
@@ -2011,7 +2027,7 @@ msgstr "更新密碼失敗: {0}"
 msgid "Failure"
 msgstr "失敗"
 
-#: src/components/dashboard/DashboardSideBar.tsx:93
+#: src/components/dashboard/DashboardSideBar.tsx:94
 msgid "Farm"
 msgstr ""
 
@@ -2222,7 +2238,7 @@ msgid "From"
 msgstr "來自"
 
 #: src/components/app/AppStatusHeader.tsx:127
-#: src/components/dashboard/DashboardSideBar.tsx:86
+#: src/components/dashboard/DashboardSideBar.tsx:87
 #: src/components/fullNode/FullNode.jsx:116
 msgid "Full Node"
 msgstr "完整節點"
@@ -2441,7 +2457,7 @@ msgstr ""
 msgid "Halves the temp2 cache size requirements by alternating bucket writing methods between tables."
 msgstr "通過在表格之間交替的數據块寫入方法，將 temp2 緩存大小要求減半。"
 
-#: src/components/dashboard/DashboardSideBar.tsx:105
+#: src/components/dashboard/DashboardSideBar.tsx:106
 msgid "Harvest"
 msgstr ""
 
@@ -2927,6 +2943,10 @@ msgstr "限制快取大小"
 msgid "List of connections is empty"
 msgstr "連接列表是空的"
 
+#: src/components/chiktools/logViewer/LogViewer.tsx:464
+msgid "Load Logs"
+msgstr ""
+
 #: src/components/app/AppProviders.tsx:90
 msgid "Loading configuration"
 msgstr "正在加載設定"
@@ -3001,6 +3021,10 @@ msgstr "登入"
 
 #: src/components/app/LogoutButton.tsx:25
 msgid "Log Out"
+msgstr ""
+
+#: src/components/chiktools/ChikToolsPage.tsx:23
+msgid "Log Viewer"
 msgstr ""
 
 #: src/constants/WalletConnectCommands.tsx:1335
@@ -3394,7 +3418,7 @@ msgstr "NFT轉移失敗"
 msgid "NFT Transfer Pending"
 msgstr "NFT轉移待處理"
 
-#: src/components/dashboard/DashboardSideBar.tsx:53
+#: src/components/dashboard/DashboardSideBar.tsx:54
 msgid "NFTs"
 msgstr "NFT"
 
@@ -3644,7 +3668,7 @@ msgid "Offer Builder"
 msgstr "報價單生成器"
 
 #: src/components/offers/NFTOfferViewer.tsx:173
-#: src/components/offers2/OfferBuilderValue.tsx:216
+#: src/components/offers2/OfferBuilderValue.tsx:217
 #: src/components/offers2/OfferBuilderViewer.tsx:283
 msgid "Offer cannot be accepted because you don't possess the requested assets"
 msgstr "因為你沒有被請求的資產，所以不能接受報價單。"
@@ -3733,7 +3757,7 @@ msgstr "報價中"
 msgid "Offerpool URL"
 msgstr "Offerpool網址"
 
-#: src/components/dashboard/DashboardSideBar.tsx:67
+#: src/components/dashboard/DashboardSideBar.tsx:68
 #: src/components/nfts/detail/NFTDetailV2.tsx:245
 msgid "Offers"
 msgstr "報價單"
@@ -4164,7 +4188,7 @@ msgstr "耕地到耕地NFT"
 msgid "PlotNFT is transitioning to (target state). This can take a while. Please do not close the application until this is finalized."
 msgstr "農場正在切換到 (target state). 這可能會需要一段時間. 在完成之前, 請不要關閉應用程式."
 
-#: src/components/dashboard/DashboardSideBar.tsx:99
+#: src/components/dashboard/DashboardSideBar.tsx:100
 #: src/components/plot/PlotHarvester.tsx:97
 msgid "Plots"
 msgstr "耕地"
@@ -4305,7 +4329,7 @@ msgstr "礦池勵數量"
 msgid "Pool:"
 msgstr "農會："
 
-#: src/components/dashboard/DashboardSideBar.tsx:118
+#: src/components/dashboard/DashboardSideBar.tsx:119
 #: src/components/farm/PoolingHealth.tsx:273
 #: src/components/plotNFT/PlotNFTExternalState.tsx:25
 #: src/components/plotNFT/PlotNFTState.tsx:57
@@ -4490,6 +4514,10 @@ msgstr ""
 
 #: src/components/settings/SettingsHarvester.tsx:404
 msgid "Recursive Plot Scan"
+msgstr ""
+
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:158
+msgid "Refresh"
 msgstr ""
 
 #: src/components/nfts/NFTContextualActions.tsx:569
@@ -4783,6 +4811,10 @@ msgstr "保存私鑰密碼"
 msgid "Save To File"
 msgstr "保存到檔案"
 
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:109
+msgid "Search"
+msgstr ""
+
 #: src/components/fullNode/FullNodeBlockSearch.tsx:38
 msgid "Search block by header hash"
 msgstr "以區塊表頭雜湊值搜尋區塊"
@@ -4954,7 +4986,7 @@ msgstr "設定密碼"
 msgid "Set up keys manually"
 msgstr ""
 
-#: src/components/dashboard/DashboardSideBar.tsx:129
+#: src/components/dashboard/DashboardSideBar.tsx:137
 #: src/components/settings/Settings.tsx:74
 msgid "Settings"
 msgstr "設定"
@@ -5647,7 +5679,7 @@ msgstr "要啟動錢包重新同步，必須先關閉所有Chik服務。關閉�
 msgid "Token Standard"
 msgstr "代幣標準"
 
-#: src/components/dashboard/DashboardSideBar.tsx:47
+#: src/components/dashboard/DashboardSideBar.tsx:48
 #: src/components/offers2/OfferBuilderTokensSection.tsx:114
 msgid "Tokens"
 msgstr "代幣"
@@ -5655,6 +5687,10 @@ msgstr "代幣"
 #: src/components/plotNFT/select/PlotNFTSelectPool.tsx:114
 msgid "Too Many Plot NFTs"
 msgstr "過多NFT地塊"
+
+#: src/components/dashboard/DashboardSideBar.tsx:130
+msgid "Tools"
+msgstr ""
 
 #: src/components/offers2/OfferBuilderWalletAmount.tsx:36
 msgid "Total Amount"
@@ -6110,6 +6146,10 @@ msgstr ""
 msgid "View an Offer"
 msgstr "檢視報價"
 
+#: src/components/chiktools/ChikToolsPage.tsx:26
+msgid "View and analyze Chik log files"
+msgstr ""
+
 #: src/components/vcs/VCCard.tsx:198
 msgid "View Credential Data"
 msgstr "檢視憑證數據"
@@ -6308,7 +6348,7 @@ msgid "Warning: Unsupported URL"
 msgstr ""
 
 #: src/components/offers/OfferSummary.tsx:134
-#: src/components/offers2/OfferBuilderValue.tsx:220
+#: src/components/offers2/OfferBuilderValue.tsx:221
 msgid "Warning: Verify that the offered CAT asset IDs match the asset IDs of the tokens you expect to receive."
 msgstr "警告：請驗證所提供的CAT資產ID是否與您預期收到的代幣ID匹配。"
 

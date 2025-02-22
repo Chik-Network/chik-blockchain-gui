@@ -8,7 +8,7 @@ msgstr ""
 "Language: fa_IR\n"
 "Project-Id-Version: 1263bc1f20e1271bda78e84d2f4a6562\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-12-01 00:06\n"
+"PO-Revision-Date: 2024-12-22 00:05\n"
 "Last-Translator: \n"
 "Language-Team: Persian\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -69,109 +69,109 @@ msgid "Keep service running in the background"
 msgstr "بگدارید سرویس در پس‌زمینه اجرا شود"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:647
-#: src/electron/main.tsx:855
+#: src/electron/main.tsx:755
+#: src/electron/main.tsx:963
 msgid "File"
 msgstr "فایل"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:655
+#: src/electron/main.tsx:763
 msgid "Edit"
 msgstr "ويرايش"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:687
+#: src/electron/main.tsx:795
 msgid "View"
 msgstr "مشاهده"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:696
+#: src/electron/main.tsx:804
 msgid "Developer"
 msgstr "توسعه دهنده"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:699
+#: src/electron/main.tsx:807
 msgid "Developer Tools"
 msgstr "ابزارهای توسعه دهنده"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:707
+#: src/electron/main.tsx:815
 msgid "Trigger Desktop Notification"
 msgstr "راه‌اندازی اعلان دسکتاپ"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:736
+#: src/electron/main.tsx:844
 msgid "Full Screen"
 msgstr "نمایش تمام صفحه"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:743
+#: src/electron/main.tsx:851
 msgid "Window"
 msgstr "پنجره"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:757
+#: src/electron/main.tsx:865
 msgid "Help"
 msgstr "راهنما"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:761
+#: src/electron/main.tsx:869
 msgid "Chik Blockchain Wiki"
 msgstr "بلاکچین چیا در ویکیپدیا"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:767
+#: src/electron/main.tsx:875
 msgid "Frequently Asked Questions"
 msgstr "پرسش ها و پاسخ های متداول"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:773
+#: src/electron/main.tsx:881
 msgid "Release Notes"
 msgstr "یادداشت‌های انتشار"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:779
+#: src/electron/main.tsx:887
 msgid "Contribute on GitHub"
 msgstr "مشارکت در GitHub"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:788
+#: src/electron/main.tsx:896
 msgid "Report an Issue..."
 msgstr "گزارش یک خطا..."
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:794
+#: src/electron/main.tsx:902
 msgid "Chat on Discord"
 msgstr "اشتراک گداری در Discord"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:800
+#: src/electron/main.tsx:908
 msgid "Follow on Twitter"
 msgstr "در ایکس دنبال کنید"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:812
+#: src/electron/main.tsx:920
 msgid "Chik"
 msgstr "چیا"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:815
-#: src/electron/main.tsx:908
+#: src/electron/main.tsx:923
+#: src/electron/main.tsx:1016
 msgid "About Chik Blockchain"
 msgstr "درباره بلاکچین چیا"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:821
+#: src/electron/main.tsx:929
 msgid "Check for Updates..."
 msgstr "بروز رسانی را بررسی کنید..."
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:869
+#: src/electron/main.tsx:977
 msgid "Speech"
 msgstr "سخن"
 
 #. js-lingui-explicit-id
-#: src/electron/main.tsx:914
+#: src/electron/main.tsx:1022
 msgid "Check for updates..."
 msgstr "بروز رسانی را بررسی کنید..."
 
@@ -211,10 +211,9 @@ msgstr "(توصیه شده)"
 msgid "{0, plural, one {mojo} other {mojos}}"
 msgstr "{0, plural, one {موجو} other {موجوها}}"
 
-#: src/components/nfts/NFTPreview.tsx:432
-#: src/components/settings/Settings.tsx:85
-#~ msgid "{0}"
-#~ msgstr "{0}"
+#: src/components/chiktools/ChikToolsPage.tsx:56
+msgid "{0}"
+msgstr "{0}"
 
 #: src/components/addressbook/ContactSummary.tsx:155
 msgid "{0} {1}"
@@ -278,7 +277,7 @@ msgstr "{mojos,plural,one {موجو} other {موجوها}}"
 #~ msgid "{title}"
 #~ msgstr ""
 
-#: src/components/offers2/OfferBuilderValue.tsx:195
+#: src/components/offers2/OfferBuilderValue.tsx:196
 msgid "{type} is not supported"
 msgstr "پشتیبانی نمیشود {type}"
 
@@ -421,7 +420,7 @@ msgstr "اضافه کردن اطلاعات تماس"
 
 #: src/constants/WalletConnectCommands.tsx:894
 msgid "Add Mirror"
-msgstr ""
+msgstr "اضافه کردن تصویر"
 
 #: src/constants/WalletConnectCommands.tsx:923
 msgid "Add Missing Files"
@@ -845,6 +844,7 @@ msgstr "(GB) مقدار حافظه پنهان"
 #: src/components/addressbook/ContactEdit.tsx:300
 #: src/components/addressbook/ContactSummary.tsx:43
 #: src/components/app/AppPassPrompt.tsx:184
+#: src/components/chiktools/logViewer/LogViewer.tsx:467
 #: src/components/farm/FarmManageFarmingRewards.tsx:163
 #: src/components/fullNode/FullNodeAddConnection.tsx:100
 #: src/components/nfts/MultipleDownloadDialog.tsx:120
@@ -919,6 +919,10 @@ msgstr "تغییر"
 #: src/components/offers2/OfferBuilderExpirationSection.tsx:190
 msgid "Change default timing."
 msgstr "تغییر زمان سنجی پیش فرض."
+
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:134
+msgid "Change Log File Location"
+msgstr ""
 
 #: src/components/settings/ChangePassphrasePrompt.tsx:290
 #: src/components/settings/SettingsPanel.tsx:120
@@ -1193,7 +1197,7 @@ msgid "Contact Name"
 msgstr "نام اطلاعات تماس"
 
 #: src/components/addressbook/AddressBookSideBar.tsx:124
-#: src/components/dashboard/DashboardSideBar.tsx:73
+#: src/components/dashboard/DashboardSideBar.tsx:74
 msgid "Contacts"
 msgstr "اطلاعات تماس"
 
@@ -1224,6 +1228,10 @@ msgstr "لینک آدرس سایت را کپی کنید"
 #: src/components/nfts/NFTContextualActions.tsx:105
 msgid "Copy NFT ID"
 msgstr "کپی شناسه ان اف تی"
+
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:142
+msgid "Copy to Clipboard"
+msgstr ""
 
 #: src/components/signVerify/SignMessageResultDialog.tsx:58
 msgid "Copy To Clipboard"
@@ -1281,7 +1289,7 @@ msgstr "ایجاد یک پلات ان اف تی"
 
 #: src/constants/WalletConnectCommands.tsx:658
 msgid "Create a spend bundle to mint multiple NFTs"
-msgstr ""
+msgstr "یک بسته خرج کزدن برای ثبت چندین ان اف تی ایجاد کنید"
 
 #: src/components/offers/NFTOfferEditor.tsx:725
 msgid "Create an NFT Offer"
@@ -1302,7 +1310,7 @@ msgstr "ایجاد پیشنهاد زمان‌بندی شده"
 
 #: src/constants/WalletConnectCommands.tsx:1020
 msgid "Create DataStore"
-msgstr ""
+msgstr "ایحاد ذخیره های داده"
 
 #: src/constants/WalletConnectCommands.tsx:476
 #~ msgid "Create new CAT Wallet"
@@ -1376,7 +1384,7 @@ msgstr "({royaltyPercentage}%) کارمزد سازنده"
 msgid "Creator royalty percentage seems high"
 msgstr "درصد حق امتیاز سازنده بالا به نظر میرسد"
 
-#: src/components/dashboard/DashboardSideBar.tsx:60
+#: src/components/dashboard/DashboardSideBar.tsx:61
 msgid "Credentials"
 msgstr "اعتبارنامه"
 
@@ -1493,7 +1501,7 @@ msgstr "حذف کلید"
 
 #: src/constants/WalletConnectCommands.tsx:1064
 msgid "Delete Mirror"
-msgstr ""
+msgstr "حذف تصویر"
 
 #: src/components/plot/PlotAction.tsx:24
 #: src/components/plot/queue/PlotQueueActions.tsx:33
@@ -1574,12 +1582,12 @@ msgstr "شناسه، شناسه غیرمتمرکز"
 
 #: src/constants/WalletConnectCommands.tsx:733
 msgid "DID Lineage Parent"
-msgstr ""
+msgstr "شناسه غیرمتمرکز Lineage Parent"
 
 #: src/constants/WalletConnectCommands.tsx:1548
 #: src/constants/WalletConnectCommands.tsx:1752
 msgid "DID Metadata"
-msgstr ""
+msgstr "شتاسه غیر متمرکز Metadata"
 
 #: src/components/block/Block.jsx:182
 #: src/components/fullNode/card/FullNodeCardDifficulty.tsx:14
@@ -1875,6 +1883,10 @@ msgstr "یک آدرس کیف پول برای امضاء وارد کنید"
 msgid "Enter an NFT or DID to sign with"
 msgstr "یک ان اف تی یا شناسه غیر متمرکز برای امضا وارد کنید"
 
+#: src/components/chiktools/logViewer/LogViewer.tsx:454
+msgid "Enter the path to your log file:"
+msgstr ""
+
 #: src/components/settings/RemovePassphrasePrompt.tsx:122
 msgid "Enter your passphrase:"
 msgstr "رمز ورود خود را وارد کنید:"
@@ -1970,6 +1982,10 @@ msgstr "منقضی شده"
 msgid "Explore the Chik ecosystem; discover and trade great NFTs"
 msgstr "اکوسیستم چیا را جستجو کنید. ان اف تی های مهم را پیدا و معامله کنید"
 
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:150
+msgid "Export Logs"
+msgstr ""
+
 #: src/components/offers/utils.ts:126
 #: src/components/plot/PlotHarvester.tsx:122
 msgid "Failed"
@@ -2011,7 +2027,7 @@ msgstr "بروزرسانی رمز ورود ناموفق: {0}"
 msgid "Failure"
 msgstr "عدم موفقیت"
 
-#: src/components/dashboard/DashboardSideBar.tsx:93
+#: src/components/dashboard/DashboardSideBar.tsx:94
 msgid "Farm"
 msgstr "فارم"
 
@@ -2222,7 +2238,7 @@ msgid "From"
 msgstr "از"
 
 #: src/components/app/AppStatusHeader.tsx:127
-#: src/components/dashboard/DashboardSideBar.tsx:86
+#: src/components/dashboard/DashboardSideBar.tsx:87
 #: src/components/fullNode/FullNode.jsx:116
 msgid "Full Node"
 msgstr "نود کامل"
@@ -2253,7 +2269,7 @@ msgstr "گرفتن تمام اعتبارنامه های قابل تأیید"
 
 #: src/constants/WalletConnectCommands.tsx:1083
 msgid "Get Ancestors"
-msgstr ""
+msgstr "دریافت Ancestors"
 
 #: src/constants/WalletConnectCommands.tsx:545
 msgid "Get CAT Asset Id"
@@ -2285,7 +2301,7 @@ msgstr "دریافت اطلاعات شناسه غیرمتمرکز"
 
 #: src/constants/WalletConnectCommands.tsx:1606
 msgid "Get DID Metadata"
-msgstr ""
+msgstr "شناسه غیر متمرکز Metadata دریافت کنید"
 
 #: src/constants/WalletConnectCommands.tsx:1808
 msgid "Get DID Name"
@@ -2313,15 +2329,15 @@ msgstr "دریافت مقادیر کلید ها"
 
 #: src/constants/WalletConnectCommands.tsx:1162
 msgid "Get Kv Diff"
-msgstr ""
+msgstr "KvDiff را دریافت کنید"
 
 #: src/constants/WalletConnectCommands.tsx:1197
 msgid "Get Local Root"
-msgstr ""
+msgstr "دریافت ریشه داخلی"
 
 #: src/constants/WalletConnectCommands.tsx:1210
 msgid "Get Mirrors"
-msgstr ""
+msgstr "دریافت تصاویر"
 
 #: src/components/settings/ProfileAdd.tsx:124
 msgid "Get Mojos from the Chik Faucet"
@@ -2365,7 +2381,7 @@ msgstr "گرفتن تعداد پیشنهاد"
 
 #: src/constants/WalletConnectCommands.tsx:1223
 msgid "Get Owned Stores"
-msgstr ""
+msgstr "دریافت ذخیره های شخضی"
 
 #: src/constants/WalletConnectCommands.tsx:1947
 msgid "Get Proofs For Root Hash"
@@ -2441,7 +2457,7 @@ msgstr "شاخص دستگاه کارت گرافیک"
 msgid "Halves the temp2 cache size requirements by alternating bucket writing methods between tables."
 msgstr "با استفاده از روشهای متناوب نوشتن باکت بین جداول، نیاز به اندازه حافظه پنهان موقت 2 را نصف میکند."
 
-#: src/components/dashboard/DashboardSideBar.tsx:105
+#: src/components/dashboard/DashboardSideBar.tsx:106
 msgid "Harvest"
 msgstr "برداشت کننده"
 
@@ -2931,6 +2947,10 @@ msgstr "محدود کردن اندازه حافظه پنهان"
 msgid "List of connections is empty"
 msgstr "لیست اتصالات خالی است"
 
+#: src/components/chiktools/logViewer/LogViewer.tsx:464
+msgid "Load Logs"
+msgstr ""
+
 #: src/components/app/AppProviders.tsx:90
 msgid "Loading configuration"
 msgstr "بارکذاری پیکربندی"
@@ -3007,13 +3027,17 @@ msgstr "وارد شدن"
 msgid "Log Out"
 msgstr "خروج"
 
+#: src/components/chiktools/ChikToolsPage.tsx:23
+msgid "Log Viewer"
+msgstr ""
+
 #: src/constants/WalletConnectCommands.tsx:1335
 msgid "Make DataLayer Offer"
-msgstr "ارائه پیشنهاد شناسه غیرمتمرکز"
+msgstr "ارائه پیشنهاد لایه داده ها"
 
 #: src/constants/WalletConnectCommands.tsx:1340
 msgid "Maker"
-msgstr ""
+msgstr "ارائه دهنده"
 
 #: src/components/app/AppSelectMode.tsx:84
 msgid "Manage CAT tokens"
@@ -3047,7 +3071,7 @@ msgstr "حداکثر"
 #: src/constants/WalletConnectCommands.tsx:1154
 #: src/constants/WalletConnectCommands.tsx:1189
 msgid "Max page size"
-msgstr ""
+msgstr "حداکثر اندازه صفحه"
 
 #: src/components/vcs/VCList.tsx:308
 msgid "Memberships"
@@ -3095,7 +3119,7 @@ msgstr "Metadata هش"
 
 #: src/constants/WalletConnectCommands.tsx:668
 msgid "Metadata List"
-msgstr ""
+msgstr "فهرست Metadata"
 
 #: src/components/nfts/NFTDetails.tsx:250
 msgid "Metadata URL {0}"
@@ -3127,11 +3151,11 @@ msgstr "حداقل سختی"
 
 #: src/constants/WalletConnectCommands.tsx:657
 msgid "Mint Bulk"
-msgstr ""
+msgstr "ثبت گروهی"
 
 #: src/constants/WalletConnectCommands.tsx:739
 msgid "Mint From DID"
-msgstr ""
+msgstr "ثبت از شناسه غیرمتمرکز"
 
 #: src/constants/WalletConnectCommands.tsx:760
 msgid "Mint NFT"
@@ -3139,11 +3163,11 @@ msgstr "ثبت ان اف تی"
 
 #: src/constants/WalletConnectCommands.tsx:691
 msgid "Mint Start Number"
-msgstr ""
+msgstr "شماره شروغ ثبت"
 
 #: src/constants/WalletConnectCommands.tsx:697
 msgid "Mint Total"
-msgstr ""
+msgstr "ثبت مجموع"
 
 #: src/components/nfts/NFTDetails.tsx:213
 msgid "Minted at Block Height"
@@ -3277,7 +3301,7 @@ msgstr "پیشنهاد شمارنده جدید"
 
 #: src/constants/WalletConnectCommands.tsx:715
 msgid "New Inner Puzzle Hash"
-msgstr ""
+msgstr "هش های پازل داخلی جدید"
 
 #: src/components/notification/utils.ts:101
 msgid "New offer"
@@ -3285,7 +3309,7 @@ msgstr "پیشنهاد جدید"
 
 #: src/constants/WalletConnectCommands.tsx:721
 msgid "New P2 Puzzle Hash"
-msgstr ""
+msgstr "هش پازل جدید P2"
 
 #: src/components/settings/ChangePassphrasePrompt.tsx:212
 msgid "New Passphrase"
@@ -3301,7 +3325,7 @@ msgstr "هش پازل جدید"
 
 #: src/constants/WalletConnectCommands.tsx:1783
 msgid "New Recovery DID List"
-msgstr ""
+msgstr "لیست بازیابی جدید شناسه غیر متمرکز"
 
 #: src/components/block/Block.jsx:260
 #: src/components/nfts/detail/NFTDetailV2.tsx:143
@@ -3398,7 +3422,7 @@ msgstr "انتقال ان اف تی ناموفق بود"
 msgid "NFT Transfer Pending"
 msgstr "انتقال ان اف تی در انتظار است"
 
-#: src/components/dashboard/DashboardSideBar.tsx:53
+#: src/components/dashboard/DashboardSideBar.tsx:54
 msgid "NFTs"
 msgstr "ان اف تی ها"
 
@@ -3585,7 +3609,7 @@ msgstr "تعداد باکت ها دز فاز های 3 و 4"
 
 #: src/constants/WalletConnectCommands.tsx:1788
 msgid "Number Of DIDs Required For Recovery"
-msgstr ""
+msgstr "تعداد شناسه های غیر متمرکز مورد نیاز برای بازیابی"
 
 #: src/constants/WalletConnectCommands.tsx:629
 msgid "Number of NFTs"
@@ -3648,7 +3672,7 @@ msgid "Offer Builder"
 msgstr "ساختن پیشنهاد"
 
 #: src/components/offers/NFTOfferViewer.tsx:173
-#: src/components/offers2/OfferBuilderValue.tsx:216
+#: src/components/offers2/OfferBuilderValue.tsx:217
 #: src/components/offers2/OfferBuilderViewer.tsx:283
 msgid "Offer cannot be accepted because you don't possess the requested assets"
 msgstr "پیشنهاد نمیتواند پذیرفته شود زیرا دارایی‌های درخواستی را ندارید"
@@ -3737,7 +3761,7 @@ msgstr "پیشنهاد دادن"
 msgid "Offerpool URL"
 msgstr "ادرس سایت استخر پیشنهاد"
 
-#: src/components/dashboard/DashboardSideBar.tsx:67
+#: src/components/dashboard/DashboardSideBar.tsx:68
 #: src/components/nfts/detail/NFTDetailV2.tsx:245
 msgid "Offers"
 msgstr "پیشنهادها"
@@ -4168,7 +4192,7 @@ msgstr "پلات برای یک پلات ان اف تی"
 msgid "PlotNFT is transitioning to (target state). This can take a while. Please do not close the application until this is finalized."
 msgstr "پلات ان اف تی در حال انتقال به (وضعیت هدف) است. این میتواند مدتی طول بکشد. لطفاً تا زمانیکه این مورد نهایی نشده است، برنامه را نبندید."
 
-#: src/components/dashboard/DashboardSideBar.tsx:99
+#: src/components/dashboard/DashboardSideBar.tsx:100
 #: src/components/plot/PlotHarvester.tsx:97
 msgid "Plots"
 msgstr "پلات ها"
@@ -4309,7 +4333,7 @@ msgstr "مبلغ پاداش استخر"
 msgid "Pool:"
 msgstr "استخر:"
 
-#: src/components/dashboard/DashboardSideBar.tsx:118
+#: src/components/dashboard/DashboardSideBar.tsx:119
 #: src/components/farm/PoolingHealth.tsx:273
 #: src/components/plotNFT/PlotNFTExternalState.tsx:25
 #: src/components/plotNFT/PlotNFTState.tsx:57
@@ -4490,11 +4514,15 @@ msgstr "توصیه شده"
 
 #: src/constants/WalletConnectCommands.tsx:1536
 msgid "Recovery List Hash"
-msgstr ""
+msgstr "بازیابی هش لیست"
 
 #: src/components/settings/SettingsHarvester.tsx:404
 msgid "Recursive Plot Scan"
 msgstr "بازنگری پلات برگشتی"
+
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:158
+msgid "Refresh"
+msgstr ""
 
 #: src/components/nfts/NFTContextualActions.tsx:569
 msgid "Refresh NFT data"
@@ -4712,7 +4740,7 @@ msgstr "سینک مجدد، بارگذاری مجدد داده ها از بلا�
 
 #: src/constants/WalletConnectCommands.tsx:1428
 msgid "retain"
-msgstr ""
+msgstr "رزرو"
 
 #: src/constants/WalletConnectCommands.tsx:752
 #: src/constants/WalletConnectCommands.tsx:1734
@@ -4740,7 +4768,7 @@ msgstr "لغو شد"
 #: src/constants/WalletConnectCommands.tsx:1142
 #: src/constants/WalletConnectCommands.tsx:1298
 msgid "Root Hash"
-msgstr ""
+msgstr "هش ریشه"
 
 #: src/components/offers2/OfferBuilderNFTRoyalties.tsx:94
 msgid "Royalties are built into the NFT, so they will automatically be accounted for when the offer is created/accepted."
@@ -4786,6 +4814,10 @@ msgstr "دخیره رمز ورود جدید"
 #: src/components/signVerify/SignMessageResultDialog.tsx:63
 msgid "Save To File"
 msgstr "ذخیره در فایل"
+
+#: src/components/chiktools/logViewer/LogViewerToolbar.tsx:109
+msgid "Search"
+msgstr ""
 
 #: src/components/fullNode/FullNodeBlockSearch.tsx:38
 msgid "Search block by header hash"
@@ -4958,7 +4990,7 @@ msgstr "تنظیم رمز ورود جدید"
 msgid "Set up keys manually"
 msgstr "کلیدها را به صورت دستی تنظیم کنید"
 
-#: src/components/dashboard/DashboardSideBar.tsx:129
+#: src/components/dashboard/DashboardSideBar.tsx:137
 #: src/components/settings/Settings.tsx:74
 msgid "Settings"
 msgstr "تنظیمات"
@@ -5154,7 +5186,7 @@ msgstr "اگر بیش از یک کارت گراقیک وجود دارد، شاخ
 
 #: src/constants/WalletConnectCommands.tsx:329
 msgid "Spend Bundle"
-msgstr ""
+msgstr "بسته هزینه"
 
 #: src/constants/WalletConnectCommands.tsx:559
 msgid "Spend CAT"
@@ -5243,12 +5275,12 @@ msgstr "ذخیره و ارسال چیا"
 #: src/constants/WalletConnectCommands.tsx:1381
 #: src/constants/WalletConnectCommands.tsx:1423
 msgid "Store Id"
-msgstr ""
+msgstr "ذخیره کارت شناسایی"
 
 #: src/constants/WalletConnectCommands.tsx:928
 #: src/constants/WalletConnectCommands.tsx:1249
 msgid "Store Ids"
-msgstr ""
+msgstr "ذخیره کارت های شناسایی"
 
 #: src/components/app/AppPassPrompt.tsx:107
 msgid "Submit"
@@ -5651,7 +5683,7 @@ msgstr "برای شروع به سینک مجدد کیف پول، ابتدا با
 msgid "Token Standard"
 msgstr "توکن استاندارد"
 
-#: src/components/dashboard/DashboardSideBar.tsx:47
+#: src/components/dashboard/DashboardSideBar.tsx:48
 #: src/components/offers2/OfferBuilderTokensSection.tsx:114
 msgid "Tokens"
 msgstr "توکن ها"
@@ -5659,6 +5691,10 @@ msgstr "توکن ها"
 #: src/components/plotNFT/select/PlotNFTSelectPool.tsx:114
 msgid "Too Many Plot NFTs"
 msgstr "تعداد زیاد پلات ان اف تی"
+
+#: src/components/dashboard/DashboardSideBar.tsx:130
+msgid "Tools"
+msgstr ""
 
 #: src/components/offers2/OfferBuilderWalletAmount.tsx:36
 msgid "Total Amount"
@@ -5967,11 +6003,11 @@ msgstr "بروز رسانی"
 
 #: src/constants/WalletConnectCommands.tsx:1741
 msgid "Update DID Metadata"
-msgstr ""
+msgstr "بروز رسانی شناسه غیر متمرکز Metadata"
 
 #: src/constants/WalletConnectCommands.tsx:1772
 msgid "Update DID Recovery Ids"
-msgstr ""
+msgstr "بروز رسانی شناسه غیر متمرکز کارت های شناسایی بازیابی"
 
 #: src/components/nfts/NFTHashStatus.tsx:69
 msgid "Update Pending"
@@ -5996,7 +6032,7 @@ msgstr "آدرس سایت معتبر نیست"
 #: src/constants/WalletConnectCommands.tsx:1369
 #: src/constants/WalletConnectCommands.tsx:1386
 msgid "URLs"
-msgstr ""
+msgstr "ادرس سایت ها"
 
 #: src/components/nfts/detail/NFTDetailV2.tsx:138
 msgid "Use left and right arrow keys to navigate"
@@ -6113,6 +6149,10 @@ msgstr "مشاهده"
 #: src/components/offers/OfferImport.tsx:184
 msgid "View an Offer"
 msgstr "دیدن یک پیشنهاد"
+
+#: src/components/chiktools/ChikToolsPage.tsx:26
+msgid "View and analyze Chik log files"
+msgstr ""
 
 #: src/components/vcs/VCCard.tsx:198
 msgid "View Credential Data"
@@ -6312,7 +6352,7 @@ msgid "Warning: Unsupported URL"
 msgstr "هشدار: آدرس پشتیبانی نشده است"
 
 #: src/components/offers/OfferSummary.tsx:134
-#: src/components/offers2/OfferBuilderValue.tsx:220
+#: src/components/offers2/OfferBuilderValue.tsx:221
 msgid "Warning: Verify that the offered CAT asset IDs match the asset IDs of the tokens you expect to receive."
 msgstr "اخطار: بررسی کنید که شناسه‌های دارایی CAT ارائه شده با شناسه‌های دارایی توکن‌هایی که انتظار دریافت آنرا دارید، مطابقت داشته باشد."
 
@@ -6378,7 +6418,7 @@ msgstr "آیا میخواهید ان اف تی مشخص شده را به مال�
 
 #: src/constants/WalletConnectCommands.tsx:709
 msgid "XCK Change Target"
-msgstr ""
+msgstr "تغییر مقصد چیا"
 
 #: src/constants/WalletConnectCommands.tsx:703
 msgid "XCK Coins"

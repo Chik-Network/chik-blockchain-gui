@@ -47,3 +47,9 @@ window.cacheApi = {
   getURI: (...args) => invokeWithCustomErrors('cache:getURI', ...args),
   invalidate: (...args) => invokeWithCustomErrors('cache:invalidate', ...args),
 };
+
+window.chikLogs = {
+  getContent: () => ipcRenderer.invoke('getChikLogContent'),
+  getInfo: () => ipcRenderer.invoke('getChikLogInfo'),
+  setCustomPath: (path) => ipcRenderer.invoke('setChikLogPath', path),
+};

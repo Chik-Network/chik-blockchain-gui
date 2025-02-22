@@ -14,8 +14,8 @@ import {
 import fs from 'fs';
 import path from 'path';
 import url from 'url';
+import sanitizeFilename from 'sanitize-filename';
 
-import { NFTInfo } from '@chik-network/api';
 import { initialize, enable } from '@electron/remote/main';
 import axios from 'axios';
 import windowStateKeeper from 'electron-window-state';
@@ -32,6 +32,7 @@ import AppIcon from '../assets/img/chik64x64.png';
 import About from '../components/about/About';
 import { i18n } from '../config/locales';
 import chikEnvironment, { chikInit } from '../util/chikEnvironment';
+import downloadFile from './utils/downloadFile';
 import loadConfig, { checkConfigFileExists } from '../util/loadConfig';
 import manageDaemonLifetime from '../util/manageDaemonLifetime';
 import { setUserDataDir } from '../util/userData';
@@ -42,7 +43,7 @@ import installDevTools from './installDevTools.dev';
 import { readPrefs, savePrefs, migratePrefs } from './prefs';
 
 /**
- * Open the given external protocol URL in the desktop’s default manner.
+ * Open the given external protocol URL in the desktop's default manner.
  */
 function openExternal(urlLocal: string) {
   if (!isURL(urlLocal, { protocols: ['http', 'https', 'ipfs'], require_protocol: true })) {
@@ -261,20 +262,7 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
       return { err, statusCode, statusMessage, responseBody };
     });
 
-    function getRemoteFileSize(urlLocal: string): Promise<number> {
-      return new Promise((resolve, reject) => {
-        axios({
-          method: 'HEAD',
-          url: urlLocal,
-        })
-          .then((response) => {
-            resolve(Number(response.headers['content-length'] || -1));
-          })
-          .catch((e) => {
-            reject(e.message);
-          });
-      });
-    }
+
 
     ipcMain.handle('showMessageBox', async (_event, options) => dialog.showMessageBox(mainWindow, options));
 
@@ -334,93 +322,46 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
       return responseObj;
     });
 
-    type DownloadFileWithProgressProps = {
-      folder: string;
-      nft: NFTInfo;
-      current: number;
-      total: number;
-    };
 
-    function downloadFileWithProgress(props: DownloadFileWithProgressProps): Promise<number> {
-      const { folder, nft, current, total } = props;
-      const uri = nft.dataUris[0];
-      return new Promise((resolve, reject) => {
-        getRemoteFileSize(uri)
-          .then((fileSize: number) => {
-            let totalLength = 0;
-            currentDownloadRequest = net.request(uri);
-            currentDownloadRequest.on('response', (response: IncomingMessage) => {
-              let fileName: string = '';
-              /* first try to get file name from server headers */
-              const disposition = response.headers['content-disposition'];
-              if (disposition && typeof disposition === 'string') {
-                const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
-                const matches = filenameRegex.exec(disposition);
-                if (matches != null && matches[1]) {
-                  fileName = matches[1].replace(/['"]/g, '');
-                }
-              }
-              /* if we didn't get file name from server headers, then parse it from uri */
-              fileName = fileName || uri.replace(/\/$/, '').split('/').splice(-1, 1)[0];
-              currentDownloadRequest.on('abort', () => {
-                reject(new Error('download aborted'));
-              });
-
-              /* if there is already a file with that name in this folder, add nftId to the file name */
-              if (fs.existsSync(path.join(folder, fileName))) {
-                fileName = `${fileName}-${nft.$nftId}`;
-              }
-
-              const fileStream = fs.createWriteStream(path.join(folder, fileName));
-              response.on('data', (chunk) => {
-                fileStream.write(chunk);
-                totalLength += chunk.byteLength;
-                if (fileSize > 0) {
-                  mainWindow?.webContents.send('downloadProgress', {
-                    url: nft.dataUris[0],
-                    nftId: nft.$nftId,
-                    progress: totalLength / fileSize,
-                    i: current,
-                    total,
-                  });
-                }
-              });
-              response.on('end', () => {
-                if (fileStream) {
-                  fileStream.end();
-                }
-                resolve(totalLength);
-              });
-            });
-            currentDownloadRequest.end();
-          })
-          .catch((error) => {
-            reject(error);
-          });
-      });
-    }
-
-    ipcMain.handle('startMultipleDownload', async (_event: any, options: any) => {
+    ipcMain.handle('startMultipleDownload', async (_event: any, options: { folder: string, tasks: { url: string; filename: string }[] }) => {
       /* eslint no-await-in-loop: off -- we want to handle each file separately! */
       let totalDownloadedSize = 0;
       let successFileCount = 0;
       let errorFileCount = 0;
-      for (let i = 0; i < options.nfts.length; i++) {
-        let fileSize;
+
+      const { folder, tasks } = options;
+
+      for (let i = 0; i < tasks.length; i++) {
+        const { url: downloadUrl, filename } = tasks[i];
+
         try {
-          fileSize = await downloadFileWithProgress({
-            folder: options.folder,
-            nft: options.nfts[i],
-            current: i,
-            total: options.nfts.length,
+          const sanitizedFilename = sanitizeFilename(filename);
+          if (sanitizedFilename !== filename) {
+            throw new Error(`Filename ${filename} contains invalid characters. Filename sanitized to ${sanitizedFilename}`);
+          }
+          
+          const filePath = path.join(folder, sanitizedFilename);
+
+          await downloadFile(downloadUrl, filePath, {
+            onProgress: (progress) => {
+              mainWindow?.webContents.send('multipleDownloadProgress', {
+                progress,
+                url: downloadUrl,
+                index: i,
+                total: tasks.length,
+              });
+            },
           });
-          totalDownloadedSize += fileSize;
+
+          const fileStats = await fs.promises.stat(filePath);
+
+          totalDownloadedSize += fileStats.size;
           successFileCount++;
         } catch (e: any) {
           if (e.message === 'download aborted' && abortDownloadingFiles) {
             break;
           }
-          mainWindow?.webContents.send('errorDownloadingUrl', options.nfts[i]);
+          mainWindow?.webContents.send('errorDownloadingUrl', downloadUrl);
           errorFileCount++;
         }
       }
@@ -637,6 +578,114 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
   ipcMain.handle('setWindowTitle', (_event, title: string) => {
     if (mainWindow.title !== title) {
       mainWindow.setTitle(title);
+    }
+  });
+
+  // IPC handlers for log file operations
+  let customLogPath: string | null = prefs.customLogPath || null;
+
+  ipcMain.handle('setChikLogPath', async (_event, logPath: string) => {
+    try {
+      try {
+        // Check file exists
+        await fs.promises.access(logPath, fs.constants.F_OK);
+        // Check file is readable
+        await fs.promises.access(logPath, fs.constants.R_OK);
+      } catch (error: any) {
+        if (error.code === 'ENOENT') {
+          throw new Error(`Log file not found at: ${logPath}\nPlease verify the path and try again.`);
+        }
+        if (error.code === 'EACCES') {
+          throw new Error(`Cannot read log file at: ${logPath}\nPlease check file permissions and try again.`);
+        }
+        throw new Error(`Cannot access log file: ${error.message}`);
+      }
+
+      customLogPath = logPath;
+      await savePrefs({
+        ...prefs,
+        customLogPath: logPath,
+      });
+      return { success: true };
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
+  });
+
+  ipcMain.handle('getChikLogContent', async (_event) => {
+    try {
+      const logPath =
+        customLogPath ||
+        path.join(process.env.CHIK_ROOT || path.join(app.getPath('home'), '.chik', 'mainnet'), 'log', 'debug.log');
+      // Check if file exists and is readable
+      try {
+        await fs.promises.access(logPath, fs.constants.R_OK);
+      } catch (e) {
+        return { error: 'Log file not accessible' };
+      }
+
+      const content = await fs.promises.readFile(logPath, 'utf8');
+      const stats = await fs.promises.stat(logPath);
+
+      return {
+        content,
+        path: logPath,
+        size: stats.size,
+      };
+    } catch (error: any) {
+      return { error: error.message };
+    }
+  });
+
+  ipcMain.handle('getChikLogInfo', async (_event) => {
+    try {
+      const chikRoot = process.env.CHIK_ROOT || path.join(app.getPath('home'), '.chik', 'mainnet');
+      const defaultLogPath = path.join(chikRoot, 'log', 'debug.log');
+      const logPath = customLogPath || defaultLogPath;
+
+      const info = {
+        path: logPath,
+        exists: false,
+        size: 0,
+        readable: false,
+        defaultPath: defaultLogPath,
+        debugInfo: {
+          chikRoot,
+          logDir: path.join(chikRoot, 'log'),
+          rootExists: false,
+          logDirExists: false,
+          fileReadable: false,
+        },
+      };
+
+      try {
+        const stats = await fs.promises.stat(logPath);
+        info.exists = true;
+        info.size = stats.size;
+        await fs.promises.access(logPath, fs.constants.R_OK);
+        info.readable = true;
+        info.debugInfo.fileReadable = true;
+      } catch (e) {
+        // File doesn't exist or isn't readable
+      }
+
+      try {
+        await fs.promises.access(chikRoot);
+        info.debugInfo.rootExists = true;
+      } catch (e) {
+        // Root directory doesn't exist
+      }
+
+      try {
+        await fs.promises.access(info.debugInfo.logDir);
+        info.debugInfo.logDirExists = true;
+      } catch (e) {
+        // Log directory doesn't exist
+      }
+
+      return info;
+    } catch (error: any) {
+      return { error: error.message };
     }
   });
 }
