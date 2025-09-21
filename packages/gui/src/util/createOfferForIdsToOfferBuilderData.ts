@@ -33,6 +33,7 @@ export default function createOfferForIdsToOfferBuilderData(
             section.xck.push({ amount: mojoToChik(numericValue.abs()).toFixed() });
             break;
           case WalletType.CAT:
+          case WalletType.RCAT:
             section.tokens.push({ amount: mojoToCAT(numericValue.abs()).toFixed(), assetId: asset.assetId });
             break;
           default:
