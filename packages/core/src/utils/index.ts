@@ -6,7 +6,6 @@ export { default as catToMojo } from './catToMojo';
 export { default as chikFormatter } from './chikFormatter';
 export { default as chikToMojo } from './chikToMojo';
 export { default as getPercentPointsSuccessfull } from './getPercentPointsSuccessfull';
-export { default as getPoolInfo } from './getPoolInfo';
 export { default as getTransactionResult } from './getTransactionResult';
 export { default as mojoToCAT } from './mojoToCAT';
 export { default as mojoToCATLocaleString } from './mojoToCATLocaleString';
