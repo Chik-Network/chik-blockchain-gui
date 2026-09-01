@@ -1,12 +1,13 @@
 import { type WebContents } from 'electron';
 import crypto from 'node:crypto';
 
+import JSONBig from 'json-bigint';
 import WebSocket, { type RawData } from 'ws';
 
 import WebSocketAPI from '../constants/WebSocketAPI';
 
 import ipcMainHandle from './ipcMainHandle';
-import loadConfig from './loadConfig';
+import { loadConfig } from './loadConfig';
 
 const connections: Record<string, WebSocket> = {};
 
@@ -79,13 +80,13 @@ export default function bindEvents(
       } catch (err) {
         console.error(err);
 
-        const parsedMessage = JSON.parse(data.toString());
+        const parsedMessage = JSONBig.parse(data.toString());
 
         if (parsedMessage.request_id) {
           notifyWebContents(
             WebSocketAPI.ON_MESSAGE,
             id,
-            JSON.stringify({
+            JSONBig.stringify({
               request_id: parsedMessage.request_id,
               data: {
                 error: (err as Error).message,
@@ -126,13 +127,13 @@ export default function bindEvents(
     } catch (err) {
       console.error(err);
 
-      const parsedMessage = JSON.parse(data);
+      const parsedMessage = JSONBig.parse(data);
 
       if (parsedMessage.request_id) {
         notifyWebContents(
           WebSocketAPI.ON_MESSAGE,
           id,
-          JSON.stringify({
+          JSONBig.stringify({
             request_id: parsedMessage.request_id,
             data: {
               error: (err as Error).message,

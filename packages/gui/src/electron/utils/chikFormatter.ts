@@ -10,7 +10,7 @@ class Chik {
 
   readonly unit: Unit;
 
-  constructor(value: number | string | BigNumber, unit: Unit) {
+  constructor(value: number | string | BigNumber | bigint, unit: Unit) {
     const stringValue = value === '' || value === '.' || value === null || value === undefined ? '0' : value.toString();
 
     this.value = new BigNumber(stringValue);
@@ -44,6 +44,6 @@ class Chik {
   }
 }
 
-export default function chikFormatter(value: number | string | BigNumber, unit: Unit) {
+export default function chikFormatter(value: number | string | BigNumber | bigint, unit: Unit) {
   return new Chik(value, unit);
 }

@@ -159,6 +159,6 @@ export CHIK_KEYS_ROOT=~/.chik_keys_simulator
 
 ## Chik FAQ/WIKI
 
-Please check out the [wiki](https://github.com/Chik-Network/chik-blockchain/wiki)
+Please check out the [chik-blockchain wiki](https://github.com/Chik-Network/chik-blockchain/wiki)
 and [FAQ](https://github.com/Chik-Network/chik-blockchain/wiki/FAQ) for
 information on this project.

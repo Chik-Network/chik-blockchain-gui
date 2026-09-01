@@ -3,382 +3,449 @@ import React, { type ReactNode } from 'react';
 import { i18n } from '../../../config/locales';
 import Collapsible from '../../components/Collapsible';
 import SandboxedIframe from '../../components/SandboxedIframe';
-import mojoToCatLocaleString from '../../utils/mojoToCATLocaleString';
-import mojoToChikLocaleString from '../../utils/mojoToChikLocaleString';
+import type { PairRecord } from '../../utils/pairSchemas';
 
-function humanizeChik(amount: string | number | undefined, networkPrefix: string | undefined) {
-  if (amount === undefined) {
-    return undefined;
-  }
+export type ConfirmFingerprint = {
+  /** Fingerprint the dapp wants the call to run under. */
+  requested: number;
+  /** Fingerprint of the wallet currently logged into the UI. */
+  current?: number;
+  /** Human label for `requested` (the wallet's nickname), if known. */
+  requestedLabel?: string;
+  /** Human label for `current`, if known. */
+  currentLabel?: string;
+};
 
-  const chikAmount = mojoToChikLocaleString(amount);
-  if (networkPrefix) {
-    return `${chikAmount} ${networkPrefix.toUpperCase()}`;
-  }
+export type DisplayWalletDeltaItem =
+  | { kind: 'xck'; amount: string; amountWithRoyalties?: string }
+  | { kind: 'wallet'; walletId: string; amount: string; walletName?: string; amountWithRoyalties?: string }
+  | { kind: 'cat'; amount: string; assetId: string; symbol?: string; amountWithRoyalties?: string }
+  | { kind: 'nft'; nftId: string; name?: string; previewUrl?: string; royaltyPercentage?: number }
+  | { kind: 'unknown'; assetId: string; amount: string };
 
-  return chikAmount;
-}
+export type DisplayWalletDelta = {
+  spending: DisplayWalletDeltaItem[];
+  receiving: DisplayWalletDeltaItem[];
+  fee?: string;
+};
 
-function humanizeCAT(amount: string | number | undefined) {
-  if (amount === undefined) {
-    return undefined;
-  }
+export type ConfirmDisplay = {
+  cat?: { displayName: string; isRevocable: boolean };
+  walletDelta?: DisplayWalletDelta;
+};
 
-  const catAmount = mojoToCatLocaleString(amount);
-  return `${catAmount}`;
-}
-
-export function getTitle(command: string) {
-  switch (command) {
-    case 'chik_harvester.remove_plot_directory':
-      return i18n._(/* i18n */ { id: 'Confirm Remove Plot Directory' });
-    case 'chik_wallet.send_transaction':
-      return i18n._(/* i18n */ { id: 'Confirm Send Transaction' });
-    case 'chik_harvester.delete_plot':
-      return i18n._(/* i18n */ { id: 'Confirm Delete Plot' });
-    case 'chik_harvester.add_plot_directory':
-      return i18n._(/* i18n */ { id: 'Confirm Add Plot Directory' });
-    case 'chik_wallet.nft_transfer_nft':
-    case 'chik_wallet.nft_transfer_bulk':
-      return i18n._(/* i18n */ { id: 'Confirm NFT Transfer' });
-    case 'chik_full_node.close_connection':
-    case 'chik_farmer.close_connection':
-      return i18n._(/* i18n */ { id: 'Confirm Disconnect' });
-    case 'chik_wallet.sign_message_by_address':
-      return i18n._(/* i18n */ { id: 'Confirm Sign Message' });
-    case 'chik_wallet.create_new_wallet':
-      return i18n._(/* i18n */ { id: 'Confirm Create New Wallet' });
-    case 'chik_wallet.set_auto_claim':
-      return i18n._(/* i18n */ { id: 'Confirm Set Auto Claim' });
-    case 'chik_wallet.set_payout_instructions':
-      return i18n._(/* i18n */ { id: 'Confirm Set Payout Instructions' });
-    case 'chik_wallet.nft_set_nft_did':
-      return i18n._(/* i18n */ { id: 'Confirm Move NFT to DID' });
-    case 'chik_wallet.nft_set_did_bulk':
-      return i18n._(/* i18n */ { id: 'Confirm Move NFTs to DID' });
-    case 'chik_wallet.create_offer_for_ids':
-      return i18n._(/* i18n */ { id: 'Confirm Create Offer' });
-    case 'chik_full_node.open_connection':
-      return i18n._(/* i18n */ { id: 'Confirm Open Connection' });
-    case 'chik_farmer.set_payout_instructions':
-      return i18n._(/* i18n */ { id: 'Confirm Set Payout Instructions' });
-    case 'chik_wallet.delete_key':
-      return i18n._(/* i18n */ { id: 'Confirm Delete Wallet' });
-    default:
-      return i18n._(/* i18n */ { id: 'Confirm' });
-  }
-}
-
-function getMessage(command: string) {
-  switch (command) {
-    case 'chik_wallet.send_transaction':
-      return i18n._(/* i18n */ { id: 'Please carefully review and confirm this blockchain transaction.' });
-    case 'chik_wallet.cat_spend':
-      return i18n._(/* i18n */ { id: 'Please carefully review and confirm this CAT spend.' });
-    case 'chik_wallet.nft_transfer_nft':
-    case 'chik_wallet.nft_transfer_bulk':
-      return i18n._(/* i18n */ { id: 'Please carefully review and confirm this NFT transfer.' });
-    case 'chik_wallet.create_offer_for_ids':
-      return i18n._(
-        /* i18n */ {
-          id: 'Please carefully review and confirm this offer creation. When creating an offer, any assets that are being offered will be locked and unavailable until the offer is accepted or cancelled, resulting in your spendable balance changing.',
-        },
-      );
-    case 'chik_wallet.take_offer':
-      return i18n._(/* i18n */ { id: 'Please carefully review and confirm this offer acceptance.' });
-    case 'chik_wallet.cancel_offer':
-      return i18n._(/* i18n */ { id: 'Please carefully review and confirm this offer cancellation.' });
-    case 'chik_full_node.close_connection':
-    case 'chik_farmer.close_connection':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to disconnect?' });
-    case 'daemon.stop_plotting':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to stop plotting? The plot cannot be recovered.' });
-    case 'chik_harvester.delete_plot':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to delete the plot? The plot cannot be recovered.' });
-    case 'chik_harvester.remove_plot_directory':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to remove the plot directory?' });
-    case 'chik_wallet.sign_message_by_id':
-    case 'chik_wallet.sign_message_by_address':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to sign this message?' });
-    case 'chik_wallet.create_new_wallet':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to create a new wallet?' });
-    case 'chik_wallet.set_auto_claim':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to set auto claim?' });
-    case 'chik_wallet.set_payout_instructions':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to set payout instructions?' });
-    case 'chik_wallet.nft_set_nft_did':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to move this NFT to the specified profile?' });
-    case 'chik_wallet.nft_set_did_bulk':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to move these NFTs to the specified profile?' });
-    case 'chik_full_node.open_connection':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to open a connection to the specified node?' });
-    case 'chik_farmer.set_payout_instructions':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to set payout instructions?' });
-    case 'chik_wallet.delete_key':
-      return i18n._(/* i18n */ { id: 'Are you sure you want to delete this wallet?' });
-    default:
-      return i18n._(/* i18n */ { id: 'Please review and confirm this action.' });
-  }
-}
-
-function getConfirmButtonText(command: string) {
-  switch (command) {
-    case 'chik_wallet.send_transaction':
-    case 'chik_wallet.cat_spend':
-      return i18n._(/* i18n */ { id: 'Send' });
-    case 'daemon.stop_plotting':
-      return i18n._(/* i18n */ { id: 'Stop' });
-    case 'chik_harvester.delete_plot':
-    case 'chik_wallet.delete_key':
-      return i18n._(/* i18n */ { id: 'Delete' });
-    case 'chik_harvester.add_plot_directory':
-      return i18n._(/* i18n */ { id: 'Add' });
-    case 'chik_wallet.nft_transfer_nft':
-    case 'chik_wallet.nft_transfer_bulk':
-      return i18n._(/* i18n */ { id: 'Transfer' });
-    case 'chik_full_node.close_connection':
-    case 'chik_farmer.close_connection':
-      return i18n._(/* i18n */ { id: 'Disconnect' });
-    case 'chik_full_node.open_connection':
-      return i18n._(/* i18n */ { id: 'Connect' });
-    case 'chik_wallet.sign_message_by_id':
-    case 'chik_wallet.sign_message_by_address':
-      return i18n._(/* i18n */ { id: 'Sign' });
-    case 'chik_wallet.create_new_wallet':
-      return i18n._(/* i18n */ { id: 'Create' });
-    case 'chik_wallet.set_auto_claim':
-    case 'chik_farmer.set_payout_instructions':
-      return i18n._(/* i18n */ { id: 'Set' });
-    case 'chik_wallet.nft_set_nft_did':
-    case 'chik_wallet.nft_set_did_bulk':
-      return i18n._(/* i18n */ { id: 'Move' });
-    case 'chik_wallet.create_offer_for_ids':
-      return i18n._(/* i18n */ { id: 'Create' });
-    default:
-      return i18n._(/* i18n */ { id: 'Proceed' });
-  }
-}
-
-function getFormattedData(
-  command: string,
-  data: Record<string, unknown>,
-  networkPrefix?: string,
-): {
+/** A single label/value row resolved from the schema. */
+export type ConfirmRow = {
   field: string;
-  label: ReactNode;
-  value: string | undefined;
-}[] {
-  switch (command) {
-    case 'chik_wallet.send_transaction':
-      return [
-        { field: 'address', label: i18n._(/* i18n */ { id: 'Address' }), value: data.address as string },
-        {
-          field: 'amount',
-          label: i18n._(/* i18n */ { id: 'Amount' }),
-          value: humanizeChik(data.amount as number, networkPrefix),
-        },
-        {
-          field: 'fee',
-          label: i18n._(/* i18n */ { id: 'Fee' }),
-          value: humanizeChik(data.fee as number, networkPrefix),
-        },
-      ];
-    case 'chik_wallet.cat_spend':
-      return [
-        { field: 'address', label: i18n._(/* i18n */ { id: 'Address' }), value: data.inner_address as string },
-        { field: 'amount', label: i18n._(/* i18n */ { id: 'Amount' }), value: humanizeCAT(data.amount as number) },
-        {
-          field: 'fee',
-          label: i18n._(/* i18n */ { id: 'Fee' }),
-          value: humanizeChik(data.fee as number, networkPrefix),
-        },
-      ];
-    case 'chik_wallet.nft_transfer_nft':
-    case 'chik_wallet.nft_transfer_bulk':
-      return [
-        {
-          field: 'target_address',
-          label: i18n._(/* i18n */ { id: 'Target Address' }),
-          value: data.target_address as string,
-        },
-        {
-          field: 'fee',
-          label: i18n._(/* i18n */ { id: 'Fee' }),
-          value: humanizeChik(data.fee as string, networkPrefix),
-        },
-      ];
-    case 'chik_wallet.cancel_offer':
-      return [
-        {
-          field: 'fee',
-          label: i18n._(/* i18n */ { id: 'Fee' }),
-          value: humanizeChik(data.fee as string, networkPrefix),
-        },
-      ];
-    case 'chik_harvester.delete_plot':
-      return [{ field: 'filename', label: i18n._(/* i18n */ { id: 'Filename' }), value: data.filename as string }];
-    case 'chik_harvester.add_plot_directory':
-    case 'chik_harvester.remove_plot_directory':
-      return [{ field: 'directory', label: i18n._(/* i18n */ { id: 'Directory' }), value: data.dirname as string }];
-    case 'chik_farmer.set_payout_instructions':
-      return [
-        {
-          field: 'payout_instructions',
-          label: i18n._(/* i18n */ { id: 'Payout Instructions' }),
-          value: data.payout_instructions as string,
-        },
-      ];
-    case 'chik_wallet.set_auto_claim':
-      return [
-        { field: 'auto_claim', label: i18n._(/* i18n */ { id: 'Enabled' }), value: data.enabled ? 'Yes' : 'No' },
-        {
-          field: 'tx_fee',
-          label: i18n._(/* i18n */ { id: 'Transaction Fee' }),
-          value: humanizeChik(data.tx_fee as string, networkPrefix),
-        },
-        {
-          field: 'min_amount',
-          label: i18n._(/* i18n */ { id: 'Min Amount' }),
-          value: humanizeChik(data.min_amount as string, networkPrefix),
-        },
-      ];
-    case 'chik_wallet.create_new_wallet':
-      return [
-        { field: 'name', label: i18n._(/* i18n */ { id: 'Name' }), value: data.wallet_name as string },
-        { field: 'type', label: i18n._(/* i18n */ { id: 'Type' }), value: data.wallet_type as string },
-        { field: 'asset_id', label: i18n._(/* i18n */ { id: 'Asset ID' }), value: data.asset_id as string },
-        {
-          field: 'fee',
-          label: i18n._(/* i18n */ { id: 'Fee' }),
-          value: humanizeChik(data.fee as string, networkPrefix),
-        },
-      ];
-    case 'chik_wallet.sign_message_by_address':
-      return [
-        { field: 'address', label: i18n._(/* i18n */ { id: 'Address' }), value: data.address as string },
-        { field: 'message', label: i18n._(/* i18n */ { id: 'Message' }), value: data.message as string },
-      ];
-    case 'chik_wallet.sign_message_by_id':
-      return [
-        { field: 'id', label: i18n._(/* i18n */ { id: 'Id' }), value: data.id as string },
-        { field: 'message', label: i18n._(/* i18n */ { id: 'Message' }), value: data.message as string },
-      ];
-    case 'chik_wallet.nft_set_nft_did':
-      return [
-        { field: 'did_id', label: i18n._(/* i18n */ { id: 'DID' }), value: data.did_id as string },
-        {
-          field: 'fee',
-          label: i18n._(/* i18n */ { id: 'Fee' }),
-          value: humanizeChik(data.fee as string, networkPrefix),
-        },
-      ];
-    case 'chik_wallet.nft_set_did_bulk':
-      return [
-        { field: 'did_id', label: i18n._(/* i18n */ { id: 'DID' }), value: data.did_id as string },
-        {
-          field: 'fee',
-          label: i18n._(/* i18n */ { id: 'Fee' }),
-          value: humanizeChik(data.fee as string, networkPrefix),
-        },
-      ];
-    case 'chik_wallet.create_offer_for_ids':
-      return [
-        {
-          field: 'fee',
-          label: i18n._(/* i18n */ { id: 'Fee' }),
-          value: humanizeChik(data.fee as string, networkPrefix),
-        },
-      ];
-    case 'chik_full_node.open_connection':
-      return [
-        { field: 'host', label: i18n._(/* i18n */ { id: 'Host' }), value: data.host as string },
-        { field: 'port', label: i18n._(/* i18n */ { id: 'Port' }), value: data.port as string },
-      ];
-    case 'chik_wallet.delete_key':
-      return [
-        { field: 'fingerprint', label: i18n._(/* i18n */ { id: 'Fingerprint' }), value: data.fingerprint as string },
-      ];
-    default:
-      return [];
-  }
-}
+  label: string;
+  value: string;
+};
 
 export type ConfirmProps = {
+  // dialog props
   confirmId: string;
-  networkPrefix?: string;
+
+  // visible base props
+  title: string;
+  message: string;
+  confirmLabel: ReactNode;
+  destructive: boolean;
+  /** Pre-resolved param rows from `renderConfirm` (label/value pairs). */
+  rows: ConfirmRow[];
+  /** Daemon-derived offer summary / CAT info; rendered if present. */
+  display?: ConfirmDisplay;
+  /** Raw data sent on the wire. Shown verbatim in the "Raw data" collapsible. */
   data: Record<string, unknown>;
+  /** Namespaced RPC name shown in the Command card. */
   command: string;
+  networkPrefix?: string;
+  pair?: PairRecord;
+  fingerprint?: ConfirmFingerprint;
+  /** Show the "Always allow this command without asking" checkbox for dapp pair requests. */
+  showBypassToggle?: boolean;
   styleURL?: string;
   isDarkMode?: boolean;
 };
 
-export default function Confirm(props: ConfirmProps) {
-  const { data, command, styleURL, confirmId, isDarkMode, networkPrefix } = props;
+// Only emit a background-image when the dapp's icon is a real https URL.
+// Sandbox CSP enforces this too, but filtering here keeps the markup clean
+// and dodges console noise from blocked data:/file: schemes.
+function buildIconBackground(iconUrl?: string): React.CSSProperties {
+  if (!iconUrl || !/^https:\/\//i.test(iconUrl)) return {};
+  return {
+    backgroundImage: `url(${JSON.stringify(iconUrl)})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  };
+}
 
-  const hasData = !!data && Object.keys(data).length > 0;
-  const hasDataOrCommand = hasData || !!command;
+function isDisplayableUrl(value: string | undefined): boolean {
+  if (!value) return false;
+  // Filter out obvious placeholders ('#', '/') and any non-http(s) scheme.
+  return /^https?:\/\//i.test(value);
+}
 
-  const message = getMessage(command);
-  const confirmButtonText = getConfirmButtonText(command);
-  const formattedData = getFormattedData(command, data, networkPrefix).filter(({ value }) => value !== undefined);
+function shortenId(id: string, head = 12, tail = 8): string {
+  if (id.length <= head + tail + 3) return id;
+  return `${id.slice(0, head)}…${id.slice(-tail)}`;
+}
 
-  return (
-    <div className="p-4 flex flex-col h-full text-gray-900 dark:text-gray-100">
-      <div className="mb-4 flex-1 flex flex-col">
-        <p className="mt-0 mb-4 text-base">{message}</p>
+function offerLineKey(line: DisplayWalletDeltaItem, index: number): string {
+  if (line.kind === 'xck') return `xck-${line.amount}-${index}`;
+  if (line.kind === 'wallet') return `wallet-${line.walletId}-${line.amount}-${index}`;
+  if (line.kind === 'cat') return `cat-${line.assetId}-${line.amount}-${index}`;
+  if (line.kind === 'unknown') return `unknown-${line.assetId}-${line.amount}-${index}`;
+  return `nft-${line.nftId}-${index}`;
+}
 
-        {hasDataOrCommand && (
-          <SandboxedIframe className="w-full flex-1" isDarkMode={isDarkMode}>
-            <link href={styleURL} type="text/css" rel="stylesheet" />
-            <div className="flex flex-col gap-4 h-full">
-              {!!command && (
-                <div className="flex flex-col gap-1">
-                  <span className="text-gray-500 dark:text-gray-400 text-xs font-medium">Command</span>
-                  <pre className="break-all mt-1 text-sm">{command}</pre>
-                </div>
-              )}
-
-              {hasData && (
-                <div className="flex flex-col gap-4">
-                  {!!formattedData.length && (
-                    <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                      <div className="grid gap-3">
-                        {formattedData.map(({ field, label, value }) => (
-                          <div className="flex flex-col" key={field}>
-                            <span className="text-gray-500 dark:text-gray-400 text-xs font-medium">{label}</span>
-                            <span className="font-medium mt-1 break-all whitespace-normal">{value}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                  <Collapsible title="More Details">
-                    <div className="flex flex-col gap-1">
-                      <span className="text-gray-500 dark:text-gray-400 text-xs font-medium">Data:</span>
-                      <pre className="break-all overflow-x-auto text-xs mt-1">{JSON.stringify(data, null, 2)}</pre>
-                    </div>
-                  </Collapsible>
-                </div>
-              )}
-            </div>
-          </SandboxedIframe>
+function OfferLineRow({ line, networkPrefix }: { line: DisplayWalletDeltaItem; networkPrefix?: string }) {
+  if (line.kind === 'xck') {
+    // Inline `{amount} {unit}` matches the FEE row in the offer card so a
+    // single-line summary doesn't look like a wide-spaced table row.
+    return (
+      <div>
+        <div className="text-sm font-medium text-chik-text">
+          {line.amount} {networkPrefix ? networkPrefix.toUpperCase() : 'XCK'}
+        </div>
+        {line.amountWithRoyalties && (
+          <div className="text-xs text-chik-text-secondary">
+            {i18n._(/* i18n */ { id: 'Total Amount with Royalties' })}: {line.amountWithRoyalties}{' '}
+            {networkPrefix ? networkPrefix.toUpperCase() : 'XCK'}
+          </div>
         )}
       </div>
-      <div className="flex justify-end gap-3 mt-4">
-        <button
-          type="button"
-          data-action="cancel"
-          className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-        >
-          {i18n._(/* i18n */ { id: 'Cancel' })}
-        </button>
-        <button
-          type="button"
-          id={confirmId}
-          className="px-4 py-2 text-sm font-medium text-white bg-green-500 border border-transparent rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
-        >
-          {confirmButtonText}
-        </button>
+    );
+  }
+  if (line.kind === 'cat') {
+    return (
+      <div>
+        <div className="flex items-baseline gap-3">
+          <span className="text-sm font-medium text-chik-text">
+            {line.amount}
+            {line.symbol && <span className="ml-1 text-chik-text-secondary">{line.symbol}</span>}
+          </span>
+          <span className="text-xs font-mono text-chik-text-secondary truncate max-w-[55%]">
+            {shortenId(line.assetId)}
+          </span>
+        </div>
+        {line.amountWithRoyalties && (
+          <div className="text-xs text-chik-text-secondary">
+            {i18n._(/* i18n */ { id: 'Total Amount with Royalties' })}: {line.amountWithRoyalties}
+            {line.symbol && <span className="ml-1">{line.symbol}</span>}
+          </div>
+        )}
+      </div>
+    );
+  }
+  if (line.kind === 'wallet') {
+    return (
+      <div>
+        <div className="flex items-baseline gap-3">
+          <span className="text-sm font-medium text-chik-text">{line.amount}</span>
+          <span className="text-xs font-mono text-chik-text-secondary truncate max-w-[55%]">
+            {line.walletName ?? `${i18n._(/* i18n */ { id: 'Wallet ID' })} ${shortenId(line.walletId)}`}
+          </span>
+        </div>
+        {line.amountWithRoyalties && (
+          <div className="text-xs text-chik-text-secondary">
+            {i18n._(/* i18n */ { id: 'Total Amount with Royalties' })}: {line.amountWithRoyalties}
+          </div>
+        )}
+      </div>
+    );
+  }
+  if (line.kind === 'unknown') {
+    return (
+      <div className="flex items-baseline gap-3">
+        <span className="text-sm font-medium text-chik-text">{i18n._(/* i18n */ { id: 'Unknown Asset' })}</span>
+        <span className="text-xs font-mono text-chik-text-secondary truncate max-w-[55%]">
+          {shortenId(line.assetId)}
+        </span>
+        <span className="text-xs font-mono text-chik-text-secondary">
+          {i18n._(/* i18n */ { id: 'Raw Amount' })}: {line.amount}
+        </span>
+      </div>
+    );
+  }
+  return (
+    <div className="flex items-center gap-3">
+      {line.previewUrl ? (
+        <img
+          src={line.previewUrl}
+          alt=""
+          className="shrink-0 w-10 h-10 rounded-md object-cover bg-chik-card"
+          referrerPolicy="no-referrer"
+        />
+      ) : (
+        <div className="shrink-0 w-10 h-10 rounded-md bg-chik-primary/15 text-chik-primary flex items-center justify-center text-[10px] font-bold uppercase tracking-wider">
+          NFT
+        </div>
+      )}
+      <div className="flex-1 min-w-0">
+        {line.name && <div className="text-sm font-medium text-chik-text truncate">{line.name}</div>}
+        <span className="text-xs font-mono text-chik-text-secondary truncate block">{shortenId(line.nftId)}</span>
+        {line.royaltyPercentage !== undefined && line.royaltyPercentage > 0 && (
+          <div className="text-xs font-mono text-chik-text-secondary truncate block">
+            {i18n._(/* i18n */ { id: 'Royalties Percentage' })}: {line.royaltyPercentage / 100}%
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function WalletDeltaSection({
+  walletDelta,
+  networkPrefix,
+}: {
+  walletDelta: NonNullable<ConfirmDisplay['walletDelta']>;
+  networkPrefix?: string;
+}) {
+  const feeUnit = networkPrefix ? networkPrefix.toUpperCase() : 'XCK';
+  return (
+    <section className="rounded-xl border border-chik-border bg-chik-card overflow-hidden divide-y divide-chik-border">
+      <div className="px-5 py-2.5">
+        <div className="text-xs font-semibold uppercase tracking-wider text-chik-text-muted">
+          {i18n._(/* i18n */ { id: 'You Spend' })}
+        </div>
+        <div className="mt-1.5 flex flex-col gap-1.5">
+          {walletDelta.spending.length === 0 ? (
+            <span className="text-sm text-chik-text-secondary">{i18n._(/* i18n */ { id: 'Nothing' })}</span>
+          ) : (
+            walletDelta.spending.map((line, i) => (
+              <OfferLineRow key={offerLineKey(line, i)} line={line} networkPrefix={networkPrefix} />
+            ))
+          )}
+        </div>
+      </div>
+      <div className="px-5 py-2.5">
+        <div className="text-xs font-semibold uppercase tracking-wider text-chik-text-muted">
+          {i18n._(/* i18n */ { id: 'You Receive' })}
+        </div>
+        <div className="mt-1.5 flex flex-col gap-1.5">
+          {walletDelta.receiving.length === 0 ? (
+            <span className="text-sm text-chik-text-secondary">{i18n._(/* i18n */ { id: 'Nothing' })}</span>
+          ) : (
+            walletDelta.receiving.map((line, i) => (
+              <OfferLineRow key={offerLineKey(line, i)} line={line} networkPrefix={networkPrefix} />
+            ))
+          )}
+        </div>
+      </div>
+      {walletDelta.fee !== undefined && (
+        <div className="px-5 py-2.5">
+          <div className="text-xs font-semibold uppercase tracking-wider text-chik-text-muted">
+            {i18n._(/* i18n */ { id: 'Offer Fees' })}
+          </div>
+          <div className="mt-0.5 text-sm font-medium text-chik-text">
+            {walletDelta.fee} {feeUnit}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+export default function Confirm(props: ConfirmProps) {
+  const {
+    title,
+    message,
+    confirmLabel,
+    destructive,
+    rows,
+    display,
+    data,
+    command,
+    networkPrefix,
+    pair,
+    fingerprint,
+    showBypassToggle = false,
+    styleURL,
+    confirmId,
+    isDarkMode,
+  } = props;
+
+  const hasData = !!data && Object.keys(data).length > 0;
+  const walletDelta = display?.walletDelta;
+
+  const requestedFingerprint = fingerprint?.requested;
+  const currentFingerprint = fingerprint?.current;
+  const requestedKeyLabel = fingerprint?.requestedLabel;
+  const currentKeyLabel = fingerprint?.currentLabel;
+  const isDifferentFingerprint =
+    requestedFingerprint !== undefined &&
+    currentFingerprint !== undefined &&
+    requestedFingerprint !== currentFingerprint;
+  const formatKey = (label?: string, fp?: number) => (label ? `${label} (${fp})` : String(fp));
+
+  const confirmButtonClasses = destructive
+    ? 'bg-chik-danger hover:brightness-110 text-white border-transparent'
+    : 'bg-chik-primary hover:bg-chik-primary-hover text-[#0f252a] border-transparent';
+
+  return (
+    <div className="flex flex-col h-screen bg-chik-bg text-chik-text text-base">
+      {/*
+       * Iframe is the entire body. Flex column on the outer (rather than CSS
+       * Grid) so the replaced iframe element actually stretches with
+       * `flex-1 min-h-0`. Inside the iframe document an h-screen
+       * overflow-y-auto wrapper is the scroll container; that puts the
+       * scrollbar on a regular div, which macOS doesn't hide as an overlay.
+       * Footer stays in the parent document so its button click handlers
+       * reach `confirmId` and `[data-action="cancel"]`.
+       */}
+      <SandboxedIframe className="flex-1 min-h-0 w-full border-0" isDarkMode={isDarkMode}>
+        <link href={styleURL} type="text/css" rel="stylesheet" />
+        <div className="h-screen overflow-y-auto px-7 pt-4 pb-4 space-y-3 text-chik-text font-sans text-base">
+          <div className="flex items-start gap-4">
+            <div
+              className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
+                destructive ? 'bg-chik-danger/15 text-chik-danger' : 'bg-chik-primary-soft text-chik-primary'
+              }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-6 h-6"
+                aria-hidden="true"
+              >
+                {destructive ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                  />
+                )}
+              </svg>
+            </div>
+            <div className="flex-1 min-w-0">
+              <h1 className="m-0 text-2xl font-semibold leading-tight text-chik-text">{title}</h1>
+              <p className="mt-0.5 mb-0 text-sm leading-snug text-chik-text-secondary">{message}</p>
+            </div>
+          </div>
+
+          {pair && (
+            <div className="flex items-start gap-3 px-4 py-2.5 rounded-xl border border-chik-border bg-chik-primary-soft">
+              <div
+                className="shrink-0 w-9 h-9 rounded-md bg-chik-primary/20"
+                style={buildIconBackground(pair.metadata.icon)}
+                aria-hidden="true"
+              />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-2 min-w-0">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-chik-text-muted">
+                    {i18n._(/* i18n */ { id: 'Request from' })}
+                  </span>
+                  <span className="text-sm font-semibold truncate text-chik-text">{pair.metadata.name}</span>
+                </div>
+                {isDisplayableUrl(pair.metadata.url) && (
+                  <div className="text-xs text-chik-text-secondary truncate">{pair.metadata.url}</div>
+                )}
+                {pair.metadata.description && (
+                  <div className="mt-1 text-xs text-chik-text-secondary truncate">{pair.metadata.description}</div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {isDifferentFingerprint && (
+            <div className="flex items-start gap-3 px-4 py-3 rounded-xl border border-chik-warning/30 bg-chik-warning/10 text-chik-warning">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="shrink-0 w-5 h-5 mt-0.5"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+                />
+              </svg>
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-semibold">{i18n._(/* i18n */ { id: 'Different wallet key' })}</div>
+                <div className="mt-0.5 text-xs">
+                  {i18n._('This app is asking to run under {requested}, but {current} is currently logged in.', {
+                    requested: formatKey(requestedKeyLabel, requestedFingerprint),
+                    current: formatKey(currentKeyLabel, currentFingerprint),
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {!!command && (
+            <section className="rounded-xl border border-chik-border bg-chik-card px-5 py-3">
+              <div className="text-xs font-semibold uppercase tracking-wider text-chik-text-muted">Command</div>
+              <div className="mt-1 text-sm font-mono break-all text-chik-text">{command}</div>
+            </section>
+          )}
+
+          {walletDelta && <WalletDeltaSection walletDelta={walletDelta} networkPrefix={networkPrefix} />}
+
+          {rows.length > 0 && (
+            <section className="rounded-xl border border-chik-border bg-chik-card overflow-hidden divide-y divide-chik-border">
+              {rows.map(({ field, label, value }) => (
+                <div className="px-5 py-2.5" key={field}>
+                  <div className="text-xs font-semibold uppercase tracking-wider text-chik-text-muted">{label}</div>
+                  <div className="mt-0.5 text-sm font-medium break-all whitespace-pre-wrap text-chik-text">{value}</div>
+                </div>
+              ))}
+            </section>
+          )}
+
+          {hasData && (
+            <Collapsible title="Raw data">
+              <pre className="m-0 text-xs font-mono leading-relaxed break-all whitespace-pre-wrap text-chik-text-secondary">
+                {JSON.stringify(data, (_, v) => (typeof v === 'bigint' ? String(v) : v), 2)}
+              </pre>
+            </Collapsible>
+          )}
+        </div>
+      </SandboxedIframe>
+
+      <div className="flex justify-between items-center gap-2.5 px-7 py-4 border-t border-chik-border bg-chik-bg">
+        {showBypassToggle ? (
+          <label className="flex items-center gap-2 text-xs text-chik-text-secondary cursor-pointer select-none">
+            <input
+              type="checkbox"
+              data-form-field="rememberBypass"
+              className="w-[16px] h-[16px] accent-chik-primary cursor-pointer"
+            />
+            <span>{i18n._(/* i18n */ { id: 'Always allow this command without asking' })}</span>
+          </label>
+        ) : (
+          <span aria-hidden="true" />
+        )}
+        <div className="flex items-center gap-2.5">
+          <button
+            type="button"
+            data-action="cancel"
+            className="h-9 px-5 text-sm font-semibold uppercase tracking-wider rounded-md border border-chik-primary bg-transparent text-chik-primary hover:bg-chik-primary-soft transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-chik-primary"
+          >
+            {i18n._(/* i18n */ { id: 'Cancel' })}
+          </button>
+          <button
+            type="button"
+            id={confirmId}
+            data-payload='{"isAllowed":true,"rememberBypass":false}'
+            className={`h-9 px-5 text-sm font-semibold uppercase tracking-wider rounded-md border shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-chik-primary focus-visible:ring-offset-2 focus-visible:ring-offset-chik-bg ${confirmButtonClasses}`}
+          >
+            {confirmLabel}
+          </button>
+        </div>
       </div>
     </div>
   );

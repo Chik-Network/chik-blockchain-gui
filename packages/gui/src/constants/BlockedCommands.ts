@@ -6,6 +6,7 @@ export default [
   'chik_wallet.create_signed_transaction',
 
   'chik_wallet.send_transaction_multi',
+  'chik_wallet.push_transactions',
   'chik_wallet.spend_clawback_coins',
   'chik_wallet.send_notification',
   'chik_wallet.cat_spend',

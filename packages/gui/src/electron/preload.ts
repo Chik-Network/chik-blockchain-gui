@@ -6,6 +6,7 @@ import AppAPI from './constants/AppAPI';
 import CacheAPI from './constants/CacheAPI';
 import ChikLogsAPI from './constants/ChikLogsAPI';
 import LinkAPI from './constants/LinkAPI';
+import PermissionsAPI from './constants/PermissionsAPI';
 import PreferencesAPI from './constants/PreferencesAPI';
 import WebSocketAPI from './constants/WebSocketAPI';
 
@@ -66,6 +67,8 @@ contextBridge.exposeInMainWorld(API.APP, {
     onIpcEvent(AppAPI.ON_ERROR_DOWNLOADING_URL, callback),
   subscribeToMultipleDownloadDone: (callback: (...args: unknown[]) => void) =>
     onIpcEvent(AppAPI.ON_MULTIPLE_DOWNLOAD_DONE, callback),
+
+  focusWindow: () => invokeWithCustomErrors(AppAPI.FOCUS_WINDOW),
 });
 
 contextBridge.exposeInMainWorld(API.PREFERENCES, {
@@ -82,6 +85,30 @@ contextBridge.exposeInMainWorld(API.CHIK_LOGS, {
 
 contextBridge.exposeInMainWorld(API.LINK, {
   openExternal: (url: string) => invokeWithCustomErrors(LinkAPI.OPEN_EXTERNAL, url),
+});
+
+contextBridge.exposeInMainWorld(API.PERMISSIONS, {
+  findPair: (topic: string) => invokeWithCustomErrors(PermissionsAPI.FIND_PAIR, topic),
+  getPairs: () => invokeWithCustomErrors(PermissionsAPI.GET_PAIRS),
+  registerPair: (payload: {
+    topic: string;
+    mainnet: boolean;
+    metadata: { name: string; url?: string; icon?: string; description?: string };
+    commands: string[];
+  }) => invokeWithCustomErrors(PermissionsAPI.REGISTER_PAIR, payload),
+  editPair: (topic: string) => invokeWithCustomErrors(PermissionsAPI.EDIT_PAIR, topic),
+  revokePair: (topic: string) => invokeWithCustomErrors(PermissionsAPI.REVOKE_PAIR, topic),
+  resetPairBypass: (topic: string) => invokeWithCustomErrors(PermissionsAPI.RESET_PAIR_BYPASS, topic),
+  resetAllPairBypasses: () => invokeWithCustomErrors(PermissionsAPI.RESET_ALL_PAIR_BYPASSES),
+  getCommandMetadata: (command: string) => invokeWithCustomErrors(PermissionsAPI.GET_COMMAND_METADATA, command),
+  subscribeForNotifications: (callback: (...args: unknown[]) => void) =>
+    onIpcEvent(PermissionsAPI.SUBSCRIBE_FOR_NOTIFICATIONS, callback),
+  dispatchAsPair: (payload: {
+    topic: string;
+    command: string;
+    // serialized params because of bigints
+    params: string;
+  }) => invokeWithCustomErrors(PermissionsAPI.DISPATCH_AS_PAIR, payload),
 });
 
 contextBridge.exposeInMainWorld(API.ADDRESS_BOOK, {
