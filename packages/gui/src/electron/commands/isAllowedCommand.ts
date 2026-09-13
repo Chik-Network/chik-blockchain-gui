@@ -33,6 +33,7 @@ const ALLOWED_COMMANDS_SET = new Set<keyof typeof Commands>([
   'chik_wallet.get_logged_in_fingerprint',
   'chik_wallet.get_notifications',
   'chik_wallet.get_sync_status',
+  'chik_wallet.get_full_node_peer_count',
   'chik_wallet.get_wallets',
   'chik_wallet.get_coin_records_by_names',
   'chik_wallet.select_coins',

@@ -1,4 +1,4 @@
-import { ButtonLoading, DialogActions, Flex, TextField, Button, Form } from '@chik-network/core';
+import { ButtonLoading, DialogActions, Flex, TextField, Button, Form, useThemeAssets } from '@chik-network/core';
 import { Trans, t } from '@lingui/macro';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, Divider, Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material';
@@ -6,8 +6,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import useWalletConnect from '../../hooks/useWalletConnect';
-
-import HeroImage from './images/walletConnectToChik.svg';
 
 type FormData = {
   uri: string;
@@ -20,6 +18,7 @@ export type WalletConnectAddConnectionDialogProps = {
 
 export default function WalletConnectAddConnectionDialog(props: WalletConnectAddConnectionDialogProps) {
   const { onClose = () => {}, open = false } = props;
+  const { walletConnectToChik: HeroImage } = useThemeAssets();
   const { pair } = useWalletConnect();
   const pairAbortControllerRef = React.useRef<AbortController | undefined>(undefined);
   const methods = useForm<FormData>({

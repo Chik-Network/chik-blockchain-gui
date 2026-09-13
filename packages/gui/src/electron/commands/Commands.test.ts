@@ -25,4 +25,15 @@ describe('Commands', () => {
       });
     });
   });
+
+  describe('chik_getFullNodePeerCount transform', () => {
+    it('unwraps the daemon response to the peer count', () => {
+      const transform = Commands['chik_wallet.get_full_node_peer_count'].dapp?.find(
+        ({ command }) => command === 'chik_getFullNodePeerCount',
+      )?.transform;
+
+      expect(transform).toBeDefined();
+      expect(transform?.({ peer_count: 8, success: true })).toBe(8);
+    });
+  });
 });

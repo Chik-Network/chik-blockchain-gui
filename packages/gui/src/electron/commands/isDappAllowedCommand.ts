@@ -5,6 +5,7 @@ const DAPP_ALLOWED_COMMANDS = new Set<keyof typeof Commands>([
   'chik_wallet.get_wallets',
   'chik_wallet.get_next_address',
   'chik_wallet.get_sync_status',
+  'chik_wallet.get_full_node_peer_count',
   'chik_wallet.get_coin_records_by_names',
   'chik_wallet.select_coins',
   'chik_wallet.get_height_info',

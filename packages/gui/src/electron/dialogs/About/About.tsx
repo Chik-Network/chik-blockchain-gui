@@ -1,10 +1,11 @@
 import React from 'react';
 
-import icon from '../../../assets/img/chik_circle.svg';
 import { i18n } from '../../../config/locales';
+import { resolveThemeCircleIcon } from '../../../theme/themeCircleIcons';
 
 export type AboutProps = {
   version: string;
+  themeVariant?: unknown;
   packageJson: {
     productName: string;
     description: string;
@@ -17,9 +18,11 @@ export type AboutProps = {
 export default function About(props: AboutProps) {
   const {
     version,
+    themeVariant,
     packageJson: { productName, description },
     versions,
   } = props;
+  const icon = resolveThemeCircleIcon(themeVariant);
 
   const currentYear = new Date().getFullYear();
 
@@ -27,7 +30,7 @@ export default function About(props: AboutProps) {
     <div className="p-4 flex flex-col justify-center items-center text-sm text-gray-900 dark:text-gray-100">
       <a href="https://chiknetwork.com" className="no-underline text-inherit hover:no-underline">
         <div className="w-[200px] mx-auto">
-          <img src={icon as unknown as string} alt="Chik Logo" className="h-[200px] mb-8" />
+          <img src={icon} alt="Chik Logo" className="h-[200px] mb-8" />
         </div>
 
         <h2 className="mt-0 mb-4 text-base font-normal">

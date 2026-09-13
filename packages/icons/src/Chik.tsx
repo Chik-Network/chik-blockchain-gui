@@ -4,7 +4,7 @@ import React from 'react';
 import ChikBlackIcon from './images/chik-black.svg';
 import ChikIcon from './images/chik.svg';
 
-export default function Keys(props: SvgIconProps) {
+export default function Chik(props: SvgIconProps) {
   return <SvgIcon component={ChikIcon} viewBox="0 0 150 58" {...props} />;
 }
 
